@@ -13,17 +13,16 @@ class RegesterCreateRequest extends FormRequest
      */
     public function rules()
     {
-        dd("hello");
         return [
             'uuid' => 'uuid',
             'first_name' => 'required|min:3|max:20|string',
             'last_name' => 'required|min:3|max:20|string',
             'country' => 'required|min:3|max:20|string',
             'city' => 'required|min:3|max:20|string',
-            'contact_number' => 'required|min:11|max:20|number',
+            'contact_number' => 'required|min:11|max:20',
             'email' => 'email|min:7|max:30|string',
-            'password' => 'required|min:3|max:8|alpha',
-            'confirm_password' => 'required|same:password|min:3|max:8|alpha',
+            // 'password' => 'required|min:3|max:8|alpha',
+            // 'confirm_password' => 'required|same:password|min:3|max:8|alpha',
         ];
     }
 }

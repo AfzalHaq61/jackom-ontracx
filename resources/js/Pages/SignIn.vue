@@ -80,7 +80,7 @@
                   </div>
                   <div class="text-center text-xs">
                     <h1>Don't have account ?</h1>
-                    <Link href="/signup" class="text-[#24C6C9]"
+                    <Link href="/register/create" class="text-[#24C6C9]"
                       >Create Account</Link
                     >
                   </div>

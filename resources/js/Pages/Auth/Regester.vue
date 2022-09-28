@@ -33,7 +33,7 @@
           </div>
         </div>
         <div>
-          <form>
+          <form @submit.prevent="submit">
             <div class="md:grid grid-cols-2 mb-10">
               <div class="mb-5 md:mr-5">
                 <TextField
@@ -169,7 +169,7 @@ let form = reactive({
 });
 
 function submit() {
-  Inertia.post(route("regester.store"), form, {
+  Inertia.post(route("register.store"), form, {
     forceFormData: true,
   });
 }

@@ -32,13 +32,14 @@ use Illuminate\Support\Facades\Mail;
 */
 
 // Main Page
-Route::get('/', MainPageController::class);
+Route::get('/', MainPageController::class)
+    ->name('main.page');
 
 // Authentication
 Route::get('/register/create', RegesterCreateController::class)
     ->name('register.create');
 
-Route::get('/register/store', RegesterStoreController::class)
+Route::post('/register/store', RegesterStoreController::class)
     ->name('register.store');
 
 // Login System
