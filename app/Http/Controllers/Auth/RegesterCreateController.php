@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Country;
 use Inertia\Inertia;
 
 class RegesterCreateController extends Controller
@@ -16,6 +16,12 @@ class RegesterCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Auth/Regester');
+        return Inertia::render('Auth/User/Regester', [
+            'countries' => Country::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ])
+        ])->with('success_message', "Yay it worked");
     }
 }

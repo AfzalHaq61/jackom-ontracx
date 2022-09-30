@@ -89,7 +89,7 @@
             }"
           >
             <div>
-              <Link class="text-[18px]" href="">Logout</Link>
+              <Link class="text-[18px]" :href="route('logout')">Logout</Link>
             </div>
           </div>
         </div>
@@ -219,7 +219,7 @@
         }"
       >
         <div>
-          <Link class="text-[18px]" href="">Logout</Link>
+          <Link class="text-[18px]" :href="route('logout')">Logout</Link>
         </div>
       </div>
     </div>

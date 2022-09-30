@@ -46,12 +46,14 @@
                 </h1>
               </div>
               <div class="mt-2">
-                <form>
+                <form @submit.prevent="submit">
                   <TextField
                     class="mb-5"
                     fieldtype="email"
                     name="email"
                     placeholder="Enter your email address"
+                    v-model="form.email"
+                    :errors="errors.email"
                   >
                     Email
                   </TextField>
@@ -59,6 +61,8 @@
                     fieldtype="Password"
                     name="Password"
                     placeholder="Password"
+                    v-model="form.password"
+                    :errors="errors.password"
                   >
                     Password
                   </TextField>
@@ -76,7 +80,7 @@
                       my-5
                     "
                   >
-                    <button><Link href="/home">Login</Link></button>
+                    <button type="submit">Login</button>
                   </div>
                   <div class="text-center text-xs">
                     <h1>Don't have account ?</h1>
@@ -104,6 +108,24 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@headlessui/vue";
+import route from "ziggy-js";
+import { Inertia } from "@inertiajs/inertia";
+import { reactive } from "vue";
+
+const props = defineProps({
+  errors: Object,
+});
+
+let form = reactive({
+  email: "",
+  password: "",
+});
+
+function submit() {
+  Inertia.post(route("login.store"), form, {
+    forceFormData: true,
+  });
+}
 
 const isOpen = ref(true);
 

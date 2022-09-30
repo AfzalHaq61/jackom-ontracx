@@ -28,7 +28,7 @@
               User
             </button>
             <button class="bg-gray-100 rounded-lg py-2 px-16">
-              <Link href="/signup-provider">Seller</Link>
+              <Link href="/provider/register/create">Seller</Link>
             </button>
           </div>
         </div>
@@ -58,15 +58,15 @@
                 </TextField>
               </div>
               <div class="mb-5 md:mr-5">
-                <TextField
-                  fieldtype="text"
+                <SelectOptionField
+                  selectedOption="Select Country"
                   name="country"
-                  placeholder="Enter Country"
                   v-model="form.country"
                   :errors="errors.country"
+                  :dropdowns="countries"
                 >
                   Country
-                </TextField>
+                </SelectOptionField>
               </div>
               <div class="mb-5 md:ml-5">
                 <TextField
@@ -136,9 +136,7 @@
                 mb-10
               "
             >
-              <button type="submit">
-                Next
-              </button>
+              <button type="submit">Next</button>
             </div>
           </form>
         </div>
@@ -155,6 +153,7 @@ import { reactive } from "vue";
 
 const props = defineProps({
   errors: Object,
+  countries: Array,
 });
 
 let form = reactive({

@@ -2,23 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\LoginCreateController;
+use App\Http\Controllers\Auth\LoginStoreController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegesterCreateController;
 use App\Http\Controllers\Auth\RegesterStoreController;
-use App\Http\Controllers\Structures\StructureIndexController;
-use App\Http\Controllers\Structures\StructureCreateController;
-use App\Http\Controllers\Structures\StructureStoreController;
-use App\Http\Controllers\Structures\StructureEditController;
-use App\Http\Controllers\Structures\StructureUpdateController;
-use App\Http\Controllers\Structures\StructureDeleteController;
-use App\Http\Controllers\Structures\StructureExportController;
-use App\Http\Controllers\Structures\StructureDownloadController;
 use App\Http\Controllers\MainPageController;
 
-use App\Mail\Testmail;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,18 +27,49 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/', MainPageController::class)
     ->name('main.page');
 
-// Authentication
+// User Authentication
 Route::get('/register/create', RegesterCreateController::class)
+    ->middleware('guest')
     ->name('register.create');
 
 Route::post('/register/store', RegesterStoreController::class)
+    ->middleware('guest')
     ->name('register.store');
 
-// Login System
-Route::get('/signin', function () {
-    return Inertia::render('SignIn');
-})->name('signin');
+Route::get('/login/create', LoginCreateController::class)
+    ->middleware('guest')
+    ->name('login.create');
 
+Route::post('/login/store', LoginStoreController::class)
+    ->middleware('guest')
+    ->name('login.store');
+
+Route::get('/logout', LogoutController::class)
+    ->middleware('auth')
+    ->name('logout');
+
+// Provider Authentication
+Route::get('/provider/register/create', RegesterCreateController::class)
+    ->middleware('guest')
+    ->name('provider.register.create');
+
+Route::post('/provider/register/store', RegesterStoreController::class)
+    ->middleware('guest')
+    ->name('provider.register.store');
+
+Route::get('/login/create', LoginCreateController::class)
+    ->middleware('guest')
+    ->name('login.create');
+
+Route::post('/login/store', LoginStoreController::class)
+    ->middleware('guest')
+    ->name('login.store');
+
+Route::get('/logout', LogoutController::class)
+    ->middleware('auth')
+    ->name('logout');
+
+// Login System
 Route::get('/forgot-password', function () {
     return Inertia::render('ForgotPassword');
 })->name('forgotpassword');
@@ -58,11 +81,6 @@ Route::get('/password-verification', function () {
 Route::get('/new-password', function () {
     return Inertia::render('NewPassword');
 })->name('newpassword');
-
-Route::get('/signup', function () {
-    return Inertia::render('Signup');
-})->name('signup');
-
 // Home
 
 Route::get('/home', function () {

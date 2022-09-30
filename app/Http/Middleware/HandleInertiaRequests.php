@@ -30,16 +30,16 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         $user = Auth::User();
-        if($user) {
-            if ($user->hasAnyRole(RolesEnum::REGIONALSADR)) {
-                $name = 'Zone';
-            } else if ($user->hasAnyRole(RolesEnum::ZONALSADR)) {
-                $name = 'Halqa';
-            }
-        }
-        else {
-            $name = "";
-        }
+        // if($user) {
+        //     if ($user->hasAnyRole(RolesEnum::REGIONALSADR)) {
+        //         $name = 'Zone';
+        //     } else if ($user->hasAnyRole(RolesEnum::ZONALSADR)) {
+        //         $name = 'Halqa';
+        //     }
+        // }
+        // else {
+        //     $name = "";
+        // }
         
         return array_merge(parent::share($request), [
             'auth' => function () use ($request) {
@@ -47,7 +47,7 @@ class HandleInertiaRequests extends Middleware
                     'user' => $request->user() ?: null,
                 ];
             },
-            'user' => $name,
+            // 'user' => $name,
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
             ],
