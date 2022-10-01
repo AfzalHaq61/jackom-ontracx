@@ -74,21 +74,34 @@
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
+                  <TextField
+                    fieldtype="text"
+                    name="mobile_number"
+                    placeholder="Enter Mobile Number"
+                    v-model="form.mobile_number"
+                    :errors="errors.mobile_number"
+                  >
+                    <h1 class="font-bold">Mobile Number</h1>
+                  </TextField>
+                </div>
+                <div class="mb-[30px]">
                   <SelectOptionField
-                    selectedOption="select country"
+                    selectedOption="Select Country"
                     name="country"
                     v-model="form.country"
                     :errors="errors.country"
+                    :dropdowns="countries"
                   >
                     <h1 class="font-bold">Country</h1>
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
                   <SelectOptionField
-                    selectedOption="select Region"
+                    selectedOption="Select Region"
                     name="region"
                     v-model="form.region"
                     :errors="errors.region"
+                    :dropdowns="regions"
                   >
                     <h1 class="font-bold">Region</h1>
                   </SelectOptionField>
@@ -102,28 +115,6 @@
                     :errors="errors.comercial_activity"
                   >
                     <h1 class="font-bold">Comercial Activity</h1>
-                  </TextField>
-                </div>
-                <div class="mb-[30px]">
-                  <TextField
-                    fieldtype="text"
-                    name="address"
-                    placeholder="Enter Shop Adress"
-                    v-model="form.address"
-                    :errors="errors.address"
-                  >
-                    <h1 class="font-bold">Address</h1>
-                  </TextField>
-                </div>
-                <div class="mb-[30px]">
-                  <TextField
-                    fieldtype="text"
-                    name="iban"
-                    placeholder="Enter bank IBAN"
-                    v-model="form.iban"
-                    :errors="errors.iban"
-                  >
-                    <h1 class="font-bold">IBAN</h1>
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -149,24 +140,26 @@
               </div>
               <div>
                 <div class="mb-[30px]">
-                  <SelectOptionField
-                    selectedOption="nationality"
-                    name="nationality"
-                    v-model="form.nationality"
-                    :errors="errors.nationality"
+                  <TextField
+                    fieldtype="text"
+                    name="address"
+                    placeholder="Enter Shop Adress"
+                    v-model="form.address"
+                    :errors="errors.address"
                   >
-                    <h1 class="font-bold">Nationality</h1>
-                  </SelectOptionField>
+                    <h1 class="font-bold">Address</h1>
+                  </TextField>
                 </div>
                 <div class="mb-[30px]">
-                  <SelectOptionField
-                    selectedOption="select city"
-                    name="city"
-                    v-model="form.city"
-                    :errors="errors.city"
+                  <TextField
+                    fieldtype="number"
+                    name="iban"
+                    placeholder="Enter bank IBAN"
+                    v-model="form.iban"
+                    :errors="errors.iban"
                   >
-                    <h1 class="font-bold">City</h1>
-                  </SelectOptionField>
+                    <h1 class="font-bold">IBAN</h1>
+                  </TextField>
                 </div>
                 <div class="mb-[30px]">
                   <TextField
@@ -177,8 +170,41 @@
                     :errors="errors.registration_number"
                   >
                     <h1 class="font-bold">
-                      ID or Comercial Regidtration number
+                      ID or Comercial Registration number
                     </h1>
+                  </TextField>
+                </div>
+                <div class="mb-[30px]">
+                  <SelectOptionField
+                    selectedOption="Select Nationality"
+                    name="nationality"
+                    v-model="form.nationality"
+                    :errors="errors.nationality"
+                    :dropdowns="nations"
+                  >
+                    <h1 class="font-bold">Nationality</h1>
+                  </SelectOptionField>
+                </div>
+                <div class="mb-[30px]">
+                  <SelectOptionField
+                    selectedOption="Select City"
+                    name="city"
+                    v-model="form.city"
+                    :errors="errors.city"
+                    :dropdowns="cities"
+                  >
+                    <h1 class="font-bold">City</h1>
+                  </SelectOptionField>
+                </div>
+                <div class="mb-[30px]">
+                  <TextField
+                    fieldtype="text"
+                    name="account_number"
+                    placeholder="Enter Account number"
+                    v-model="form.account_number"
+                    :errors="errors.account_number"
+                  >
+                    <h1 class="font-bold">Account Number</h1>
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -190,28 +216,6 @@
                     :errors="errors.legal_capacity"
                   >
                     <h1 class="font-bold">Legal Capacity</h1>
-                  </TextField>
-                </div>
-                <div class="mb-[30px]">
-                  <TextField
-                    fieldtype="text"
-                    name="mobile_number"
-                    placeholder="Enter Mobile Number"
-                    v-model="form.mobile_number"
-                    :errors="errors.mobile_number"
-                  >
-                    <h1 class="font-bold">Mobile Number</h1>
-                  </TextField>
-                </div>
-                <div class="mb-[30px]">
-                  <TextField
-                    fieldtype="text"
-                    name="account_number"
-                    placeholder="Enter Account number"
-                    v-model="form.account_number"
-                    :errors="errors.account_number"
-                  >
-                    <h1 class="font-bold">Account Number</h1>
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -253,23 +257,27 @@ import { reactive } from "vue";
 
 const props = defineProps({
   errors: Object,
+  nations: Array,
+  countries: Array,
+  cities: Array,
+  regions: Array,
 });
 
 let form = reactive({
   name: "",
-  nationality: "",
-  country: "",
-  city: "",
-  region: "",
-  registration_number: "",
-  comercial_activity: "",
-  legal_capacity: "",
   address: "",
   mobile_number: "",
+  registration_number: "",
+  nationality: "",
+  country: "",
+  region: "",
+  city: "",
   iban: "",
   account_number: "",
-  license_photo_1: "",
-  license_photo_2: "",
+  comercial_activity: "",
+  legal_capacity: "",
+  license_photo_1: "license_1_photo",
+  license_photo_2: "license_2_photo",
 });
 
 function submit() {

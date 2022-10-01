@@ -25,10 +25,10 @@
             <button
               class="bg-green-100 text-[#24C6C9] rounded-lg py-2 px-16 mr-6"
             >
-              User
+              <Link :href="route('register.create')">User</Link> 
             </button>
             <button class="bg-gray-100 rounded-lg py-2 px-16">
-              <Link href="/provider/register/create">Seller</Link>
+              <Link :href="route('provider.register.create')">Seller</Link>
             </button>
           </div>
         </div>

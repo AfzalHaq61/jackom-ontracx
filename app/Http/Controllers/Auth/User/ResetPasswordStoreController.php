@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Provider;
+namespace App\Http\Controllers\Auth\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RegesterStoreController extends Controller
+class ResetPasswordStoreController extends Controller
 {
     /**
      * Handle the incoming request.

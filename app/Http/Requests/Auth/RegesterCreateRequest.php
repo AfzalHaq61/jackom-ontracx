@@ -29,7 +29,7 @@ class RegesterCreateRequest extends FormRequest
             'first_name' => 'required|min:3|max:20|string',
             'last_name' => 'required|min:3|max:20|string',
             'country' => 'required|min:1|max:20|string',
-            'city' => 'required|min:3|max:20|string',
+            'city' => 'required|min:1|max:20|string',
             'contact_number' => 'required|min:11|max:20',
             'email' => 'email|min:7|max:30|string',
             'password' => 'required|min:3|max:20',

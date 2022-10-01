@@ -15,6 +15,8 @@
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
+              :open="isOpen"
+              @close="setIsOpen"
               class="
                 w-full w-80
                 transform
@@ -49,18 +51,20 @@
                 </h1>
               </div>
               <div class="mt-2">
-                <form>
+                <form @submit.prevent="submit">
                   <TextField
                     class="mb-10"
                     fieldtype="email"
                     name="email"
                     placeholder="Enter your email address"
+                    v-model="form.email"
+                    :errors="errors.email"
                   >
                     Email
                   </TextField>
                   <div
                     class="
-                      flex
+                    flex
                       justify-center
                       bg-[#24C6C9]
                       text-white
@@ -70,11 +74,7 @@
                       mb-10
                     "
                   >
-                    <button>
-                      <Link href="/password-verification" class="text-white"
-                        >Next</Link
-                      >
-                    </button>
+                    <button type="submit">Next</button>
                   </div>
                 </form>
               </div>
@@ -85,8 +85,8 @@
     </Dialog>
   </TransitionRoot>
 </template>
-
-<script setup>
+  
+  <script setup>
 import { ref } from "vue";
 import {
   TransitionRoot,
@@ -96,6 +96,23 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@headlessui/vue";
+import { Inertia } from "@inertiajs/inertia";
+import { reactive } from "vue";
+import route from "ziggy-js";
+
+const props = defineProps({
+  errors: Object,
+});
+
+let form = reactive({
+  email: "",
+});
+
+function submit() {
+  Inertia.post(route("forgot-password.email"), form, {
+    forceFormData: true,
+  });
+}
 
 const isOpen = ref(true);
 

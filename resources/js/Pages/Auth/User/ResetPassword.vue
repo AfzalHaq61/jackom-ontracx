@@ -1,5 +1,5 @@
 <template>
-<Head title="New Password" />
+  <Head title="New Password" />
   <TransitionRoot :show="isOpen" as="template">
     <Dialog :initialFocus="completeButtonRef" :open="isOpen" @close="setIsOpen">
       <div class="fixed inset-0 bg-black/30" aria-hidden="true" />
@@ -44,17 +44,22 @@
                 </h1>
               </div>
               <div class="mt-2">
-                <form>
+                <form @submit.prevent="submit">
+                  <input type="hidden" name="token" value="{{  }}" />
                   <TextField
-                    fieldtype="email"
-                    name="email"
-                    placeholder="Password"
+                    fieldtype="password"
+                    name="password"
+                    placeholder="password"
+                    v-model="form.password"
+                    :errors="errors.password"
                   >
                   </TextField>
                   <TextField
-                    fieldtype="email"
-                    name="email"
-                    placeholder="Confirm"
+                    fieldtype="password"
+                    name="password_confirmation"
+                    placeholder="Confirm Password"
+                    v-model="form.password_confirmation"
+                    :errors="errors.password_confirmation"
                   >
                   </TextField>
                   <div
@@ -65,13 +70,11 @@
                       text-white
                       rounded-lg
                       py-2
-                      mt-10
+                      mt-5
                       mb-10
                     "
                   >
-                    <button><Link href="/home" class="text-white"
-                      >Done</Link
-                    ></button>
+                    <button type="submit">Done</button>
                   </div>
                 </form>
               </div>
@@ -93,7 +96,28 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@headlessui/vue";
-import TextField from "@/Components/Form/TextField.vue";
+import { Inertia } from "@inertiajs/inertia";
+import { reactive } from "vue";
+import route from "ziggy-js";
+
+const props = defineProps({
+  errors: Object,
+  email: String,
+  token: String,
+});
+
+let form = reactive({
+  token: props.token,
+  email: props.email,
+  password: "",
+  password_confirmation: "",
+});
+
+function submit() {
+  Inertia.post(route("password.update"), form, {
+    forceFormData: true,
+  });
+}
 
 const isOpen = ref(true);
 

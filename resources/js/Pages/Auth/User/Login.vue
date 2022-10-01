@@ -67,7 +67,9 @@
                     Password
                   </TextField>
                   <div class="flex justify-end text-xs text-[#24C6C9]">
-                    <a href="/forgot-password">Forgot Password?</a>
+                    <a :href="route('forgot-password.request')"
+                      >Forgot Password?</a
+                    >
                   </div>
                   <div
                     class="
@@ -84,7 +86,9 @@
                   </div>
                   <div class="text-center text-xs">
                     <h1>Don't have account ?</h1>
-                    <Link href="/register/create" class="text-[#24C6C9]"
+                    <Link
+                      :href="route('register.create')"
+                      class="text-[#24C6C9]"
                       >Create Account</Link
                     >
                   </div>
@@ -108,9 +112,9 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@headlessui/vue";
-import route from "ziggy-js";
 import { Inertia } from "@inertiajs/inertia";
 import { reactive } from "vue";
+import route from "ziggy-js";
 
 const props = defineProps({
   errors: Object,

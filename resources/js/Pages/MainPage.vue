@@ -32,7 +32,7 @@
               md:px-[100px] md:py-[25px]
             "
           >
-            <Link href="/login/create">Join Now</Link>
+            <Link :href="route('login.create')">Join Now</Link>
           </button>
         </div>
       </div>

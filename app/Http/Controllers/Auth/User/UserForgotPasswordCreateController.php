@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\User;
 
 use App\Http\Controllers\Controller;
 use Inertia\Inertia;
 
-class LoginCreateController extends Controller
+class UserForgotPasswordCreateController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -15,6 +15,7 @@ class LoginCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Auth/User/Login');
+        return Inertia::render('Auth/User/ForgotPassword')
+            ->with('success_message', "Yay it worked");
     }
 }

@@ -21,7 +21,7 @@
         <Link href="#services">Services</Link>
       </h1>
       <h1 class="text-[#24C6C9]">
-        <Link href="/login/create">Join</Link>
+        <Link :href="route('login.create')">Join</Link>
       </h1>
     </div>
   </div>
@@ -60,7 +60,7 @@
     </div>
     <div class="text-[#24C6C9] pl-[32px] py-2 hover:bg-gray-100">
       <h1 class="text-[#24C6C9]">
-        <Link href="/login/create">Join</Link>
+        <Link :href="route('login.create')">Join</Link>
       </h1>
     </div>
   </div>
