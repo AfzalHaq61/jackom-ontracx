@@ -38,8 +38,9 @@ class ProviderRegesterCreateRequest extends FormRequest
             'account_number' => 'required|max:20|string',
             'comercial_activity' => 'required|max:20|string', 
             'legal_capacity' => 'required|max:20|string',   
-            'license_photo_1' => 'max:20|string', 
-            'license_photo_2' => 'max:20|string', 
+            'license_photo_1' => '', 
+            'license_photo_2' => '',
+            'upload_photo' => '',
         ];
     }
 }

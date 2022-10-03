@@ -8,10 +8,11 @@
       md:py-[18px] md:px-[120px]
       bg-[#24C6C9]
       md:bg-white
+      z-10
     "
   >
     <div class="md:flex md:items-center w-[60px]">
-      <img src="images/logo.png" alt="logo" />
+      <img src="/images/logo.png" alt="logo" />
     </div>
     <div class="hidden md:flex items-center font-semibold">
       <h1 class="text-[#858585] hover:text-black mr-[100px]">

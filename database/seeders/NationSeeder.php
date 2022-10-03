@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Nation;
-use App\Models\Nationality;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
 

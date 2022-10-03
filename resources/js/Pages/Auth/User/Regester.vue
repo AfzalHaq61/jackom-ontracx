@@ -6,8 +6,8 @@
       <div class="flex mx-[20px] md:mx-48 pb-5 pt-20">
         <div class="bg-white rounded-full"></div>
         <div class="relative bottom-[5px] mr-[15px]">
-          <Link href="/signin"
-            ><img class="w-[36px] h-[36px]" src="images/Back.png" alt=""
+          <Link :href="route('login.create')"
+            ><img class="w-[36px] h-[36px] z-0" src="/images/Back.png" alt=""
           /></Link>
         </div>
         <div>
@@ -17,17 +17,17 @@
       <div
         class="bg-white mx-[20px] md:mx-48 px-[20px] md:px-10 py-10 rounded-lg"
       >
-        <div class="mb-5">
+        <div>
           <div class="mb-2">
             <h1 class="font-bold">Account Type</h1>
           </div>
           <div>
             <button
-              class="bg-green-100 text-[#24C6C9] rounded-lg py-2 px-16 mr-6"
+              class="bg-green-100 text-[#24C6C9] rounded-lg h-[40px] w-[170px] md:mr-6 mb-5"
             >
-              <Link :href="route('register.create')">User</Link> 
+              <Link :href="route('register.create')">User</Link>
             </button>
-            <button class="bg-gray-100 rounded-lg py-2 px-16">
+            <button class="bg-gray-100 rounded-lg h-[40px] w-[170px] mb-5">
               <Link :href="route('provider.register.create')">Seller</Link>
             </button>
           </div>

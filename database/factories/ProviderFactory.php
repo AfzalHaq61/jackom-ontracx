@@ -2,6 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Nation;
+use App\Models\Region;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +21,22 @@ class ProviderFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'uuid' => $this->faker->uuid(),
+            'name' => $this->faker->name(),
+            'address' => $this->faker->name(),
+            'mobile_number' => $this->faker->randomNumber(),
+            'registration_number' => $this->faker->randomNumber(),
+            'nationality' => Nation::factory(),
+            'country' => Country::factory(),
+            'region' => Region::factory(),
+            'city' => City::factory(),
+            'iban' => $this->faker->randomNumber(),
+            'account_number' => $this->faker->randomNumber(),
+            'comercial_activity' => $this->faker->name(),
+            'legal_capacity' => $this->faker->name(),
+            'license_photo_1' => $this->faker->name(),
+            'license_photo_2' => $this->faker->name(),
+            'upload_photo' => $this->faker->name(),
         ];
     }
 }

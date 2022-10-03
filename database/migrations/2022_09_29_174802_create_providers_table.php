@@ -30,6 +30,7 @@ return new class extends Migration
             $table->integer('account_number');
             $table->string('license_photo_1')->nullable();
             $table->string('license_photo_2')->nullable();
+            $table->string('upload_photo')->nullable();
             $table->timestamps();
         });
     }

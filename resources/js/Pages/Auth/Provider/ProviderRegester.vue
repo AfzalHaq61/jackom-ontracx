@@ -6,8 +6,8 @@
       <div class="flex mx-[20px] md:mx-48 pb-5 pt-20">
         <div class="bg-white rounded-full"></div>
         <div class="relative bottom-[5px] mr-[15px]">
-          <Link href="/signin"
-            ><img class="w-[36px] h-[36px]" src="images/Back.png" alt=""
+          <Link :href="route('login.create')"
+            ><img class="w-[36px] h-[36px]" src="/images/Back.png" alt=""
           /></Link>
         </div>
         <div>
@@ -29,37 +29,54 @@
           <div class="mb-2">
             <h1 class="font-bold text-[16px]">Account Type</h1>
           </div>
-          <div class="md:grid grid-cols-2">
-            <div class="mb-5">
-              <button class="bg-gray-100 rounded-lg py-2 px-16 mr-6">
-                User
-              </button>
-              <button class="bg-green-100 text-[#24C6C9] rounded-lg py-2 px-16">
-                Seller
-              </button>
-            </div>
-            <div class="md:relative bottom-[10px] flex md:pl-[50px]">
-              <div
-                class="
-                  flex
-                  justify-center
-                  items-center
-                  rounded-full
-                  bg-[#24C6C9]
-                  w-[60px]
-                  h-[60px]
-                "
-              >
-                <h1 class="text-[30px] text-white">A</h1>
-              </div>
-              <div class="flex items-center ml-[17px]">
-                <h1 class="text-[16px] font-bold">Upload Photo</h1>
-              </div>
-            </div>
-          </div>
         </div>
         <div>
           <form @submit.prevent="submit">
+            <div class="md:grid grid-cols-2">
+              <div class="mb-5">
+                <button
+                  class="bg-gray-100 rounded-lg h-[40px] w-[170px] md:mr-6 mb-5"
+                >
+                  <Link :href="route('register.create')">User</Link>
+                </button>
+                <button
+                  class="
+                    bg-green-100
+                    text-[#24C6C9]
+                    rounded-lg
+                    h-[40px]
+                    w-[170px]
+                    mb-5
+                  "
+                >
+                  <Link :href="route('provider.register.create')">Seller</Link>
+                </button>
+              </div>
+              <div class="flex relative bottom-[10px] md:pl-[50px]">
+                <div
+                  class="
+                    flex
+                    justify-center
+                    items-center
+                    rounded-full
+                    bg-[#24C6C9]
+                    w-[60px]
+                    h-[60px]
+                  "
+                >
+                  <h1 class="text-[30px] text-white">A</h1>
+                </div>
+                <div class="ml-[5px] mt-[10px]">
+                  <ProverderProfileImageField
+                    fieldtype="file"
+                    name="upload_photo"
+                    v-model="form.upload_photo"
+                    :errors="errors.upload_photo"
+                  >
+                  </ProverderProfileImageField>
+                </div>
+              </div>
+            </div>
             <div class="md:grid grid-cols-2 gap-[100px]">
               <div>
                 <div class="mb-[30px]">
@@ -70,7 +87,7 @@
                     v-model="form.name"
                     :errors="errors.name"
                   >
-                    <h1 class="font-bold">Name</h1>
+                    Name
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -81,7 +98,7 @@
                     v-model="form.mobile_number"
                     :errors="errors.mobile_number"
                   >
-                    <h1 class="font-bold">Mobile Number</h1>
+                    Mobile Number
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -92,7 +109,7 @@
                     :errors="errors.country"
                     :dropdowns="countries"
                   >
-                    <h1 class="font-bold">Country</h1>
+                    Country
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
@@ -103,8 +120,19 @@
                     :errors="errors.region"
                     :dropdowns="regions"
                   >
-                    <h1 class="font-bold">Region</h1>
+                    Region
                   </SelectOptionField>
+                </div>
+                <div class="mb-[30px]">
+                  <TextField
+                    fieldtype="number"
+                    name="iban"
+                    placeholder="Enter bank IBAN"
+                    v-model="form.iban"
+                    :errors="errors.iban"
+                  >
+                    IBAN
+                  </TextField>
                 </div>
                 <div class="mb-[30px]">
                   <TextField
@@ -114,28 +142,18 @@
                     v-model="form.comercial_activity"
                     :errors="errors.comercial_activity"
                   >
-                    <h1 class="font-bold">Comercial Activity</h1>
+                    Comercial Activity
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
-                  <div class="mb-[13px]">
-                    <h1 class="text-[16px] font-bold">License Photo</h1>
-                  </div>
-                  <div
-                    class="
-                      flex
-                      items-center
-                      justify-center
-                      bg-gray-100
-                      rounded-[10px]
-                      w-[310px]
-                      h-[200px]
-                    "
+                  <ImageFileField
+                    fieldtype="file"
+                    name="license_photo_2"
+                    v-model="form.license_photo_2"
+                    :errors="errors.license_photo_2"
                   >
-                    <div>
-                      <h1 class="text-[15px] text-[#3A3A3A]">Tap to Add</h1>
-                    </div>
-                  </div>
+                    License Photo
+                  </ImageFileField>
                 </div>
               </div>
               <div>
@@ -147,18 +165,7 @@
                     v-model="form.address"
                     :errors="errors.address"
                   >
-                    <h1 class="font-bold">Address</h1>
-                  </TextField>
-                </div>
-                <div class="mb-[30px]">
-                  <TextField
-                    fieldtype="number"
-                    name="iban"
-                    placeholder="Enter bank IBAN"
-                    v-model="form.iban"
-                    :errors="errors.iban"
-                  >
-                    <h1 class="font-bold">IBAN</h1>
+                    Address
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -169,9 +176,7 @@
                     v-model="form.registration_number"
                     :errors="errors.registration_number"
                   >
-                    <h1 class="font-bold">
-                      ID or Comercial Registration number
-                    </h1>
+                    ID or Comercial Registration number
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -182,7 +187,7 @@
                     :errors="errors.nationality"
                     :dropdowns="nations"
                   >
-                    <h1 class="font-bold">Nationality</h1>
+                    Nationality
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
@@ -193,7 +198,7 @@
                     :errors="errors.city"
                     :dropdowns="cities"
                   >
-                    <h1 class="font-bold">City</h1>
+                    City
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
@@ -204,7 +209,7 @@
                     v-model="form.account_number"
                     :errors="errors.account_number"
                   >
-                    <h1 class="font-bold">Account Number</h1>
+                    Account Number
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -215,28 +220,18 @@
                     v-model="form.legal_capacity"
                     :errors="errors.legal_capacity"
                   >
-                    <h1 class="font-bold">Legal Capacity</h1>
+                    Legal Capacity
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
-                  <div class="mb-[13px] mr-[13px]">
-                    <h1 class="text-[16px] font-bold">License Photo</h1>
-                  </div>
-                  <div
-                    class="
-                      flex
-                      items-center
-                      justify-center
-                      bg-gray-100
-                      rounded-[10px]
-                      w-[310px]
-                      h-[200px]
-                    "
+                  <ImageFileField
+                    fieldtype="file"
+                    name="license_photo_1"
+                    v-model="form.license_photo_1"
+                    :errors="errors.license_photo_1"
                   >
-                    <div>
-                      <h1 class="text-[15px] text-[#3A3A3A]">Tap to Add</h1>
-                    </div>
-                  </div>
+                    License Photo
+                  </ImageFileField>
                 </div>
               </div>
             </div>
@@ -276,8 +271,9 @@ let form = reactive({
   account_number: "",
   comercial_activity: "",
   legal_capacity: "",
-  license_photo_1: "license_1_photo",
-  license_photo_2: "license_2_photo",
+  license_photo_1: "",
+  license_photo_2: "",
+  upload_photo: "",
 });
 
 function submit() {

@@ -64,22 +64,18 @@ Route::get('/logout', LogoutController::class)
 
 // Provider Authentication
 Route::get('/provider/register/create', ProviderRegesterCreateController::class)
-    ->middleware('guest')
     ->name('provider.register.create');
 
 Route::post('/provider/register/store', ProviderRegesterStoreController::class)
     ->name('provider.register.store');
 
 Route::get('/login/create', LoginCreateController::class)
-    ->middleware('guest')
     ->name('login.create');
 
 Route::post('/login/store', LoginStoreController::class)
-    ->middleware('guest')
     ->name('login.store');
 
 Route::get('/logout', LogoutController::class)
-    ->middleware('auth')
     ->name('logout');
 
 

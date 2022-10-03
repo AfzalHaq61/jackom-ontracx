@@ -38,7 +38,7 @@
                 </button>
               </div>
               <DialogTitle as="h3" class="grid place-content-center">
-                <img class="w-24" src="images/logo.png" alt="logo" />
+                <img class="w-24" src="/images/logo.png" alt="logo" />
               </DialogTitle>
               <div>
                 <h1 class="text-sm font-bold mt-1 mb-6 mt-5">

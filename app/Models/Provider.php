@@ -24,6 +24,7 @@ class Provider extends Model
         'iban', 
         'account_number', 
         'license_photo_1', 
-        'license_photo_2' ,
+        'license_photo_2',
+        'upload_photo',
     ];
 }

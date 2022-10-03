@@ -13,6 +13,8 @@ import SelectOptionField from "@/Components/Form/SelectOptionField.vue";
 import RequestHead from "@/Components/Shared/RequestHead.vue";
 import FormButton from "@/Components/Form/FormButton.vue";
 import ImageField from "@/Components/Form/ImageField.vue";
+import ImageFileField from "@/Components/Form/ImageFileField.vue";
+import ProverderProfileImageField from "@/Components/Form/ProverderProfileImageField.vue";
 import ProfileTextField from "@/Components/Form/ProfileTextField.vue";
 import DescriptionTextField from "@/Components/Form/DescriptionTextField.vue";
 import ProviderIndex from "@/Components/Shared/ProviderIndex.vue";
@@ -49,6 +51,8 @@ createInertiaApp({
             .component('RequestHead', RequestHead)
             .component('FormButton', FormButton)
             .component('ImageField', ImageField)
+            .component('ImageFileField', ImageFileField)
+            .component('ProverderProfileImageField', ProverderProfileImageField)
             .component('ProfileTextField', ProfileTextField)
             .component('DescriptionTextField', DescriptionTextField)
             .component('ProviderIndex', ProviderIndex)

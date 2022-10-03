@@ -19,6 +19,7 @@ class ProviderRegesterStoreController extends Controller
     public function __invoke(ProviderRegesterCreateRequest $request)
     {
         $data = $request->validated();
+
         try {
             $provider = Provider::create([
                 'uuid' => $data['uuid'],
@@ -34,9 +35,12 @@ class ProviderRegesterStoreController extends Controller
                 'account_number' => $data['account_number'], 
                 'comercial_activity' => $data['comercial_activity'], 
                 'legal_capacity' => $data['legal_capacity'],  
-                'license_photo_1' => $data['license_photo_1'],
-                'license_photo_2' => $data['license_photo_2'],
+                'license_photo_1' => uniqid() . '-' . $data['license_photo_1'],
+                'license_photo_2' => uniqid() . '-' . $data['license_photo_2'],
+                'upload_photo' => uniqid() . '-' . $data['upload_photo'],
             ]);
+
+            $provider->save();
         } catch (\Exception $e) {
             dd($e->getMessage());
         }

@@ -1,5 +1,5 @@
 <template>
-  <Head title="Signin" />
+  <Head title="Login" />
   <TransitionRoot :show="isOpen" as="template">
     <Dialog :initialFocus="completeButtonRef" :open="isOpen" @close="setIsOpen">
       <div class="fixed inset-0 bg-black/30" aria-hidden="true" />
@@ -38,7 +38,7 @@
                 </button>
               </div>
               <DialogTitle as="h3" class="grid place-content-center">
-                <img class="w-24" src="images/logo.png" alt="logo" />
+                <img class="w-24" src="/images/logo.png" alt="logo" />
               </DialogTitle>
               <div class="grid place-content-center">
                 <h1 class="text-sm mt-1 mb-2 font-bold">
