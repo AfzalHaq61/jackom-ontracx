@@ -78,6 +78,10 @@ Route::post('/login/store', LoginStoreController::class)
 Route::get('/logout', LogoutController::class)
     ->name('logout');
 
+Route::get('/terms&conditions', function () {
+        return Inertia::render('Terms&Conditions');
+    })->name('terms&conditions');
+
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     // Login System

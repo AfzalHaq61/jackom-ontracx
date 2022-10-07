@@ -82,23 +82,45 @@
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="text"
-                    name="name"
-                    placeholder="Your Name"
-                    v-model="form.name"
-                    :errors="errors.name"
+                    name="first_name"
+                    placeholder="Enter First Name"
+                    v-model="form.first_name"
+                    :errors="errors.first_name"
                   >
-                    Name
+                    First Name
+                  </TextField>
+                </div>
+                <div class="mb-[30px]">
+                  <TextField
+                    fieldtype="email"
+                    name="email"
+                    placeholder=" Enter Email"
+                    v-model="form.email"
+                    :errors="errors.email"
+                  >
+                    Email
+                  </TextField>
+                </div>
+                <div class="mb-[30px]">
+                  <TextField
+                    fieldtype="Password"
+                    name="password"
+                    placeholder="Create Password"
+                    v-model="form.password"
+                    :errors="errors.password"
+                  >
+                    Password
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="text"
-                    name="mobile_number"
-                    placeholder="Enter Mobile Number"
-                    v-model="form.mobile_number"
-                    :errors="errors.mobile_number"
+                    name="address"
+                    placeholder="Enter Shop Adress"
+                    v-model="form.address"
+                    :errors="errors.address"
                   >
-                    Mobile Number
+                    Address
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -160,12 +182,34 @@
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="text"
-                    name="address"
-                    placeholder="Enter Shop Adress"
-                    v-model="form.address"
-                    :errors="errors.address"
+                    name="last_name"
+                    placeholder="Enter Last Name"
+                    v-model="form.last_name"
+                    :errors="errors.last_name"
                   >
-                    Address
+                    Last Name
+                  </TextField>
+                </div>
+                <div class="mb-[30px]">
+                  <TextField
+                    fieldtype="text"
+                    name="mobile_number"
+                    placeholder="Enter Mobile Number"
+                    v-model="form.mobile_number"
+                    :errors="errors.mobile_number"
+                  >
+                    Mobile Number
+                  </TextField>
+                </div>
+                <div class="mb-[30px]">
+                  <TextField
+                    fieldtype="Password"
+                    name="confirm_password"
+                    placeholder="Confirm Password"
+                    v-model="form.confirm_password"
+                    :errors="errors.confirm_password"
+                  >
+                    Confirm Password
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -235,6 +279,16 @@
                 </div>
               </div>
             </div>
+            <div class="relative top-0.5">
+              <h1>
+                Accept
+                <span
+                  ><Link :href="route('terms&conditions')" class="text-[#24C6C9]"
+                    >terms and conditions</Link
+                  ></span
+                >
+              </h1>
+            </div>
             <div class="mt-[70px]">
               <FormButton type="submit">Sign Up</FormButton>
             </div>
@@ -259,7 +313,11 @@ const props = defineProps({
 });
 
 let form = reactive({
-  name: "",
+  first_name: "",
+  last_name: "",
+  email: "",
+  password: "",
+  confirm_password: "",
   address: "",
   mobile_number: "",
   registration_number: "",

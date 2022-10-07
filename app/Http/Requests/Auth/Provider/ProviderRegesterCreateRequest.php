@@ -26,7 +26,11 @@ class ProviderRegesterCreateRequest extends FormRequest
     {
         return [
             'uuid' => 'required|uuid',
-            'name' => 'required|max:20|string',
+            'first_name' => 'required|min:3|max:20|string',
+            'last_name' => 'required|min:3|max:20|string',
+            'email' => 'email|min:7|max:30|string',
+            'password' => 'required|min:3|max:20',
+            'confirm_password' => 'required|same:password|min:3|max:20',
             'address' => 'required|max:20|string', 
             'mobile_number' => 'required|max:20|string',
             'registration_number' => 'required|max:20|string',

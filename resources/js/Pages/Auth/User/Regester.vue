@@ -23,7 +23,15 @@
           </div>
           <div>
             <button
-              class="bg-green-100 text-[#24C6C9] rounded-lg h-[40px] w-[170px] md:mr-6 mb-5"
+              class="
+                bg-green-100
+                text-[#24C6C9]
+                rounded-lg
+                h-[40px]
+                w-[170px]
+                md:mr-6
+                mb-5
+              "
             >
               <Link :href="route('register.create')">User</Link>
             </button>
@@ -122,6 +130,27 @@
                 >
                   Confirm Password
                 </TextField>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="mr-2">
+                <input
+                  class="rounded-[5px]"
+                  type="checkbox"
+                  name="checkbox"
+                  v-model="form.checkbox"
+                  :errors="errors.checkbox"
+                />
+              </div>
+              <div class="relative top-0.5">
+                <h1>
+                  Accept
+                  <span
+                    ><Link href="/terms&conditions" class="text-[#24C6C9]"
+                      >terms and conditions</Link
+                    ></span
+                  >
+                </h1>
               </div>
             </div>
             <div
