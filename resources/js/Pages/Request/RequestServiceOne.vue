@@ -7,7 +7,7 @@
 
     <div class="col-span-6 px-[30px] py-[30px] md:px-[60px] md:py-[30px]">
       <!-- Menu Bar -->
-      <RequestMenubar/>
+      <RequestMenubar />
       <!-- Head -->
       <RequestHead />
       <!-- Main Content -->
@@ -26,13 +26,26 @@
               "
             >
               <div>
-                <img class="w-[100px] mb-5" src="images/towing.png" alt="Towing and Shipping Image" />
+                <img
+                  class="w-[100px] mb-5"
+                  src="/images/towing.png"
+                  alt="Towing and Shipping Image"
+                />
                 <h1 class="text-[16px] font-bold">Towing and Shipping</h1>
               </div>
             </div>
             <div>
               <form action="">
                 <div class="mb-[30px]">
+                  <SelectOptionField
+                    selectedOption="Select city"
+                    name="city"
+                    v-model="form.city"
+                    :errors="errors.city"
+                    :dropdowns="cities"
+                  >
+                    City
+                  </SelectOptionField>
                   <SelectOptionField selectedOption="Brand" name="choose_brand">
                     <h1 class="font-bold">Choose Brand</h1>
                   </SelectOptionField>
@@ -101,4 +114,31 @@
 </template>
 
 <script setup>
+import route from "ziggy-js";
+import { Inertia } from "@inertiajs/inertia";
+import { reactive } from "vue";
+
+const props = defineProps({
+  errors: Object,
+  countries: Array,
+  cities: Array,
+});
+
+let form = reactive({
+  first_name: "",
+  last_name: "",
+  country: "",
+  city: "",
+  contact_number: "",
+  email: "",
+  password: "",
+  confirm_password: "",
+  checkbox: "",
+});
+
+function submit() {
+  Inertia.post(route("register.store"), form, {
+    forceFormData: true,
+  });
+}
 </script>

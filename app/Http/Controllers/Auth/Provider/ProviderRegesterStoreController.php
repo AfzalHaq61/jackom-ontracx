@@ -32,6 +32,7 @@ class ProviderRegesterStoreController extends Controller
                 'contact_number' => $data['mobile_number'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
+                'checkbox' => $data['checkbox'],
             ]);
 
             $provider = Provider::create([

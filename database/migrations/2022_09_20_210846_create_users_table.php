@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('contact_number');
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('checkbox');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -1,5 +1,5 @@
 <template>
-  <Head title="SignUp" />
+  <Head title="Regester" />
   <IndexHead></IndexHead>
   <div class="bg-gray-100 pb-20">
     <div class="min-h-screen">
@@ -77,15 +77,15 @@
                 </SelectOptionField>
               </div>
               <div class="mb-5 md:ml-5">
-                <TextField
-                  fieldtype="text"
+                <SelectOptionField
+                  selectedOption="Select city"
                   name="city"
-                  placeholder="Enter City"
                   v-model="form.city"
                   :errors="errors.city"
+                  :dropdowns="cities"
                 >
                   City
-                </TextField>
+                </SelectOptionField>
               </div>
               <div class="mb-5 md:mr-5">
                 <TextField
@@ -132,25 +132,34 @@
                 </TextField>
               </div>
             </div>
-            <div class="flex">
-              <div class="mr-2">
-                <input
-                  class="rounded-[5px]"
-                  type="checkbox"
-                  name="checkbox"
-                  v-model="form.checkbox"
-                  :errors="errors.checkbox"
-                />
+            <!-- Terms and Condition -->
+            <div>
+              <div class="flex">
+                <div class="mr-2">
+                  <input
+                    class="rounded-[5px]"
+                    type="checkbox"
+                    name="checkbox"
+                    v-model="form.checkbox"
+                  />
+                </div>
+                <div class="relative top-0.5">
+                  <h1>
+                    Accept
+                    <span
+                      ><Link href="/terms&conditions" class="text-[#24C6C9]"
+                        >terms and conditions</Link
+                      ></span
+                    >
+                  </h1>
+                </div>
               </div>
-              <div class="relative top-0.5">
-                <h1>
-                  Accept
-                  <span
-                    ><Link href="/terms&conditions" class="text-[#24C6C9]"
-                      >terms and conditions</Link
-                    ></span
-                  >
-                </h1>
+              <div
+                :v-if="props.errors.checkbox"
+                class="text-red-600 pt-1 text-xs"
+                role="alert"
+              >
+                {{ props.errors.checkbox }}
               </div>
             </div>
             <div
@@ -175,7 +184,6 @@
 </template>
 
 <script setup>
-import { ChevronLeftIcon } from "@heroicons/vue/outline";
 import route from "ziggy-js";
 import { Inertia } from "@inertiajs/inertia";
 import { reactive } from "vue";
@@ -183,6 +191,7 @@ import { reactive } from "vue";
 const props = defineProps({
   errors: Object,
   countries: Array,
+  cities: Array,
 });
 
 let form = reactive({
@@ -194,6 +203,7 @@ let form = reactive({
   email: "",
   password: "",
   confirm_password: "",
+  checkbox: "",
 });
 
 function submit() {

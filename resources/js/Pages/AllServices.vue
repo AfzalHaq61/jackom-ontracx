@@ -39,7 +39,7 @@
                 mb-[30px]
               "
             >
-              <Link href="/request-Service-1">
+              <Link :href="route('request.service.one.create')">
                 <div class="grid place-content-center mb-[36.79px]">
                   <img
                     class="w-[88.5px]"
@@ -80,7 +80,7 @@
                 mb-[30px]
               "
             >
-              <Link href="/request-Service-2">
+            <Link :href="route('request.service.two.create')">
                 <div class="grid place-content-center mb-[36.79px]">
                   <img
                     class="w-[88.5px]"
@@ -121,7 +121,7 @@
                 mb-[30px]
               "
             >
-              <Link href="/request-Service-7">
+            <Link :href="route('request.service.three.create')">
                 <div class="grid place-content-center mb-[36.79px]">
                   <img
                     src="images/Sparepart.png"
@@ -161,7 +161,7 @@
                 mb-[30px]
               "
             >
-              <Link href="/request-Service-4,5">
+            <Link :href="route('request.service.four-five.create')">
                 <div class="grid place-content-center mb-[36.79px]">
                   <img
                     class="w-[88.5px]"
@@ -202,7 +202,7 @@
                 mb-[30px]
               "
             >
-              <Link href="/request-Service-6">
+            <Link :href="route('request.service.six.create')">
                 <div class="grid place-content-center mb-[36.79px]">
                   <img
                     class="w-[88.5px]"
@@ -243,7 +243,7 @@
                 mb-[30px]
               "
             >
-              <Link href="/sell-car">
+            <Link :href="route('request.service.sell-car.create')">
                 <div class="grid place-content-center mb-[36.79px]">
                   <img
                     class="w-[88.5px]"

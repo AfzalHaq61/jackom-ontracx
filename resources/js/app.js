@@ -17,6 +17,7 @@ import ImageFileField from "@/Components/Form/ImageFileField.vue";
 import ProverderProfileImageField from "@/Components/Form/ProverderProfileImageField.vue";
 import ProfileTextField from "@/Components/Form/ProfileTextField.vue";
 import DescriptionTextField from "@/Components/Form/DescriptionTextField.vue";
+import CheckboxField from "@/Components/Form/CheckboxField.vue";
 import ProviderIndex from "@/Components/Shared/ProviderIndex.vue";
 import SellerHead from "@/Components/Shared/SellerHead.vue";
 import SellerIndex from "@/Components/Shared/SellerIndex.vue";
@@ -55,6 +56,7 @@ createInertiaApp({
             .component('ProverderProfileImageField', ProverderProfileImageField)
             .component('ProfileTextField', ProfileTextField)
             .component('DescriptionTextField', DescriptionTextField)
+            .component('CheckboxField', CheckboxField)
             .component('ProviderIndex', ProviderIndex)
             .component('SellerHead', SellerHead)
             .component('SellerIndex', SellerIndex)

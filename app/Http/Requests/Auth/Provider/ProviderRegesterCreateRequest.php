@@ -45,6 +45,7 @@ class ProviderRegesterCreateRequest extends FormRequest
             'license_photo_1' => '', 
             'license_photo_2' => '',
             'upload_photo' => '',
+            'checkbox' => 'accepted'
         ];
     }
 }

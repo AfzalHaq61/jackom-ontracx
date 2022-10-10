@@ -31,6 +31,7 @@ class RegesterStoreController extends Controller
                 'contact_number' => $data['contact_number'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
+                'checkbox' => $data['checkbox'],
             ]);
         } catch (\Exception $e) {
             dd($e->getMessage());

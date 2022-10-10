@@ -31,6 +31,7 @@ class UserSeeder extends Seeder
                         'contact_number' => $status['contact_number'],
                         'email' => $status['email'],
                         'password' => $status['password'],
+                        'checkbox' => $status['checkbox'],
                     ]);
             });
     }
@@ -47,6 +48,7 @@ class UserSeeder extends Seeder
                 'contact_number' => '034567890',
                 'email' => 'afzal100@gmail.com',
                 'password' => Hash::make('afzal100'),
+                'checkbox' => true,
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
@@ -57,6 +59,7 @@ class UserSeeder extends Seeder
                 'contact_number' => '03389898765',
                 'email' => 'afzal200@gmail.com',
                 'password' => Hash::make('afzal200'),
+                'checkbox' => true,
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
@@ -67,6 +70,7 @@ class UserSeeder extends Seeder
                 'contact_number' => '03429837680',
                 'email' => 'afzal300@gmail.com',
                 'password' => Hash::make('afzal200'),
+                'checkbox' => true,
             ],
         ]);
     }

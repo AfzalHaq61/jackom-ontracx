@@ -279,17 +279,36 @@
                 </div>
               </div>
             </div>
-            <div class="relative top-0.5">
-              <h1>
-                Accept
-                <span
-                  ><Link :href="route('terms&conditions')" class="text-[#24C6C9]"
-                    >terms and conditions</Link
-                  ></span
-                >
-              </h1>
-            </div>
             <div class="mt-[70px]">
+              <div class="flex">
+                <div class="mr-2">
+                  <input
+                    class="rounded-[5px]"
+                    type="checkbox"
+                    name="checkbox"
+                    v-model="form.checkbox"
+                  />
+                </div>
+                <div class="relative top-0.5">
+                  <h1>
+                    Accept
+                    <span
+                      ><Link href="/terms&conditions" class="text-[#24C6C9]"
+                        >terms and conditions</Link
+                      ></span
+                    >
+                  </h1>
+                </div>
+              </div>
+              <div
+                :v-if="props.errors.checkbox"
+                class="text-red-600 pt-1 text-xs"
+                role="alert"
+              >
+                {{ props.errors.checkbox }}
+              </div>
+            </div>
+            <div class="mt-5">
               <FormButton type="submit">Sign Up</FormButton>
             </div>
           </form>
@@ -332,6 +351,7 @@ let form = reactive({
   license_photo_1: "",
   license_photo_2: "",
   upload_photo: "",
+  checkbox: "",
 });
 
 function submit() {

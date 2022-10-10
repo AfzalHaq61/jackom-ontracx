@@ -34,6 +34,7 @@ class RegesterCreateRequest extends FormRequest
             'email' => 'email|min:7|max:30|string',
             'password' => 'required|min:3|max:20',
             'confirm_password' => 'required|same:password|min:3|max:20',
+            'checkbox' => 'accepted'
         ];
     }
 }
