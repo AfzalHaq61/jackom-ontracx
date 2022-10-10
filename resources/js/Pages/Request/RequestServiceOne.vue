@@ -12,102 +12,142 @@
       <RequestHead />
       <!-- Main Content -->
       <div>
-        <!-- Services -->
-        <div class="md:grid grid-cols-3">
-          <div class="col-span-2 md:pr-[39px]">
-            <div
-              class="
-                flex
-                justify-between
-                text-sm
-                mt-[44px]
-                mb-[26px]
-                mr-[115px]
-              "
-            >
-              <div>
-                <img
-                  class="w-[100px] mb-5"
-                  src="/images/towing.png"
-                  alt="Towing and Shipping Image"
-                />
-                <h1 class="text-[16px] font-bold">Towing and Shipping</h1>
+        <form @submit.prevent="submit">
+          <div class="md:grid grid-cols-3">
+            <div class="col-span-2 md:pr-[40px]">
+              <div
+                class="
+                  flex
+                  justify-between
+                  text-sm
+                  mt-[44px]
+                  mb-[26px]
+                  mr-[115px]
+                "
+              >
+                <div>
+                  <img
+                    class="w-[100px] mb-5"
+                    src="/images/towing.png"
+                    alt="Towing and Shipping Image"
+                  />
+                  <h1 class="text-[16px] font-bold">Towing and Shipping</h1>
+                </div>
               </div>
-            </div>
-            <div>
-              <form action="">
+              <div>
                 <div class="mb-[30px]">
                   <SelectOptionField
-                    selectedOption="Select city"
-                    name="city"
-                    v-model="form.city"
-                    :errors="errors.city"
-                    :dropdowns="cities"
+                    selectedOption="Select Type"
+                    name="service_one_type"
+                    v-model="form.service_one_type"
+                    :errors="errors.service_one_type"
+                    :dropdowns="towings"
                   >
-                    City
-                  </SelectOptionField>
-                  <SelectOptionField selectedOption="Brand" name="choose_brand">
-                    <h1 class="font-bold">Choose Brand</h1>
+                    Type
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
-                  <SelectOptionField selectedOption="Type" name="choose_type">
-                    <h1 class="font-bold">Choose Type</h1>
+                  <SelectOptionField
+                    selectedOption="Select Brand"
+                    name="brand"
+                    v-model="form.brand"
+                    :errors="errors.brand"
+                    :dropdowns="brands"
+                  >
+                    Brand
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
-                  <SelectOptionField selectedOption="Model" name="choose_model">
-                    <h1 class="font-bold">Choose Model</h1>
+                  <SelectOptionField
+                    selectedOption="Select Modal"
+                    name="modal"
+                    v-model="form.modal"
+                    :errors="errors.modal"
+                    :dropdowns="modals"
+                  >
+                    Model
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="text"
                     name="color"
-                    placeholder="Select Color"
+                    placeholder="Enter color"
+                    v-model="form.color"
+                    :errors="errors.color"
                   >
-                    <h1 class="font-bold">Choose Color</h1>
+                    Color
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="text"
                     name="plate_number"
-                    placeholder="Plate Number"
+                    placeholder="Enter Plate Number"
+                    v-model="form.plate_number"
+                    :errors="errors.plate_number"
                   >
-                    <h1 class="font-bold">Plate Number</h1>
+                    Plate Number
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="text"
                     name="location_from"
-                    placeholder="Location From"
+                    placeholder="Enter Location From"
+                    v-model="form.location_from"
+                    :errors="errors.location_from"
                   >
-                    <h1 class="font-bold">Location From</h1>
+                    Location From
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="text"
                     name="location_to"
-                    placeholder="Location To"
+                    placeholder="Enter Location To"
+                    v-model="form.location_to"
+                    :errors="errors.location_to"
                   >
-                    <h1 class="font-bold">Location To</h1>
+                    Location To
                   </TextField>
                 </div>
-                <div class="mb-[94px]">
-                  <FormButton
-                    ><Link href="/request">Post Request</Link></FormButton
-                  >
-                </div>
-              </form>
+              </div>
+            </div>
+            <div class="mt-[67px]">
+              <div>
+                <ImageField />
+              </div>
+              <div class="w-[350px]">
+                <ImageFileField
+                  fieldtype="file"
+                  name="upload_photo"
+                  v-model="form.upload_photo"
+                  :errors="errors.upload_photo"
+                >
+                </ImageFileField>
+              </div>
             </div>
           </div>
-          <div>
-            <ImageField />
+          <div class="grid grid-cols-3">
+            <div
+              class="
+                grid
+                col-span-2
+                justify-center
+                bg-[#24C6C9]
+                text-white
+                rounded-lg
+                md:mr-[40px]
+                py-2
+                mt-5
+                mb-[100px]
+              "
+            >
+              <button type="submit">Post Request</button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -120,24 +160,24 @@ import { reactive } from "vue";
 
 const props = defineProps({
   errors: Object,
-  countries: Array,
-  cities: Array,
+  towings: Array,
+  brands: Array,
+  modals: Array,
 });
 
 let form = reactive({
-  first_name: "",
-  last_name: "",
-  country: "",
-  city: "",
-  contact_number: "",
-  email: "",
-  password: "",
-  confirm_password: "",
-  checkbox: "",
+  service_one_type: "",
+  brand: "",
+  modal: "",
+  color: "",
+  plate_number: "",
+  location_from: "",
+  location_to: "",
+  upload_photo: ""
 });
 
 function submit() {
-  Inertia.post(route("register.store"), form, {
+  Inertia.post(route("request.service.one.store"), form, {
     forceFormData: true,
   });
 }

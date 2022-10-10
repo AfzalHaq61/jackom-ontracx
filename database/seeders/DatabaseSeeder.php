@@ -19,7 +19,10 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             RegionSeeder::class,
             UserSeeder::class,
-            ProviderSeeder::class
+            ProviderSeeder::class,
+            TowingSeeder::class,
+            BrandSeeder::class,
+            ModalSeeder::class
         ]);
     }
 }
