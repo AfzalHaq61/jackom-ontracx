@@ -29,11 +29,11 @@ class RequestServiceOneCreateRequest extends FormRequest
             'service_one_type' => 'required|exists:towings,id',
             'brand' => 'required|exists:brands,id',
             'modal' => 'required|exists:modals,id',
-            'color' => 'required|min:2|max:10|string',
-            'plate_number' => 'required|min:5|max:20|numeric',
+            'color' => 'required|min:2|string',
+            'plate_number' => 'required|min:5|numeric',
             'location_from' => 'required|min:7|max:30|string',
             'location_to' => 'required|min:7|max:30|string',
-            'upload_photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'upload_photo' => 'required|max:2048',
         ];
     }
 }

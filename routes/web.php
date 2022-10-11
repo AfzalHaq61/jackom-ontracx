@@ -106,32 +106,32 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::prefix('/request/service')->group(function () {
         Route::get('/one/create', RequestServiceOneCreateController::class)
             ->name('request.service.one.create');
-        Route::get('/one/store', RequestServiceOneStoreController::class)
+        Route::post('/one/store', RequestServiceOneStoreController::class)
             ->name('request.service.one.store');
 
         Route::get('/two/create', RequestServiceTwoCreateController::class)
             ->name('request.service.two.create');
-        Route::get('/two/store', RequestServiceTwoStoreController::class)
+        Route::post('/two/store', RequestServiceTwoStoreController::class)
             ->name('request.service.two.store');
 
         Route::get('/three/create', RequestServiceThreeCreateController::class)
             ->name('request.service.three.create');
-        Route::get('/three/store', RequestServiceThreeStoreController::class)
+        Route::post('/three/store', RequestServiceThreeStoreController::class)
             ->name('request.service.three.store');
 
         Route::get('/four-five/create', RequestServiceFourFiveCreateController::class)
             ->name('request.service.four-five.create');
-        Route::get('/four-five/store', RequestServiceFourFiveStoreController::class)
+        Route::post('/four-five/store', RequestServiceFourFiveStoreController::class)
             ->name('request.service.four-five.store');
 
         Route::get('/six/create', RequestServiceSixCreateController::class)
             ->name('request.service.six.create');
-        Route::get('/six/store', RequestServiceSixStoreController::class)
+        Route::post('/six/store', RequestServiceSixStoreController::class)
             ->name('request.service.six.store');
 
         Route::get('/sell-car/create', RequestServiceSellCarsCreateController::class)
             ->name('request.service.sell-car.create');
-        Route::get('/sell-car/store', RequestServiceSellCarsStoreController::class)
+        Route::post('/sell-car/store', RequestServiceSellCarsStoreController::class)
             ->name('request.service.sell-car.store');
     });
 

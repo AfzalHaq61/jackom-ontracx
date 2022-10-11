@@ -30,7 +30,7 @@ class RegesterCreateRequest extends FormRequest
             'last_name' => 'required|min:3|max:20|string',
             'country' => 'required|exists:countries,id',
             'city' => 'required|exists:cities,id',
-            'contact_number' => 'required|min:11|max:20|numeric',
+            'contact_number' => 'required|min:11|numeric',
             'email' => 'email|min:7|max:30|string',
             'password' => 'required|min:3|max:20',
             'confirm_password' => 'required|same:password|min:3|max:20',

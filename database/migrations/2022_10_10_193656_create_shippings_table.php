@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('plate_number');
             $table->string('location_from');
             $table->string('location_to');
-            $table->boolean('upload_photo');
+            $table->string('upload_photo');
             $table->timestamps();
         });
     }

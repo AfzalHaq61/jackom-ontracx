@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Request;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestServices\RequestServiceOneCreateRequest;
+use App\Models\Shipping;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class RequestServiceOneStoreController extends Controller
 {
@@ -20,7 +22,7 @@ class RequestServiceOneStoreController extends Controller
     {
         $data = $request->validated();
         try {
-            User::create([
+            Shipping::create([
                 'uuid' => $data['uuid'],
                 'service_one_type' => $data['service_one_type'],
                 'brand' => $data['brand'],
@@ -35,7 +37,7 @@ class RequestServiceOneStoreController extends Controller
             dd($e->getMessage());
         }
 
-        return Redirect(RouteServiceProvider::HOME)
-            ->with('success', "User Successfully created.");
+        return Redirect::route('request.service.one.create')
+            ->with('success', "Request Service One Successfully posted.");
     }
 }

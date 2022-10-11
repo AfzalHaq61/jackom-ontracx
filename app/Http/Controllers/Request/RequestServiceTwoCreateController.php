@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Request;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Modal;
+use App\Models\Towing;
 use Inertia\Inertia;
 
 class RequestServiceTwoCreateController extends Controller
@@ -15,7 +18,23 @@ class RequestServiceTwoCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceTwo')
+        return Inertia::render('Request/RequestServiceTwo', [
+            'towings' => Towing::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+            'brands' => Brand::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+            'modals' => Modal::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+        ])
             ->with('success_message', "Yay it worked");
     }
 }

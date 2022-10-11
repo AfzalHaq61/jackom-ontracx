@@ -8,9 +8,9 @@ use App\Models\Towing;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Shipping>
  */
-class RequestServiceOneFactory extends Factory
+class ShippingFactory extends Factory
 {
     /**
      * Define the model's default state.
