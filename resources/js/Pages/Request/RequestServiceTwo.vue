@@ -36,41 +36,69 @@
               </div>
               <div>
                 <div class="mb-[30px]">
-                  <SelectOptionField selectedOption="Type" name="choose_type">
-                    <h1 class="font-bold">Choose Service</h1>
+                  <SelectOptionField
+                    selectedOption="Select Type"
+                    name="service_two_type"
+                    v-model="form.service_two_type"
+                    :errors="errors.service_two_type"
+                    :dropdowns="carwashes"
+                  >
+                    Type
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
-                  <SelectOptionField selectedOption="Brand" name="choose_brand">
-                    <h1 class="font-bold">Choose Brand</h1>
+                  <SelectOptionField
+                    selectedOption="Select Brand"
+                    name="brand"
+                    v-model="form.brand"
+                    :errors="errors.brand"
+                    :dropdowns="brands"
+                  >
+                    Brand
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
-                  <SelectOptionField selectedOption="Type" name="choose_type">
-                    <h1 class="font-bold">Choose Type</h1>
-                  </SelectOptionField>
-                </div>
-                <div class="mb-[30px]">
-                  <SelectOptionField selectedOption="Model" name="choose_model">
-                    <h1 class="font-bold">Choose Model</h1>
+                  <SelectOptionField
+                    selectedOption="Select Modal"
+                    name="modal"
+                    v-model="form.modal"
+                    :errors="errors.modal"
+                    :dropdowns="modals"
+                  >
+                    Model
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="text"
-                    name="plate_number"
-                    placeholder="Plate Number"
+                    name="color"
+                    placeholder="Enter color"
+                    v-model="form.color"
+                    :errors="errors.color"
                   >
-                    <h1 class="font-bold">Plate Number</h1>
+                    Color
+                  </TextField>
+                </div>
+                <div class="mb-[30px]">
+                  <TextField
+                    fieldtype="text"
+                    name="plate_number"
+                    placeholder="Enter Plate Number"
+                    v-model="form.plate_number"
+                    :errors="errors.plate_number"
+                  >
+                    Plate Number
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="text"
                     name="location_from"
-                    placeholder="Location From"
+                    placeholder="Enter Location From"
+                    v-model="form.location_from"
+                    :errors="errors.location_from"
                   >
-                    <h1 class="font-bold">Location From</h1>
+                    Location From
                   </TextField>
                 </div>
               </div>
@@ -121,24 +149,23 @@ import { reactive } from "vue";
 
 const props = defineProps({
   errors: Object,
-  towings: Array,
+  carwashes: Array,
   brands: Array,
   modals: Array,
 });
 
 let form = reactive({
-  service_one_type: "",
+  service_two_type: "",
   brand: "",
   modal: "",
   color: "",
   plate_number: "",
   location_from: "",
-  location_to: "",
   upload_photo: "",
 });
 
 function submit() {
-  Inertia.post(route("request.service.one.store"), form, {
+  Inertia.post(route("request.service.two.store"), form, {
     forceFormData: true,
   });
 }

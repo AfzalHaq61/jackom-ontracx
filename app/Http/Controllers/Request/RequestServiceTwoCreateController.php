@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Carwash;
 use App\Models\Modal;
 use App\Models\Towing;
 use Inertia\Inertia;
@@ -19,7 +20,7 @@ class RequestServiceTwoCreateController extends Controller
     public function __invoke()
     {
         return Inertia::render('Request/RequestServiceTwo', [
-            'towings' => Towing::all()
+            'carwashes' => Carwash::all()
                 ->map(fn ($resource) => [
                     'id' => $resource->id,
                     'name' => $resource->name,

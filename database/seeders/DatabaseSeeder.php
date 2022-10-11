@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
             TowingSeeder::class,
             BrandSeeder::class,
             ModalSeeder::class,
-            RequestServiceOneSeeder::class
+            ShippingSeeder::class,
+            CarwashSeeder::class,
+            ReparingSeeder::class,
         ]);
     }
 }
