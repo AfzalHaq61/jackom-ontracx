@@ -1,5 +1,5 @@
 <template>
-  <Head title="Request Service 1" />
+  <Head title="Request Service One" />
 
   <div class="min-h-screen bg-[#FFFFFF] md:grid grid-cols-7">
     <!-- Home Left Index -->
@@ -81,7 +81,7 @@
                 </div>
                 <div class="mb-[30px]">
                   <TextField
-                    fieldtype="text"
+                    fieldtype="number"
                     name="plate_number"
                     placeholder="Enter Plate Number"
                     v-model="form.plate_number"

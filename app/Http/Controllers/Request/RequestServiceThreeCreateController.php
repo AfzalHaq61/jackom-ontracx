@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Request;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Modal;
+use App\Models\Spareparttype;
 use Inertia\Inertia;
 
 class RequestServiceThreeCreateController extends Controller
@@ -15,7 +18,23 @@ class RequestServiceThreeCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceThree')
+        return Inertia::render('Request/RequestServiceThree', [
+            'spareparttype' => Spareparttype::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+            'brands' => Brand::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+            'modals' => Modal::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+        ])
             ->with('success_message', "Yay it worked");
     }
 }

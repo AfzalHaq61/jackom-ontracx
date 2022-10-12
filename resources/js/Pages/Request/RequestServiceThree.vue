@@ -1,5 +1,5 @@
 <template>
-  <Head title="Request Service 7" />
+  <Head title="Request Service Three" />
 
   <div class="min-h-screen bg-[#FFFFFF] md:grid grid-cols-7">
     <!-- Home Left Index -->
@@ -38,10 +38,10 @@
                 <div class="mb-[30px]">
                   <SelectOptionField
                     selectedOption="Select Type"
-                    name="service_one_type"
-                    v-model="form.service_one_type"
-                    :errors="errors.service_one_type"
-                    :dropdowns="towings"
+                    name="service_three_type"
+                    v-model="form.service_three_type"
+                    :errors="errors.service_three_type"
+                    :dropdowns="spareparttype"
                   >
                     Type
                   </SelectOptionField>
@@ -136,7 +136,7 @@
                 </div>
               </div>
             </div>
-            <div class="mt-[67px]">
+            <div class="mt-[100px]">
               <div>
                 <ImageField />
               </div>
@@ -182,13 +182,13 @@ import { reactive } from "vue";
 
 const props = defineProps({
   errors: Object,
-  towings: Array,
+  spareparttype: Array,
   brands: Array,
   modals: Array,
 });
 
 let form = reactive({
-  service_one_type: "",
+  service_three_type: "",
   brand: "",
   modal: "",
   color: "",
@@ -201,7 +201,7 @@ let form = reactive({
 });
 
 function submit() {
-  Inertia.post(route("request.service.one.store"), form, {
+  Inertia.post(route("request.service.three.store"), form, {
     forceFormData: true,
   });
 }

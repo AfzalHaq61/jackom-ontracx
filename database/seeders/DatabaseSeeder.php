@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Sparepart;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +27,8 @@ class DatabaseSeeder extends Seeder
             ShippingSeeder::class,
             CarwashSeeder::class,
             ReparingSeeder::class,
+            SpareparttypeSeeder::class,
+            SparepartSeeder::class
         ]);
     }
 }

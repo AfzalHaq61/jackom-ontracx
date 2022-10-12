@@ -34,6 +34,6 @@ class RequestServiceTwoStoreController extends Controller
         }
 
         return Redirect::route('request.service.two.create')
-            ->with('success', "Request Service One Successfully posted.");
+            ->with('success', "Request Service Two Successfully posted.");
     }
 }
