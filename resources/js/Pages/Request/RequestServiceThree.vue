@@ -37,13 +37,13 @@
               <div>
                 <div class="mb-[30px]">
                   <SelectOptionField
-                    selectedOption="Select Type"
+                    selectedOption="Select Service Type"
                     name="service_three_type"
                     v-model="form.service_three_type"
                     :errors="errors.service_three_type"
                     :dropdowns="spareparttype"
                   >
-                    Type
+                    Service Type
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
@@ -150,23 +150,23 @@
                 </ImageFileField>
               </div>
             </div>
-            <div class="grid grid-cols-3">
-              <div
-                class="
-                  grid
-                  col-span-2
-                  justify-center
-                  bg-[#24C6C9]
-                  text-white
-                  rounded-lg
-                  md:mr-[40px]
-                  py-2
-                  mt-5
-                  mb-[100px]
-                "
-              >
-                <button type="submit">Post Request</button>
-              </div>
+          </div>
+          <div class="grid grid-cols-3">
+            <div
+              class="
+                grid
+                col-span-2
+                justify-center
+                bg-[#24C6C9]
+                text-white
+                rounded-lg
+                md:mr-[40px]
+                py-2
+                mt-5
+                mb-[100px]
+              "
+            >
+              <button type="submit">Post Request</button>
             </div>
           </div>
         </form>

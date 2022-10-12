@@ -37,13 +37,13 @@
               <div>
                 <div class="mb-[30px]">
                   <SelectOptionField
-                    selectedOption="Select Type"
+                    selectedOption="Select Service Type"
                     name="service_one_type"
                     v-model="form.service_one_type"
                     :errors="errors.service_one_type"
                     :dropdowns="towings"
                   >
-                    Type
+                    Service Type
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">

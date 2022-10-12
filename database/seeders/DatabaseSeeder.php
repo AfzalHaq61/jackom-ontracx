@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Sell;
+use App\Models\Sellcarsservice;
 use App\Models\Sparepart;
 use Illuminate\Database\Seeder;
 
@@ -28,7 +30,15 @@ class DatabaseSeeder extends Seeder
             CarwashSeeder::class,
             ReparingSeeder::class,
             SpareparttypeSeeder::class,
-            SparepartSeeder::class
+            SparepartSeeder::class,
+            CategorySeeder::class,
+            DeportationSeeder::class,
+            FueltypeSeeder::class,
+            HouseholdSeeder::class,
+            KindSeeder::class,
+            SellSeeder::class,
+            ShippingtypeSeeder::class,
+            TransmissiontypeSeeder::class
         ]);
     }
 }
