@@ -18,8 +18,8 @@ return new class extends Migration
             $table->uuid()->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('country');
-            $table->string('city');
+            $table->foreignId('country')->constrained('countries')->cascadeOnDelete();
+            $table->foreignId('city')->constrained('cities')->cascadeOnDelete();
             $table->string('contact_number');
             $table->string('email')->unique();
             $table->string('password');

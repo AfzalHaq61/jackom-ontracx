@@ -28,7 +28,7 @@ class RegionSeeder extends Seeder
     {
         return collect([
             [
-                'name' => 'Regions of the Kingdom',
+                'name' => 'Riyadh',
             ],
             [
                 'name' => 'Makkah Al-Mukarramah',
