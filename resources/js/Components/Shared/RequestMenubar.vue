@@ -3,60 +3,60 @@
     <div
       class="text-[#858585] hover:text-black font-semibold mr-[50px]"
       :class="{
-        'text-black font-bold': $page.component.startsWith('RequestService1'),
+        'text-black font-bold': $page.component.startsWith('Request/RequestServiceOne'),
       }"
     >
-      <Link href="/request-Service-1">
+      <Link :href="route('request.service.one.create')">
         <h1>Towing</h1>
       </Link>
     </div>
     <div
       class="text-[#858585] hover:text-black font-semibold mr-[50px]"
       :class="{
-        'text-black font-bold': $page.component.startsWith('RequestService2'),
+        'text-black font-bold': $page.component.startsWith('Request/RequestServiceTwo'),
       }"
     >
-      <Link href="/request-Service-2">
+      <Link :href="route('request.service.two.create')">
         <h1>Repairing</h1>
       </Link>
     </div>
     <div
       class="text-[#858585] hover:text-black font-semibold mr-[50px]"
       :class="{
-        'text-black font-bold': $page.component.startsWith('RequestService7'),
+        'text-black font-bold': $page.component.startsWith('Request/RequestServiceThree'),
       }"
     >
-      <Link href="/request-Service-7">
+      <Link :href="route('request.service.three.create')">
         <h1>Spare Parts</h1>
       </Link>
     </div>
     <div
       class="text-[#858585] hover:text-black font-semibold mr-[50px]"
       :class="{
-        'text-black font-bold': $page.component.startsWith('RequestService4,5'),
+        'text-black font-bold': $page.component.startsWith('Request/RequestServiceFourFive'),
       }"
     >
-      <Link href="/request-Service-4,5">
+      <Link :href="route('request.service.four-five.create')">
         <h1>Baggage Transfer</h1>
       </Link>
     </div>
     <div
       class="text-[#858585] hover:text-black font-semibold mr-[50px]"
       :class="{
-        'text-black font-bold': $page.component.startsWith('RequestService6'),
+        'text-black font-bold': $page.component.startsWith('Request/RequestServiceSix'),
       }"
     >
-      <Link href="/request-Service-6">
+      <Link :href="route('request.service.six.create')">
         <h1>Delivery</h1>
       </Link>
     </div>
     <div
       class="text-[#858585] hover:text-black font-semibold"
       :class="{
-        'text-black font-bold': $page.component.startsWith('SellCars'),
+        'text-black font-bold': $page.component.startsWith('Request/RequestServiceSellCars'),
       }"
     >
-      <Link href="/sell-car">
+      <Link :href="route('request.service.sell-car.create')">
         <h1>Selling Cars</h1>
       </Link>
     </div>

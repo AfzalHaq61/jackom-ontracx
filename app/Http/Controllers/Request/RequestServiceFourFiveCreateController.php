@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Request;
 
 use App\Http\Controllers\Controller;
+use App\Models\Deportation;
+use App\Models\Shippingtype;
 use Inertia\Inertia;
 
 class RequestServiceFourFiveCreateController extends Controller
@@ -15,7 +17,18 @@ class RequestServiceFourFiveCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceFourFive')
+        return Inertia::render('Request/RequestServiceFourFive', [
+            'deportations' => Deportation::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+            'shippingtypes' => Shippingtype::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+        ])
         ->with('success_message', "Yay it worked");
     }
 }

@@ -12,7 +12,7 @@
       </div>
       <div class="grid justify-center mb-12">
         <div class="grid justify-center mb-12">
-          <img class="w-28" src="images/logo.png" alt="" />
+          <img class="w-28" src="/images/logo.png" alt="" />
         </div>
         <div class="grid justify-center text-white">
           <div
@@ -96,7 +96,7 @@
       </div>
     </div>
     <!-- menubar -->
-    <div class="flex justify-between py-[20px] px-[20px]">
+    <div class="flex justify-between bg-[#24C6C9] py-[20px] px-[20px]">
       <div
         class="md:hidden cursor-pointer top-[23px] z-10"
         @click="open = true"
@@ -105,7 +105,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          class="w-6 h-6 fill-white"
+          class="w-6 h-6 fill-black"
         >
           <path
             fill-rule="evenodd"
@@ -115,7 +115,7 @@
         </svg>
       </div>
       <div class="md:flex md:items-center w-[60px]">
-        <img src="images/logo.png" alt="logo" />
+        <img src="/images/logo.png" alt="logo" />
       </div>
       <div
         class="md:hidden cursor-pointer top-[23px] z-10"
@@ -125,7 +125,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          class="w-6 h-6 fill-white"
+          class="w-6 h-6 fill-black"
         >
           <path
             fill-rule="evenodd"
@@ -150,10 +150,12 @@
           py-2
         "
         :class="{
-          'text-black font-bold': $page.component.startsWith('RequestService1'),
+          'text-black font-bold': $page.component.startsWith(
+            'Request/RequestServiceOne'
+          ),
         }"
       >
-        <Link href="/request-Service-1">
+        <Link :href="route('request.service.one.create')">
           <h1>Towing</h1>
         </Link>
       </div>
@@ -167,10 +169,12 @@
           py-2
         "
         :class="{
-          'text-black font-bold': $page.component.startsWith('RequestService2'),
+          'text-black font-bold': $page.component.startsWith(
+            'Request/RequestServiceTwo'
+          ),
         }"
       >
-        <Link href="/request-Service-2">
+        <Link :href="route('request.service.two.create')">
           <h1>Repairing</h1>
         </Link>
       </div>
@@ -184,10 +188,12 @@
           py-2
         "
         :class="{
-          'text-black font-bold': $page.component.startsWith('RequestService7'),
+          'text-black font-bold': $page.component.startsWith(
+            'Request/RequestServiceThree'
+          ),
         }"
       >
-        <Link href="/request-Service-7">
+        <Link :href="route('request.service.three.create')">
           <h1>Spare Parts</h1>
         </Link>
       </div>
@@ -201,11 +207,12 @@
           py-2
         "
         :class="{
-          'text-black font-bold':
-            $page.component.startsWith('RequestService4,5'),
+          'text-black font-bold': $page.component.startsWith(
+            'Request/RequestServiceFourFive'
+          ),
         }"
       >
-        <Link href="/request-Service-4,5">
+        <Link :href="route('request.service.four-five.create')">
           <h1>Baggage Transfer</h1>
         </Link>
       </div>
@@ -219,10 +226,12 @@
           py-2
         "
         :class="{
-          'text-black font-bold': $page.component.startsWith('RequestService6'),
+          'text-black font-bold': $page.component.startsWith(
+            'Request/RequestServiceSix'
+          ),
         }"
       >
-        <Link href="/request-Service-6">
+        <Link :href="route('request.service.six.create')">
           <h1>Delivery</h1>
         </Link>
       </div>
@@ -236,10 +245,12 @@
           py-2
         "
         :class="{
-          'text-black font-bold': $page.component.startsWith('SellCars'),
+          'text-black font-bold': $page.component.startsWith(
+            'Request/RequestServiceSellCars'
+          ),
         }"
       >
-        <Link href="/sell-car">
+        <Link :href="route('request.service.sell-car.create')">
           <h1>Selling Cars</h1>
         </Link>
       </div>
@@ -248,7 +259,7 @@
   </div>
   <div class="hidden md:inline bg-[#24C6C9] rounded-r-[26px]">
     <div class="grid justify-center mt-10 mb-12">
-      <img class="w-28" src="images/logo.png" alt="" />
+      <img class="w-28" src="/images/logo.png" alt="" />
     </div>
     <div class="grid justify-center text-white">
       <div

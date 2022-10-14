@@ -43,7 +43,7 @@
                     name="service_fourfive_type"
                     v-model="form.service_fourfive_type"
                     :errors="errors.service_fourfive_type"
-                    :dropdowns="towings"
+                    :dropdowns="deportations"
                   >
                     Service Type
                   </SelectOptionField>
@@ -54,7 +54,7 @@
                     name="shipping_type"
                     v-model="form.shipping_type"
                     :errors="errors.shipping_type"
-                    :dropdowns="towings"
+                    :dropdowns="shippingtypes"
                   >
                     Shipping Type
                   </SelectOptionField>
@@ -151,9 +151,8 @@ import { reactive } from "vue";
 
 const props = defineProps({
   errors: Object,
-  towings: Array,
-  brands: Array,
-  modals: Array,
+  deportations: Array,
+  shippingtypes: Array,
 });
 
 let form = reactive({
@@ -167,7 +166,7 @@ let form = reactive({
 });
 
 function submit() {
-  Inertia.post(route("request.service.one.store"), form, {
+  Inertia.post(route("request.service.four-five.store"), form, {
     forceFormData: true,
   });
 }

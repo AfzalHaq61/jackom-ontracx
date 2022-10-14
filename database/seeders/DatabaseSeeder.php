@@ -38,7 +38,10 @@ class DatabaseSeeder extends Seeder
             KindSeeder::class,
             SellSeeder::class,
             ShippingtypeSeeder::class,
-            TransmissiontypeSeeder::class
+            TransmissiontypeSeeder::class,
+            BuggageSeeder::class,
+            DeliverySeeder::class,
+            CarSeeder::class
         ]);
     }
 }

@@ -28,13 +28,61 @@ class RegionSeeder extends Seeder
     {
         return collect([
             [
-                'name' => 'Malakand',
+                'name' => 'Regions of the Kingdom',
             ],
             [
-                'name' => 'Kohat',
+                'name' => 'Makkah Al-Mukarramah',
             ],
             [
-                'name' => 'Mardan',
+                'name' => 'Al-Madinah Al-Munawwarah',
+            ],
+            [
+                'name' => 'Al-Qassim',
+            ],
+            [
+                'name' => 'Eastern',
+            ],
+            [
+                'name' => 'Asir',
+            ],
+            [
+                'name' => 'Tabuk',
+            ],
+            [
+                'name' => 'Hail',
+            ],
+            [
+                'name' => 'Northern Border',
+            ],
+            [
+                'name' => 'Jazan',
+            ],
+            [
+                'name' => 'Najran',
+            ],
+            [
+                'name' => 'Al Baha',
+            ],
+            [
+                'name' => 'Al-Jawf',
+            ],
+            [
+                'name' => 'Farasan Island',
+            ],
+            [
+                'name' => 'Al Saqid',
+            ],
+            [
+                'name' => 'Qammah',
+            ],
+            [
+                'name' => 'Abu Ali',
+            ],
+            [
+                'name' => 'Tarot',
+            ],
+            [
+                'name' => 'Paradise',
             ],
         ]);
     }

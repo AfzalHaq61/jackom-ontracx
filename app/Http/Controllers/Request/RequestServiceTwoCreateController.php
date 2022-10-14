@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Carwash;
 use App\Models\Modal;
-use App\Models\Towing;
 use Inertia\Inertia;
 
 class RequestServiceTwoCreateController extends Controller

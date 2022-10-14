@@ -26,7 +26,7 @@ class RequestServiceThreeCreateRequest extends FormRequest
     {
         return [
             'uuid' => 'required|uuid',
-            'service_three_type' => 'required|exists:towings,id',
+            'service_three_type' => 'required|exists:sparepartstypes,id',
             'brand' => 'required|exists:brands,id',
             'modal' => 'required|exists:modals,id',
             'color' => 'required|min:2|string',

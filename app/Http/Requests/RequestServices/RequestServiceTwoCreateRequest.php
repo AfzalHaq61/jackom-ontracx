@@ -26,7 +26,7 @@ class RequestServiceTwoCreateRequest extends FormRequest
     {
         return [
             'uuid' => 'required|uuid',
-            'service_two_type' => 'required|exists:towings,id',
+            'service_two_type' => 'required|exists:carwashes,id',
             'brand' => 'required|exists:brands,id',
             'modal' => 'required|exists:modals,id',
             'color' => 'required|min:2|string',

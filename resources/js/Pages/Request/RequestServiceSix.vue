@@ -43,7 +43,7 @@
                     name="service_six_type"
                     v-model="form.service_six_type"
                     :errors="errors.service_six_type"
-                    :dropdowns="towings"
+                    :dropdowns="households"
                   >
                     Service Type
                   </SelectOptionField>
@@ -54,7 +54,7 @@
                     name="kind"
                     v-model="form.kind"
                     :errors="errors.kind"
-                    :dropdowns="towings"
+                    :dropdowns="kinds"
                   >
                     What Kind
                   </SelectOptionField>
@@ -129,9 +129,8 @@ import { reactive } from "vue";
 
 const props = defineProps({
   errors: Object,
-  towings: Array,
-  brands: Array,
-  modals: Array,
+  households: Array,
+  kinds: Array,
 });
 
 let form = reactive({
@@ -143,7 +142,7 @@ let form = reactive({
 });
 
 function submit() {
-  Inertia.post(route("request.service.one.store"), form, {
+  Inertia.post(route("request.service.six.store"), form, {
     forceFormData: true,
   });
 }

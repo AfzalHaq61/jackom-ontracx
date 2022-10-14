@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Request;
 
 use App\Http\Controllers\Controller;
+use App\Models\Household;
+use App\Models\Kind;
 use Inertia\Inertia;
 
 class RequestServiceSixCreateController extends Controller
@@ -15,7 +17,18 @@ class RequestServiceSixCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceSix')
+        return Inertia::render('Request/RequestServiceSix', [
+            'households' => Household::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+            'kinds' => Kind::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+        ])
             ->with('success_message', "Yay it worked");
     }
 }

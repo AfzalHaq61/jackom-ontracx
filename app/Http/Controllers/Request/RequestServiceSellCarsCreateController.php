@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Request;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Fueltype;
+use App\Models\Sell;
+use App\Models\Transmissiontype;
 use Inertia\Inertia;
 
 class RequestServiceSellCarsCreateController extends Controller
@@ -15,7 +19,28 @@ class RequestServiceSellCarsCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceSellCars')
+        return Inertia::render('Request/RequestServiceSellCars', [
+            'sells' => Sell::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+            'categories' => Category::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+            'fueltypes' => Fueltype::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+            'transmissiontypes' => Transmissiontype::all()
+                ->map(fn ($resource) => [
+                    'id' => $resource->id,
+                    'name' => $resource->name,
+                ]),
+        ])
             ->with('success_message', "Yay it worked");
     }
 }

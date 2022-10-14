@@ -41,7 +41,7 @@
                     name="service_sellcars_type"
                     v-model="form.service_sellcars_type"
                     :errors="errors.service_sellcars_type"
-                    :dropdowns="towings"
+                    :dropdowns="sells"
                   >
                     Service Type
                   </SelectOptionField>
@@ -52,9 +52,9 @@
                     name="category"
                     v-model="form.category"
                     :errors="errors.category"
-                    :dropdowns="towings"
+                    :dropdowns="categories"
                   >
-                  Category
+                    Category
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
@@ -65,7 +65,7 @@
                     v-model="form.manufacturing_year"
                     :errors="errors.manufacturing_year"
                   >
-                  Manufacturing Year
+                    Manufacturing Year
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -76,7 +76,7 @@
                     v-model="form.regional_specification"
                     :errors="errors.regional_specification"
                   >
-                  Regional Specification
+                    Regional Specification
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -87,7 +87,7 @@
                     v-model="form.paint"
                     :errors="errors.paint"
                   >
-                  Paint
+                    Paint
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -98,7 +98,7 @@
                     v-model="form.chasis_case"
                     :errors="errors.chasis_case"
                   >
-                  Chasis Case
+                    Chasis Case
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -109,7 +109,7 @@
                     v-model="form.kilo_meters"
                     :errors="errors.kilo_meters"
                   >
-                  Kilo Meters
+                    Kilo Meters
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -120,7 +120,7 @@
                     v-model="form.color"
                     :errors="errors.color"
                   >
-                  Color
+                    Color
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -129,18 +129,18 @@
                     name="fuel_type"
                     v-model="form.fuel_type"
                     :errors="errors.fuel_type"
-                    :dropdowns="towings"
+                    :dropdowns="fueltypes"
                   >
                     Fuel Type
                   </SelectOptionField>
                 </div>
                 <div class="mb-[30px]">
                   <SelectOptionField
-                    selectedOption="Select Transmision Type"
-                    name="transmision_type"
-                    v-model="form.transmision_type"
-                    :errors="errors.transmision_type"
-                    :dropdowns="towings"
+                    selectedOption="Select Transmission Type"
+                    name="transmission_type"
+                    v-model="form.transmission_type"
+                    :errors="errors.transmission_type"
+                    :dropdowns="transmissiontypes"
                   >
                     Transmision Type
                   </SelectOptionField>
@@ -224,7 +224,7 @@
                     v-model="form.name"
                     :errors="errors.name"
                   >
-                  Name
+                    Name
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -235,7 +235,7 @@
                     v-model="form.description"
                     :errors="errors.description"
                   >
-                  Description
+                    Description
                   </DescriptionTextField>
                 </div>
                 <div class="mb-[30px]">
@@ -246,9 +246,9 @@
                     v-model="form.price"
                     :errors="errors.price"
                   >
-                  Price
+                    Price
                   </TextField>
-                </div>                
+                </div>
                 <div class="mb-[30px]">
                   <TextField
                     fieldtype="number"
@@ -257,7 +257,7 @@
                     v-model="form.location"
                     :errors="errors.location"
                   >
-                  Location
+                    Location
                   </TextField>
                 </div>
               </div>
@@ -308,9 +308,10 @@ import { reactive } from "vue";
 
 const props = defineProps({
   errors: Object,
-  towings: Array,
-  brands: Array,
-  modals: Array,
+  sells: Array,
+  categories: Array,
+  fueltypes: Array,
+  transmissiontypes: Array,
 });
 
 let form = reactive({
@@ -323,7 +324,7 @@ let form = reactive({
   kilo_meters: "",
   color: "",
   fuel_type: "",
-  transmision_type: "",
+  transmission_type: "",
   name: "",
   description: "",
   price: "",
@@ -332,7 +333,7 @@ let form = reactive({
 });
 
 function submit() {
-  Inertia.post(route("request.service.one.store"), form, {
+  Inertia.post(route("request.service.sell-car.store"), form, {
     forceFormData: true,
   });
 }
