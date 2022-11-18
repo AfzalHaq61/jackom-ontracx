@@ -26,8 +26,8 @@ class RequestServiceSixCreateRequest extends FormRequest
     {
         return [
             'uuid' => 'required|uuid',
-            'service_six_type' => 'required|exists:households,id',
-            'kind' => 'required|exists:kinds,id',
+            'service_six_type' => 'required',
+            'kind' => 'required',
             'my_location' => 'required|min:7|max:30|string',
             'to_location' => 'required|min:7|max:30|string',
             'upload_photo' => 'required|max:2048',

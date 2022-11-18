@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Region;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
@@ -26,8 +27,8 @@ class UserSeeder extends Seeder
                         'uuid' => $status['uuid'],
                         'first_name' => $status['first_name'],
                         'last_name' => $status['last_name'],
-                        'country' => $status['country'],
-                        'city' => $status['city'],
+                        'region_id' => $status['region_id'],
+                        'city_id' => $status['city_id'],
                         'contact_number' => $status['contact_number'],
                         'email' => $status['email'],
                         'password' => $status['password'],
@@ -43,8 +44,8 @@ class UserSeeder extends Seeder
                 'uuid' => Str::uuid()->tostring(),
                 'first_name' => 'Afzal',
                 'last_name' => 'Haq',
-                'country' => Country::first()->id,
-                'city' => City::first()->id,
+                'region_id' => Region::first()->id,
+                'city_id' => City::first()->id,
                 'contact_number' => '034567890',
                 'email' => 'afzal100@gmail.com',
                 'password' => Hash::make('afzal100'),
@@ -54,19 +55,19 @@ class UserSeeder extends Seeder
                 'uuid' => Str::uuid()->tostring(),
                 'first_name' => 'Abdul',
                 'last_name' => 'Haq',
-                'country' => Country::first()->id,
-                'city' => City::first()->id,
+                'region_id' => Region::first()->id,
+                'city_id' => City::first()->id,
                 'contact_number' => '03389898765',
                 'email' => 'afzal200@gmail.com',
                 'password' => Hash::make('afzal200'),
-                'checkbox' => true,
+                'checkbox' => false,
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
                 'first_name' => 'Salam',
                 'last_name' => 'Jan',
-                'country' => Country::first()->id,
-                'city' => City::first()->id,
+                'region_id' => Region::first()->id,
+                'city_id' => City::first()->id,
                 'contact_number' => '03429837680',
                 'email' => 'afzal300@gmail.com',
                 'password' => Hash::make('afzal200'),

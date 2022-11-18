@@ -14,6 +14,9 @@ use App\Http\Controllers\Auth\User\UserForgotPasswordStoreController;
 use App\Http\Controllers\Auth\User\UserResetPasswordCreateController;
 use App\Http\Controllers\Auth\User\UserResetPasswordStoreController;
 use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\Provider\ProviderDetailController;
+use App\Http\Controllers\Provider\ProviderOfferController;
+use App\Http\Controllers\Provider\ProviderRequestController;
 use App\Http\Controllers\Request\RequestServiceFourFiveCreateController;
 use App\Http\Controllers\Request\RequestServiceFourFiveStoreController;
 use App\Http\Controllers\Request\RequestServiceOneCreateController;
@@ -26,6 +29,14 @@ use App\Http\Controllers\Request\RequestServiceThreeCreateController;
 use App\Http\Controllers\Request\RequestServiceThreeStoreController;
 use App\Http\Controllers\Request\RequestServiceTwoCreateController;
 use App\Http\Controllers\Request\RequestServiceTwoStoreController;
+use App\Http\Controllers\User\Order\UserOrderStoreController;
+use App\Http\Controllers\User\Profile\UserProfileEditController as ProfileUserProfileEditController;
+use App\Http\Controllers\User\Profile\UserProfileUpdateController as ProfileUserProfileUpdateController;
+use App\Http\Controllers\User\UserProfileEditController;
+use App\Http\Controllers\User\UserProfileUpdateController;
+use App\Http\Controllers\User\UserRequestController;
+use App\Http\Controllers\User\UserRequestIndexController;
+use App\Http\Requests\Auth\RegesterCreateRequest;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -95,121 +106,104 @@ Route::get('/terms&conditions', function () {
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
 
-    // User Request Services
+    // User Routes
 
-    Route::prefix('/request/service')->group(function () {
-        Route::get('/one/create', RequestServiceOneCreateController::class)
-            ->name('request.service.one.create');
-        Route::post('/one/store', RequestServiceOneStoreController::class)
-            ->name('request.service.one.store');
+    Route::prefix('/user')->group(function () {
 
-        Route::get('/two/create', RequestServiceTwoCreateController::class)
-            ->name('request.service.two.create');
-        Route::post('/two/store', RequestServiceTwoStoreController::class)
-            ->name('request.service.two.store');
+        Route::get('/home', UserHomeController::class)
+            ->name('user.home');
 
-        Route::get('/three/create', RequestServiceThreeCreateController::class)
-            ->name('request.service.three.create');
-        Route::post('/three/store', RequestServiceThreeStoreController::class)
-            ->name('request.service.three.store');
+        Route::get('/all-services', UserAllServicesController::class)
+            ->name('user.all-services');
 
-        Route::get('/four-five/create', RequestServiceFourFiveCreateController::class)
-            ->name('request.service.four-five.create');
-        Route::post('/four-five/store', RequestServiceFourFiveStoreController::class)
-            ->name('request.service.four-five.store');
+        Route::get('/request/index', UserRequestIndexController::class)
+            ->name('user.request.index');
 
-        Route::get('/six/create', RequestServiceSixCreateController::class)
-            ->name('request.service.six.create');
-        Route::post('/six/store', RequestServiceSixStoreController::class)
-            ->name('request.service.six.store');
+        Route::get('/request/{request:id}', UserRequestController::class)
+            ->name('user.request');
 
-        Route::get('/sell-car/create', RequestServiceSellCarsCreateController::class)
-            ->name('request.service.sell-car.create');
-        Route::post('/sell-car/store', RequestServiceSellCarsStoreController::class)
-            ->name('request.service.sell-car.store');
+        Route::get('/order', UserOrderController::class)
+            ->name('user.order');
+
+        Route::get('/order/{offer:uuid}/store', UserOrderStoreController::class)
+            ->name('user.order.store');
+
+        // Route::get('/chat', UserChatController::class)
+        //     ->name('user.chat');
+
+        Route::get('/chat/create', UserChatCreateController::class)
+            ->name('user.chat');
+
+        Route::post('/chat/{user:id}/store', UserChatStoreController::class)
+            ->name('user.chat.store');
+
+        Route::get('/wallet', UserWalletController::class)
+            ->name('user.wallet');
+
+        Route::get('/profile/edit', ProfileUserProfileEditController::class)
+            ->name('user.profile.edit');
+
+        Route::put('/profile/{user:uuid}/update', ProfileUserProfileUpdateController::class)
+            ->name('user.profile.update');
     });
 
-    // Login System
-    Route::get('/forgot-password', function () {
-        return Inertia::render('Auth/User/Forgot');
-    })->name('forgotpassword');
+    // User Request Services
 
-    Route::get('/password-verification', function () {
-        return Inertia::render('PasswordVerification');
-    })->name('passwordverification');
+    Route::prefix('user/request-service')->group(function () {
+        Route::get('/one/create', RequestServiceOneCreateController::class)
+            ->name('user.request-service.one.create');
+        Route::post('/one/store', RequestServiceOneStoreController::class)
+            ->name('user.request-service.one.store');
 
-    Route::get('/new-password', function () {
-        return Inertia::render('NewPassword');
-    })->name('newpassword');
-    // Home
+        Route::get('/two/create', RequestServiceTwoCreateController::class)
+            ->name('user.request-service.two.create');
+        Route::post('/two/store', RequestServiceTwoStoreController::class)
+            ->name('user.request-service.two.store');
 
-    Route::get('/home', function () {
-        return Inertia::render('Home');
-    })->name('home');
+        Route::get('/three/create', RequestServiceThreeCreateController::class)
+            ->name('user.request-service.three.create');
+        Route::post('/three/store', RequestServiceThreeStoreController::class)
+            ->name('user.request-service.three.store');
 
-    Route::get('/request', function () {
-        return Inertia::render('Request');
-    })->name('request');
+        Route::get('/four-five/create', RequestServiceFourFiveCreateController::class)
+            ->name('user.request-service.four-five.create');
+        Route::post('/four-five/store', RequestServiceFourFiveStoreController::class)
+            ->name('user.request-service.four-five.store');
 
-    Route::get('/providers-profile', function () {
-        return Inertia::render('ProvidersProfile');
-    })->name('providers-profile');
+        Route::get('/six/create', RequestServiceSixCreateController::class)
+            ->name('user.request-service.six.create');
+        Route::post('/six/store', RequestServiceSixStoreController::class)
+            ->name('user.request-service.six.store');
 
-    Route::get('/wallet', function () {
-        return Inertia::render('Wallet');
-    })->name('wallet');
+        Route::get('/sell-car/create', RequestServiceSellCarsCreateController::class)
+            ->name('user.request-service.sell-car.create');
+        Route::post('/sell-car/store', RequestServiceSellCarsStoreController::class)
+            ->name('user.request-service.sell-car.store');
+    });
 
-    Route::get('/profile', function () {
-        return Inertia::render('Profile');
-    })->name('profile');
+    // Provider Routes
 
-    Route::get('/chat', function () {
-        return Inertia::render('Chat');
-    })->name('chat');
+    Route::prefix('/provider')->group(function () {
+        // Provider Requests
+        Route::prefix('/request')->group(function () {
 
-    Route::get('/your-orders', function () {
-        return Inertia::render('YourOrders');
-    })->name('your-orders');
+            Route::get('/', ProviderRequestController::class)
+                ->name('provider.request');
+            Route::get('/{request:uuid}/details', ProviderDetailController::class)
+                ->name('provider.request.details');
+        });
+        // Provider Offers
+        Route::prefix('/offer')->group(function () {
+            Route::get('/', ProviderOfferController::class)
+                ->name('provider.offer');
 
-    Route::get('/sell-car', function () {
-        return Inertia::render('SellCars');
-    })->name('sell-car');
+            Route::get('/{request:uuid}/create', SendOfferCreateController::class)
+                ->name('provider.offer.create');
 
-    Route::get('/all-services', function () {
-        return Inertia::render('AllServices');
-    })->name('allServices');
-
-    // Requests
-
-    Route::get('/request-Service-1', function () {
-        return Inertia::render('RequestService1');
-    })->name('requestService1');
-
-    Route::get('/request-Service-2', function () {
-        return Inertia::render('RequestService2');
-    })->name('requestService2');
-
-    Route::get('/request-Service-3', function () {
-        return Inertia::render('RequestService3');
-    })->name('requestService3');
-
-    Route::get('/request-Service-4,5', function () {
-        return Inertia::render('RequestService4,5');
-    })->name('requestService4,5');
-
-    Route::get('/request-Service-6', function () {
-        return Inertia::render('RequestService6');
-    })->name('requestService6');
-
-    Route::get('/request-Service-7', function () {
-        return Inertia::render('RequestService7');
-    })->name('requestService7');
-
-    Route::get('/practice', function () {
-        return Inertia::render('Practice');
-    })->name('practice');
-
-    // Provider
+            Route::post('/store', SendOfferStoreController::class)
+                ->name('provider.offer.store');
+        });
+    });
 
     Route::get('/signup-provider', function () {
         return Inertia::render('ProviderSignup');
@@ -219,13 +213,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         return Inertia::render('ProviderHome');
     })->name('provider.home');
 
-    Route::get('/request-details', function () {
-        return Inertia::render('RequestDetails');
-    })->name('requestdetails');
-
-    Route::get('/send-offer', function () {
-        return Inertia::render('SendOffer');
-    })->name('send-offer');
+    Route::get('/providers-profile', function () {
+        return Inertia::render('ProvidersProfile');
+    })->name('providers-profile');
 
     Route::get('/profile-provider', function () {
         return Inertia::render('ProfileProvider');
@@ -247,20 +237,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         return Inertia::render('WreckedCarsDetails');
     })->name('wrecked_cars_details');
 
-    Route::get('/request-provider', function () {
-        return Inertia::render('RequestProvider');
-    })->name('request-provider');
-
     Route::get('/chat-provider', function () {
         return Inertia::render('ChatProvider');
     })->name('chatProvider');
 
     Route::get('/your-orders-provider', function () {
         return Inertia::render('YourOrdersProvider');
-    })->name('your-ordersProvider');
-
-    Route::get('/your-offers-provider', function () {
-        return Inertia::render('YourOffersProvider');
     })->name('your-ordersProvider');
 
     Route::get('/wallet-provider', function () {
@@ -309,3 +291,16 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         return Inertia::render('Transactions');
     })->name('transactions');
 });
+
+Route::get('/fileupload', function () {
+    return Inertia::render('FileUpload');
+})->name('fileupload');
+
+Route::get('/upload', FileUploadController::class)
+    ->name('upload');
+
+Route::get('/chat', [ChatsController::class, 'index']);
+Route::get('/messages', [ChatsController::class, 'fetchMessages']);
+Route::post('/messages', [ChatsController::class, 'sendMessage']);
+
+Route::post('/messages', [ChatsController::class, 'sendMessage']);

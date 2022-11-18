@@ -41,7 +41,12 @@ class DatabaseSeeder extends Seeder
             TransmissiontypeSeeder::class,
             BuggageSeeder::class,
             DeliverySeeder::class,
-            CarSeeder::class
+            CarSeeder::class,
+            ServiceSeeder::class,
+            RequestSeeder::class,
+            OfferSeeder::class,
+            OrderSeeder::class,
+            MessegeSeeder::class
         ]);
     }
 }

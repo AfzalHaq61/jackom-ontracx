@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->uuid()->unique();
-            $table->foreignId('service_sellcars_type')->constrained('sells')->cascadeOnDelete();
-            $table->foreignId('category')->constrained('categories')->cascadeOnDelete();
+            $table->string('service_sellcars_type');
+            $table->string('category');
             $table->integer('manufacturing_year');
             $table->string('regional_specification');
             $table->string('paint');
             $table->string('chasis_case');
             $table->integer('kilo_meters');
             $table->string('color');
-            $table->foreignId('fuel_type')->constrained('fueltypes')->cascadeOnDelete();
-            $table->foreignId('transmission_type')->constrained('transmissiontypes')->cascadeOnDelete();
+            $table->string('fuel_type');
+            $table->string('transmission_type');
             $table->string('name');
             $table->string('description');
             $table->integer('price');

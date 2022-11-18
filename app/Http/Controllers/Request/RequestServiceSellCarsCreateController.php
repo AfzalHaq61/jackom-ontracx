@@ -19,7 +19,7 @@ class RequestServiceSellCarsCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceSellCars', [
+        return Inertia::render('User/Request/RequestServiceSellCars', [
             'sells' => Sell::all()
                 ->map(fn ($resource) => [
                     'id' => $resource->id,

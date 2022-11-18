@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('shippings', function (Blueprint $table) {
             $table->uuid()->unique();
-            $table->foreignId('service_one_type')->constrained('towings')->cascadeOnDelete();
-            $table->foreignId('brand')->constrained('brands')->cascadeOnDelete();
-            $table->foreignId('modal')->constrained('modals')->cascadeOnDelete();
+            $table->string('service_one_type');
+            $table->string('brand');
+            $table->string('modal');
             $table->string('color');
             $table->integer('plate_number');
+            $table->integer('copy_of_regestration');
             $table->string('location_from');
             $table->string('location_to');
             $table->string('upload_photo');

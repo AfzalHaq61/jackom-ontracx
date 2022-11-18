@@ -18,7 +18,7 @@ class RequestServiceTwoCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceTwo', [
+        return Inertia::render('User/Request/RequestServiceTwo', [
             'carwashes' => Carwash::all()
                 ->map(fn ($resource) => [
                     'id' => $resource->id,

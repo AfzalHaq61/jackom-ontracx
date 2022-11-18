@@ -17,7 +17,7 @@ class RequestServiceSixCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceSix', [
+        return Inertia::render('User/Request/RequestServiceSix', [
             'households' => Household::all()
                 ->map(fn ($resource) => [
                     'id' => $resource->id,
@@ -28,6 +28,7 @@ class RequestServiceSixCreateController extends Controller
                     'id' => $resource->id,
                     'name' => $resource->name,
                 ]),
+                'dummy' => 'dummy',
         ])
             ->with('success_message', "Yay it worked");
     }

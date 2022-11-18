@@ -12,73 +12,81 @@
       </div>
       <div class="grid justify-center mb-12">
         <div class="grid justify-center mb-12">
-          <img class="w-28" src="images/logo.png" alt="" />
+          <img class="w-28" src="/images/logo.png" alt="" />
         </div>
         <div class="grid justify-center text-white">
           <div
             class="mb-[26px] pl-[15px]"
             :class="{
               'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-                $page.component.startsWith('Home'),
+                $page.component.startsWith('UserHome'),
             }"
           >
             <div>
-              <Link class="text-[18px]" href="/home">Home </Link>
+              <Link class="text-[18px]" :href="route('user.home')">Home</Link>
             </div>
           </div>
           <div
             class="mb-[26px] pl-[15px]"
             :class="{
               'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-                $page.component.startsWith('Request'),
+                $page.component.startsWith('UserRequest'),
             }"
           >
             <div>
-              <Link class="text-[18px]" href="/request">Your Requests</Link>
+              <Link class="text-[18px]" :href="route('user.request.index')"
+                >Your Requests</Link
+              >
             </div>
           </div>
           <div
             class="mb-[26px] pl-[15px]"
             :class="{
               'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-                $page.component.startsWith('YourOrders'),
+                $page.component.startsWith('UserOrders'),
             }"
           >
             <div>
-              <Link class="text-[18px]" href="/your-orders">Your Orders</Link>
+              <Link class="text-[18px]" :href="route('user.order')"
+                >Your Orders</Link
+              >
             </div>
           </div>
           <div
             class="mb-[26px] pl-[15px]"
             :class="{
               'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-                $page.component.startsWith('Chat'),
+                $page.component.startsWith('UserChat'),
             }"
           >
             <div>
-              <Link class="text-[18px]" href="/chat">Chats</Link>
+              <Link class="text-[18px]" :href="route('user.chat')">Chats</Link>
             </div>
           </div>
           <div
             class="mb-[26px] pl-[15px]"
             :class="{
               'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-                $page.component.startsWith('Wallet'),
+                $page.component.startsWith('UserWallet'),
             }"
           >
             <div>
-              <Link class="text-[18px]" href="/wallet">Wallet</Link>
+              <Link class="text-[18px]" :href="route('user.wallet')"
+                >Wallet</Link
+              >
             </div>
           </div>
           <div
             class="mb-[26px] pl-[15px]"
             :class="{
               'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-                $page.component.startsWith('Profile'),
+                $page.component.startsWith('UserProfile'),
             }"
           >
             <div>
-              <Link class="text-[18px]" href="/profile">Profile</Link>
+              <Link class="text-[18px]" :href="route('user.profile.edit')"
+                >Profile</Link
+              >
             </div>
           </div>
           <div
@@ -107,17 +115,17 @@
       "
     >
       <div class="md:flex md:items-center w-[60px]">
-        <img src="images/logo.png" alt="logo" />
+        <img src="/images/logo.png" alt="logo" />
       </div>
       <div class="hidden md:flex items-center font-semibold">
         <h1 class="text-[#858585] hover:text-black mr-[100px]">
-          <Link href="/home">Home</Link>
+          <Link :href="route('user.home')">Home</Link>
         </h1>
         <h1 class="text-[#858585] hover:text-black mr-[100px]">
           <Link href="#services">Services</Link>
         </h1>
         <h1 class="text-[#24C6C9]">
-          <Link href="/signin">Join</Link>
+          <Link :href="route('login.create')">Join</Link>
         </h1>
       </div>
     </div>
@@ -142,73 +150,77 @@
   </div>
   <div class="hidden md:inline bg-[#24C6C9] rounded-r-[26px]">
     <div class="grid justify-center mt-10 mb-12">
-      <img class="w-28" src="images/logo.png" alt="" />
+      <img class="w-28" src="/images/logo.png" alt="" />
     </div>
     <div class="grid justify-center text-white">
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Home'),
+            $page.component.startsWith('UserHome'),
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/home">Home </Link>
+          <Link class="text-[18px]" :href="route('user.home')">Home</Link>
         </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Request'),
+            $page.component.startsWith('UserRequest'),
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/request">Your Requests</Link>
+          <Link class="text-[18px]" :href="route('user.request.index')"
+            >Your Requests</Link
+          >
         </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('YourOrders'),
+            $page.component.startsWith('UserOrders'),
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/your-orders">Your Orders</Link>
+          <Link class="text-[18px]" :href="route('user.order')"
+            >Your Orders</Link
+          >
         </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Chat'),
+            $page.component.startsWith('UserChat'),
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/chat">Chats</Link>
+          <Link class="text-[18px]" :href="route('user.chat')">Chats</Link>
         </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Wallet'),
+            $page.component.startsWith('UserWallet'),
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/wallet">Wallet</Link>
+          <Link class="text-[18px]" :href="route('user.wallet')">Wallet</Link>
         </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Profile'),
+            $page.component.startsWith('UserProfile'),
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/profile">Profile</Link>
+          <Link class="text-[18px]" :href="route('user.profile.edit')">Profile</Link>
         </div>
       </div>
       <div

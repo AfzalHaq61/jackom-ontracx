@@ -34,7 +34,7 @@ class RequestServiceOneStoreController extends Controller
             dd($e->getMessage());
         }
 
-        return Redirect::route('request.service.one.create')
+        return Redirect::route('user.request.index')
             ->with('success', "Request Service One Successfully posted.");
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestServices\RequestServiceSellCarsCreateRequest;
 use App\Models\Car;
+use App\Models\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class RequestServiceSellCarsStoreController extends Controller
@@ -37,11 +38,30 @@ class RequestServiceSellCarsStoreController extends Controller
                 'location' => $data['location'],
                 'upload_photo' => $data['upload_photo'],
             ]);
+
+            Request::create([
+                'uuid' => $data['uuid'],
+                'service_type' => $data['service_sellcars_type'],
+                'category' => $data['category'],
+                'manufacturing_year' => $data['manufacturing_year'],
+                'regional_specification' => $data['regional_specification'],
+                'paint' => $data['paint'],
+                'chasis_case' => $data['chasis_case'],
+                'kilo_meters' => $data['kilo_meters'],
+                'color' => $data['color'],
+                'fuel_type' => $data['fuel_type'],
+                'transmission_type' => $data['transmission_type'],
+                'name' => $data['name'],
+                'description' => $data['description'],
+                'price' => $data['price'],
+                'location' => $data['location'],
+                'upload_photo' => $data['upload_photo'],
+            ]);
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
 
-        return Redirect::route('request.service.sell-car.create')
+        return Redirect::route('user.request.index')
             ->with('success', "Request Service three Successfully posted.");
     }
 }

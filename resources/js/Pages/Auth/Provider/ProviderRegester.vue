@@ -137,9 +137,9 @@
                 <div class="mb-[30px]">
                   <SelectOptionField
                     selectedOption="Select Region"
-                    name="region"
-                    v-model="form.region"
-                    :errors="errors.region"
+                    name="region_id"
+                    v-model="form.region_id"
+                    :errors="errors.region_id"
                     :dropdowns="regions"
                   >
                     Region
@@ -237,9 +237,9 @@
                 <div class="mb-[30px]">
                   <SelectOptionField
                     selectedOption="Select City"
-                    name="city"
-                    v-model="form.city"
-                    :errors="errors.city"
+                    name="city_id"
+                    v-model="form.city_id"
+                    :errors="errors.city_id"
                     :dropdowns="cities"
                   >
                     City
@@ -342,8 +342,8 @@ let form = reactive({
   registration_number: "",
   nationality: "",
   country: "",
-  region: "",
-  city: "",
+  region_id: "",
+  city_id: "",
   iban: "",
   account_number: "",
   comercial_activity: "",

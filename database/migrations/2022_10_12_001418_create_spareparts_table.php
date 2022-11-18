@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('spareparts', function (Blueprint $table) {
             $table->uuid()->unique();
-            $table->foreignId('service_three_type')->constrained('towings')->cascadeOnDelete();
-            $table->foreignId('brand')->constrained('brands')->cascadeOnDelete();
-            $table->foreignId('modal')->constrained('modals')->cascadeOnDelete();
+            $table->string('service_three_type');
+            $table->string('brand');
+            $table->string('modal');
             $table->string('color');
-            $table->integer('plate_number');
             $table->string('location_from');
             $table->string('location_to');
             $table->integer('car_serial_number');

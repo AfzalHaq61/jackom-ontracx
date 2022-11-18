@@ -14,10 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('repairings', function (Blueprint $table) {
+            $table->id();
             $table->uuid()->unique();
-            $table->foreignId('service_two_type')->constrained('carwashes')->cascadeOnDelete();
-            $table->foreignId('brand')->constrained('brands')->cascadeOnDelete();
-            $table->foreignId('modal')->constrained('modals')->cascadeOnDelete();
+            $table->integer('user_id');
+            $table->string('service_two_type');
+            $table->string('brand');
+            $table->string('modal');
             $table->string('color');
             $table->integer('plate_number');
             $table->string('location_from');

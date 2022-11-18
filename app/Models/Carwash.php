@@ -12,4 +12,5 @@ class Carwash extends Model
     protected $fillable = [
         'name',
     ];
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests\Auth;
+
 use Illuminate\Support\Str;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -15,7 +16,7 @@ class RegesterCreateRequest extends FormRequest
     protected function prepareForValidation()
     {
         $method = request()->method();
-        if($method == 'POST') {
+        if ($method == 'POST') {
             $this->merge([
                 'uuid' => Str::uuid()->toString(),
             ]);
@@ -28,12 +29,12 @@ class RegesterCreateRequest extends FormRequest
             'uuid' => 'required|uuid',
             'first_name' => 'required|min:3|max:20|string',
             'last_name' => 'required|min:3|max:20|string',
-            'country' => 'required|exists:countries,id',
-            'city' => 'required|exists:cities,id',
+            'region_id' => 'required',
+            'city_id' => 'required',
             'contact_number' => 'required|min:11|numeric',
             'email' => 'email|min:7|max:30|string',
-            'password' => 'required|min:3|max:20',
-            'confirm_password' => 'required|same:password|min:3|max:20',
+            'password' => 'min:3|max:20',
+            'confirm_password' => 'same:password|min:3|max:20',
             'checkbox' => 'accepted'
         ];
     }

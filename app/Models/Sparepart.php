@@ -15,7 +15,6 @@ class Sparepart extends Model
         'brand',
         'modal',
         'color',
-        'plate_number',
         'location_from',
         'location_to',
         'car_serial_number',

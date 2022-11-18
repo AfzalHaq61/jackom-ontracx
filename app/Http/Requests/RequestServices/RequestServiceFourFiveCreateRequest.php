@@ -26,8 +26,8 @@ class RequestServiceFourFiveCreateRequest extends FormRequest
     {
         return [
             'uuid' => 'required|uuid',
-            'service_fourfive_type' => 'required|exists:deportations,id',
-            'shipping_type' => 'required|exists:shippingtypes,id',
+            'service_fourfive_type' => 'required',
+            'shipping_type' => 'required',
             'size' => 'required|numeric',
             'weight' => 'required|numeric',
             'location_from' => 'required|min:7|max:30|string',

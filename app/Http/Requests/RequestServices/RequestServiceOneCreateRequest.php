@@ -26,11 +26,12 @@ class RequestServiceOneCreateRequest extends FormRequest
     {
         return [
             'uuid' => 'required|uuid',
-            'service_one_type' => 'required|exists:towings,id',
-            'brand' => 'required|exists:brands,id',
-            'modal' => 'required|exists:modals,id',
+            'service_one_type' => 'required',
+            'brand' => 'required',
+            'modal' => 'required',
             'color' => 'required|min:2|string',
             'plate_number' => 'required|min:5|numeric',
+            'copy_of_regestration' => 'required|min:5|numeric',
             'location_from' => 'required|min:7|max:30|string',
             'location_to' => 'required|min:7|max:30|string',
             'upload_photo' => 'required|max:2048',

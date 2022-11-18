@@ -16,7 +16,7 @@
     </div>
     <div class="hidden md:flex items-center font-semibold">
       <h1 class="text-[#858585] hover:text-black mr-[100px]">
-        <Link href="/home">Home</Link>
+        <Link :href="route('user.home')">Home</Link>
       </h1>
       <h1 class="text-[#858585] hover:text-black mr-[100px]">
         <Link href="#services">Services</Link>
@@ -51,7 +51,7 @@
   >
     <div class="pl-[32px] py-2 hover:bg-gray-100">
       <h1 class="text-[#858585] hover:text-black">
-        <Link href="/home">Home</Link>
+        <Link :href="route('user.home')">Home</Link>
       </h1>
     </div>
     <div class="pl-[32px] py-2 hover:bg-gray-100">

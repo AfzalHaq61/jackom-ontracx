@@ -15,14 +15,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->uuid()->unique();
+            $table->uuid();
             $table->string('first_name');
             $table->string('last_name');
-            $table->foreignId('country')->constrained('countries')->cascadeOnDelete();
-            $table->foreignId('city')->constrained('cities')->cascadeOnDelete();
+            $table->bigInteger('region_id')->unsigned()->index();
+            $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade');
+            $table->bigInteger('city_id')->unsigned()->index();
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->string('contact_number');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->boolean('checkbox');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

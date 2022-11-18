@@ -63,62 +63,89 @@
       "
     >
       <div class="bg-green-100 rounded-[18px] p-[60px]">
-        <Link href="/request-Service-1">
+        <Link :href="route('user.request-service.one.create')">
           <div class="grid place-content-center mb-[40px]">
-            <img src="images/towing.png" alt="Sipping and Towing Image" />
+            <img
+              src="images/towing and shipping.png"
+              alt="Sipping and Towing Image"
+            />
           </div>
           <div class="text-center">
-            <h1 class="font-bold text-[20px] text-[#24C6C9]">Sipping and Towing</h1>
+            <h1 class="font-bold text-[20px] text-[#24C6C9]">
+              Towing and Shipping
+            </h1>
           </div>
         </Link>
       </div>
       <div class="bg-green-100 rounded-[18px] p-[60px]">
-        <Link href="/request-Service-2">
+        <Link :href="route('user.request-service.two.create')">
           <div class="grid place-content-center mb-[40px]">
-            <img src="images/Group 156.png" alt="Car Wash and Repair Image" />
+            <img
+              src="images/car maintenance and care.png"
+              alt="Car Wash and Repair Image"
+            />
           </div>
           <div class="text-center">
-            <h1 class="font-bold text-[20px] text-[#24C6C9]">Car Wash & <br> Repairing</h1>
+            <h1 class="font-bold text-[20px] text-[#24C6C9]">
+              Car Maintenance and Care
+            </h1>
           </div>
         </Link>
       </div>
       <div class="bg-green-100 rounded-[18px] p-[60px]">
-        <Link href="/request-Service-7">
+        <Link :href="route('user.request-service.three.create')">
           <div class="grid place-content-center mb-[40px]">
-            <img src="images/Sparepart.png" alt="Spare Parts Image" />
+            <img src="images/spare parts.png" alt="Spare Parts Image" />
           </div>
           <div class="text-center">
-            <h1 class="font-bold text-[20px] text-[#24C6C9]">Spare Parts</h1>
+            <h1 class="font-bold text-[20px] text-[#24C6C9]">
+              Spare Parts Request
+            </h1>
           </div>
         </Link>
       </div>
       <div class="bg-green-100 rounded-[18px] p-[60px]">
-        <Link href="/request-Service-4,5">
+        <Link :href="route('user.request-service.four-five.create')">
           <div class="grid place-content-center mb-[40px]">
-            <img src="images/bagging.png" alt="Deportation And Buggage Image" />
+            <img
+              src="images/shipping and forwarding.png"
+              alt="Deportation And Buggage Image"
+            />
           </div>
           <div class="text-center">
-            <h1 class="font-bold text-[20px] text-[#24C6C9]">Deportation And Buggage <br>Transfer</h1>
+            <h1 class="font-bold text-[20px] text-[#24C6C9]">
+              Shipping and Forwarding
+            </h1>
           </div>
         </Link>
       </div>
       <div class="bg-green-100 rounded-[18px] p-[60px]">
-        <Link href="/request-Service-6">
+        <Link :href="route('user.request-service.six.create')">
           <div class="grid place-content-center mb-[40px]">
-            <img src="images/Oil2.png" alt="Delivering Household Image" />
+            <img
+              src="images/delivery services.png"
+              alt="Delivering Household Image"
+            />
           </div>
           <div class="text-center">
-            <h1 class="font-bold text-[20px] text-[#24C6C9]">Free services and Delivering Household needs</h1>
+            <h1 class="font-bold text-[20px] text-[#24C6C9]">
+              Delivery Services
+            </h1>
           </div>
         </Link>
       </div>
       <div class="bg-green-100 rounded-[18px] p-[60px]">
-        <Link href="/sell-car">
+        <Link :href="route('user.request-service.sell-car.create')">
           <div class="grid place-content-center mb-[40px]">
-            <img src="images/sellcar.png" alt="Selling Car Image" />
+            <img
+              src="images/sell your broken car.png"
+              alt="Selling Car Image"
+            />
           </div>
           <div class="text-center">
-            <h1 class="font-bold text-[20px] text-[#24C6C9]">Sell Your Car</h1>
+            <h1 class="font-bold text-[20px] text-[#24C6C9]">
+              Sell your Broken Car
+            </h1>
           </div>
         </Link>
       </div>
@@ -251,10 +278,13 @@
               <h1 class="mb-[16px]"><Link href="/signup">Sign Up</Link></h1>
             </div>
             <div>
-              <h1 class="mb-[16px]"><Link href="#services">Features Services</Link></h1>
+              <h1 class="mb-[16px]">
+                <Link href="#services">Features Services</Link>
+              </h1>
               <h1 class="mb-[16px]"><Link href="#whyus">Testemonials</Link></h1>
-              <h1 class="mb-[16px]"><Link href="#reviews">User’s Reviews</Link></h1>
-              
+              <h1 class="mb-[16px]">
+                <Link href="#reviews">User’s Reviews</Link>
+              </h1>
             </div>
           </div>
         </div>

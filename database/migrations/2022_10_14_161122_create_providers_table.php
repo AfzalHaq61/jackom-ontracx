@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->uuid()->unique();
             $table->string('name');
-            $table->foreignId('nationality')->constrained('nations')->cascadeOnDelete();
-            $table->foreignId('country')->constrained('countries')->cascadeOnDelete();
-            $table->foreignId('city')->constrained('cities')->cascadeOnDelete();
-            $table->foreignId('region')->constrained('regions')->cascadeOnDelete();
+            $table->string('nationality');
+            $table->string('country');
+            $table->string('city');
+            $table->string('region');
             $table->integer('registration_number');
             $table->string('comercial_activity');
             $table->string('legal_capacity');

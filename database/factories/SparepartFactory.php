@@ -25,7 +25,6 @@ class SparepartFactory extends Factory
             'brand' => Brand::factory(),
             'modal' => Modal::factory(),
             'color' => $this->faker->name(),
-            'plate_number' => $this->faker->randomNumber(),
             'location_from' => $this->faker->name(),
             'location_to' => $this->faker->name(),
             'car_serial_number' => $this->faker->randomNumber(),

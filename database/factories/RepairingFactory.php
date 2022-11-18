@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Brand;
 use App\Models\Carwash;
 use App\Models\Modal;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,6 +22,7 @@ class RepairingFactory extends Factory
     {
         return [
             'uuid' => $this->faker->uuid(),
+            'user_id' => User::factory(),
             'service_two_type' => Carwash::factory(),
             'brand' => Brand::factory(),
             'modal' => Modal::factory(),

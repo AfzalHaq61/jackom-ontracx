@@ -11,6 +11,7 @@ class Repairing extends Model
 
     protected $fillable = [
         'uuid',
+        'user_id',
         'service_two_type',
         'brand',
         'modal',

@@ -18,31 +18,29 @@
           class="mb-[26px] pl-[15px]"
           :class="{
             'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-              $page.component.startsWith('Home'),
+              $page.component.startsWith('ProviderHome'),
           }"
         >
           <div>
-            <Link class="text-[18px]" href="/home-provider">Home </Link>
+            <Link :href="route('provider.home')">Home</Link>
           </div>
         </div>
         <div
           class="mb-[26px] pl-[15px]"
           :class="{
             'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-              $page.component.startsWith('Request'),
+              $page.component.startsWith('ProviderRequest'),
           }"
         >
           <div>
-            <Link class="text-[18px]" href="/request-provider"
-              >Your Requests</Link
-            >
+            <Link :href="route('provider.request')">Your Requests</Link>
           </div>
         </div>
         <div
           class="mb-[26px] pl-[15px]"
           :class="{
             'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-              $page.component.startsWith('YourOrders'),
+              $page.component.startsWith('YourOffers'),
           }"
         >
           <div>
@@ -146,29 +144,29 @@
   </div>
   <div class="hidden md:inline bg-[#24C6C9] rounded-r-[26px]">
     <div class="grid justify-center mt-10 mb-12">
-      <img class="w-28" src="images/logo.png" alt="" />
+      <img class="w-28" src="/images/logo.png" alt="" />
     </div>
     <div class="grid justify-center text-white">
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Home'),
+            $page.component.startsWith('ProviderHome'),
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/home-provider">Home </Link>
+          <Link class="text-[18px]" :href="route('provider.home')">Home</Link>
         </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Request'),
+            $page.component.startsWith('Provider/ProviderRequest'),
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/request-provider"
+          <Link class="text-[18px]" :href="route('provider.request')"
             >Your Requests</Link
           >
         </div>
@@ -181,10 +179,8 @@
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/your-offers-provider"
-            >Your Offers</Link
-          >
-        </div>
+          <Link class="text-[18px]" :href="route('provider.home')">Your Offers</Link>
+          </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"

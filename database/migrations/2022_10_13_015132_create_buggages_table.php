@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('buggages', function (Blueprint $table) {
             $table->uuid()->unique();
-            $table->foreignId('service_fourfive_type')->constrained('deportations')->cascadeOnDelete();
-            $table->foreignId('shipping_type')->constrained('shippingtypes')->cascadeOnDelete();
+            $table->string('service_fourfive_type');
+            $table->string('shipping_type');
             $table->integer('size');
             $table->integer('weight');
             $table->string('location_from');

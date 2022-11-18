@@ -26,11 +26,10 @@ class RequestServiceThreeCreateRequest extends FormRequest
     {
         return [
             'uuid' => 'required|uuid',
-            'service_three_type' => 'required|exists:sparepartstypes,id',
-            'brand' => 'required|exists:brands,id',
-            'modal' => 'required|exists:modals,id',
+            'service_three_type' => 'required',
+            'brand' => 'required',
+            'modal' => 'required',
             'color' => 'required|min:2|string',
-            'plate_number' => 'required|min:5|numeric',
             'location_from' => 'required|min:7|max:30|string',
             'location_to' => 'required|min:7|max:30|string',
             'car_serial_number' => 'required|min:5|numeric',

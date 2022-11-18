@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegesterCreateRequest;
-use Illuminate\Support\Facades\Redirect;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
@@ -26,8 +25,8 @@ class RegesterStoreController extends Controller
                 'uuid' => $data['uuid'],
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
-                'country' => $data['country'],
-                'city' => $data['city'],
+                'region_id' => $data['region_id'],
+                'city_id' => $data['city_id'],
                 'contact_number' => $data['contact_number'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),

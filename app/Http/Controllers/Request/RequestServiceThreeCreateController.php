@@ -18,7 +18,7 @@ class RequestServiceThreeCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceThree', [
+        return Inertia::render('User/Request/RequestServiceThree', [
             'spareparttype' => Spareparttype::all()
                 ->map(fn ($resource) => [
                     'id' => $resource->id,

@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Carwash;
 use App\Models\Modal;
 use App\Models\Repairing;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -24,6 +25,7 @@ class ReparingSeeder extends Seeder
                 Repairing::factory()
                     ->create([
                         'uuid' => $status['uuid'],
+                        'user_id' => $status['user_id'],
                         'service_two_type' => $status['service_two_type'],
                         'brand' => $status['brand'],
                         'modal' => $status['modal'],
@@ -40,6 +42,7 @@ class ReparingSeeder extends Seeder
         return collect([
             [
                 'uuid' => Str::uuid()->tostring(),
+                'user_id' => User::first()->id,
                 'service_two_type' => Carwash::first()->id,
                 'brand' => Brand::first()->id,
                 'modal' => Modal::first()->id,
@@ -50,6 +53,7 @@ class ReparingSeeder extends Seeder
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
+                'user_id' => User::first()->id,
                 'service_two_type' => Carwash::first()->id,
                 'brand' => Brand::first()->id,
                 'modal' => Modal::first()->id,
@@ -60,6 +64,7 @@ class ReparingSeeder extends Seeder
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
+                'user_id' => User::first()->id,
                 'service_two_type' => Carwash::first()->id,
                 'brand' => Brand::first()->id,
                 'modal' => Modal::first()->id,

@@ -16,6 +16,7 @@ class Shipping extends Model
         'modal',
         'color',
         'plate_number',
+        'copy_of_regestration',
         'location_from',
         'location_to',
         'upload_photo'

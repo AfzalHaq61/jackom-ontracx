@@ -18,7 +18,7 @@ class RequestServiceOneCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceOne', [
+        return Inertia::render('User/Request/RequestServiceOne', [
             'towings' => Towing::all()
                 ->map(fn ($resource) => [
                     'id' => $resource->id,

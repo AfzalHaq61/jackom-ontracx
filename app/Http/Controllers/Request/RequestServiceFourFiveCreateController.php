@@ -17,7 +17,7 @@ class RequestServiceFourFiveCreateController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Request/RequestServiceFourFive', [
+        return Inertia::render('User/Request/RequestServiceFourFive', [
             'deportations' => Deportation::all()
                 ->map(fn ($resource) => [
                     'id' => $resource->id,

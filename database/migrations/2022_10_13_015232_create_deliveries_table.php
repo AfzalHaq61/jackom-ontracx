@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->uuid()->unique();
-            $table->foreignId('service_six_type')->constrained('households')->cascadeOnDelete();
-            $table->foreignId('kind')->constrained('kinds')->cascadeOnDelete();
+            $table->string('service_six_type');
+            $table->string('kind');
             $table->string('my_location');
             $table->string('to_location');
             $table->string('upload_photo');

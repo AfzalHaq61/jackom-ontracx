@@ -26,6 +26,7 @@ class ShippingFactory extends Factory
             'modal' => Modal::factory(),
             'color' => $this->faker->name(),
             'plate_number' => $this->faker->randomNumber(),
+            'copy_of_regestration' => $this->faker->randomNumber(),
             'location_from' => $this->faker->name(),
             'location_to' => $this->faker->name(),
             'upload_photo' => $this->faker->name(),

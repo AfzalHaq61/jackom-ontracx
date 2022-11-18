@@ -67,21 +67,21 @@
               </div>
               <div class="mb-5 md:mr-5">
                 <SelectOptionField
-                  selectedOption="Select Country"
-                  name="country"
-                  v-model="form.country"
-                  :errors="errors.country"
-                  :dropdowns="countries"
+                  selectedOption="Select Region"
+                  name="region_id"
+                  v-model="form.region_id"
+                  :errors="errors.region_id"
+                  :dropdowns="regions"
                 >
-                  Country
+                  Region
                 </SelectOptionField>
               </div>
               <div class="mb-5 md:ml-5">
                 <SelectOptionField
                   selectedOption="Select city"
                   name="city"
-                  v-model="form.city"
-                  :errors="errors.city"
+                  v-model="form.city_id"
+                  :errors="errors.city_id"
                   :dropdowns="cities"
                 >
                   City
@@ -89,7 +89,7 @@
               </div>
               <div class="mb-5 md:mr-5">
                 <TextField
-                  fieldtype="number"
+                  fieldtype="text"
                   name="contact_number"
                   placeholder="Enter Contact Number"
                   v-model="form.contact_number"
@@ -190,15 +190,15 @@ import { reactive } from "vue";
 
 const props = defineProps({
   errors: Object,
-  countries: Array,
+  regions: Array,
   cities: Array,
 });
 
 let form = reactive({
   first_name: "",
   last_name: "",
-  country: "",
-  city: "",
+  region_id: "",
+  city_id: "",
   contact_number: "",
   email: "",
   password: "",

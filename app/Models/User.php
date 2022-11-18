@@ -21,8 +21,8 @@ class User extends Authenticatable
         'uuid',
         'first_name',
         'last_name',
-        'country',
-        'city',
+        'region_id',
+        'city_id',
         'contact_number',
         'email',
         'password',
@@ -35,7 +35,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -47,4 +46,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function country()
+    {
+        return $this->hasOne(Country::class, 'foreign_key');
+    }
+
+    public function messages() {
+        return $this->hasMany(Messege::class);
+    }
 }

@@ -26,16 +26,16 @@ const props = defineProps({
         :readonly="readonly"
         :multiple="multiple"
         class="
-        mt-1
-        focus:ring-[#24C6C9] focus:border-[#24C6C9]
-        block
-        w-full
-        shadow-sm
-        sm:text-sm
-        bg-gray-100
-        text-[#3A3A3A]
-        border-hidden
-        rounded-md
+          mt-1
+          focus:ring-[#24C6C9] focus:border-[#24C6C9]
+          block
+          w-full
+          shadow-sm
+          sm:text-sm
+          bg-gray-100
+          text-[#3A3A3A]
+          border-hidden
+          rounded-md
         "
       >
         <option value="" selected>{{ props.selectedOption }}</option>

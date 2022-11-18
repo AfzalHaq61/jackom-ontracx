@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
-use App\Models\Country;
+use App\Models\Region;
 use Inertia\Inertia;
 
 class RegesterCreateController extends Controller
@@ -18,7 +18,7 @@ class RegesterCreateController extends Controller
     public function __invoke()
     {
         return Inertia::render('Auth/User/Regester', [
-            'countries' => Country::all()
+            'regions' => Region::all()
                 ->map(fn ($resource) => [
                     'id' => $resource->id,
                     'name' => $resource->name,
