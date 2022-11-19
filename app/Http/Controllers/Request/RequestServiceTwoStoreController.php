@@ -29,18 +29,6 @@ class RequestServiceTwoStoreController extends Controller
         $user_id = Auth::user()->id;
 
         try {
-            Repairing::create([
-                'uuid' => $data['uuid'],
-                'user_id' => $user_id,
-                'service_two_type' => $data['service_two_type'],
-                'brand' => $data['brand'],
-                'modal' => $data['modal'],
-                'color' => $data['color'],
-                'plate_number' => $data['plate_number'],
-                'location_from' => $data['location_from'],
-                'upload_photo' => time() . '-' . $file->getClientOriginalName(),
-            ]);
-
             Request::create([
                 'uuid' => $data['uuid'],
                 'user_id' => $user_id,

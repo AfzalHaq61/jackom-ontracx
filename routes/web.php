@@ -29,6 +29,8 @@ use App\Http\Controllers\Request\RequestServiceThreeCreateController;
 use App\Http\Controllers\Request\RequestServiceThreeStoreController;
 use App\Http\Controllers\Request\RequestServiceTwoCreateController;
 use App\Http\Controllers\Request\RequestServiceTwoStoreController;
+use App\Http\Controllers\User\Chat\Messege\UserChatMessegeCreateController;
+use App\Http\Controllers\User\Chat\Messege\UserChatMessegeStoreController;
 use App\Http\Controllers\User\Order\UserOrderStoreController;
 use App\Http\Controllers\User\Profile\UserProfileEditController as ProfileUserProfileEditController;
 use App\Http\Controllers\User\Profile\UserProfileUpdateController as ProfileUserProfileUpdateController;
@@ -128,14 +130,17 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('/order/{offer:uuid}/store', UserOrderStoreController::class)
             ->name('user.order.store');
 
-        // Route::get('/chat', UserChatController::class)
-        //     ->name('user.chat');
-
-        Route::get('/chat/create', UserChatCreateController::class)
+        Route::get('/chat', UserChatController::class)
             ->name('user.chat');
 
-        Route::post('/chat/{user:id}/store', UserChatStoreController::class)
+        Route::get('/chat/store', UserChatStoreController::class)
             ->name('user.chat.store');
+
+        Route::get('/chat/messege/create', UserChatMessegeCreateController::class)
+            ->name('user.chat.messege.create');
+        
+        Route::post('/chat/messege/{chat_id:id}/store', UserChatMessegeStoreController::class)
+            ->name('user.chat.messege.store');
 
         Route::get('/wallet', UserWalletController::class)
             ->name('user.wallet');

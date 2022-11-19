@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ChatCollection;
+use App\Models\chat;
+use App\Models\Messege;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class UserChatController extends Controller
@@ -14,7 +19,12 @@ class UserChatController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('User/UserChat')
-            ->with('success_message', "Yay it worked");
+        $query = chat::query()
+            ->where('sender_id', Auth::user()->id)
+            ->paginate('50');
+
+        return Inertia::render('User/UserChat', [
+            'chats' => new ChatCollection($query),
+        ])->with('success_message', "Yay it worked");
     }
 }

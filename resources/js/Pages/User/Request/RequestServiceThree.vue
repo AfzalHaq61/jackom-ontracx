@@ -29,14 +29,14 @@
                   <img
                     class="w-[100px] mb-5"
                     src="/images/spare parts.png"
-                    alt="Spare Parts Image"
+                    alt="Spare Parts"
                   />
-                  <h1 class="text-[16px] font-bold">Spare Parts</h1>
+                  <h1 class="text-[16px] font-bold">SpareParts</h1>
                 </div>
               </div>
               <div>
                 <div class="mb-[30px]">
-                  <SelectOptionField
+                  <SelectRequestField
                     selectedOption="Select Service Type"
                     name="service_three_type"
                     v-model="form.service_three_type"
@@ -44,7 +44,7 @@
                     :dropdowns="spareparttype"
                   >
                     Service Type
-                  </SelectOptionField>
+                  </SelectRequestField>
                 </div>
                 <div class="mb-[30px]">
                   <SelectOptionField
@@ -114,7 +114,7 @@
                 </div>
                 <div class="mb-[30px]">
                   <TextField
-                    fieldtype="text"
+                    fieldtype="number"
                     name="copy_of_regestration"
                     placeholder="Enter Copy of Regestration"
                     v-model="form.copy_of_regestration"
@@ -125,18 +125,45 @@
                 </div>
               </div>
             </div>
-            <div class="mt-[100px]">
+            <div :class="{ errors: props.errors }" class="mt-[163px]">
               <div>
-                <ImageField />
+                <h1 class="text-[16px] font-bold mb-[13px]">Add images</h1>
               </div>
-              <div class="w-[350px]">
-                <ImageFileField
-                  fieldtype="file"
+              <div
+                class="
+                  flex
+                  items-center
+                  justify-center
+                  bg-gray-100
+                  rounded-[10px]
+                  focus:ring-[#24C6C9] focus:border-[#24C6C9]
+                  w-[350px]
+                  h-[200px]
+                "
+              >
+                <input
+                  class="
+                    text-sm text-grey-100 text-[15px]
+                    file:bg-gray-100
+                    file:w-full
+                    file:rounded-full
+                    file:border-0
+                    file:text-[#3A3A3A]
+                    hover:file:cursor-pointer
+                  "
+                  type="file"
                   name="upload_photo"
-                  v-model="form.upload_photo"
-                  :errors="errors.upload_photo"
-                >
-                </ImageFileField>
+                  id="upload_photo"
+                  @change="onFileChanged($event)"
+                  accept="image/*"
+                />
+              </div>
+              <div
+                :v-if="errors.upload_photo"
+                class="text-red-600 pt-1 text-xs"
+                role="alert"
+              >
+                {{ errors.upload_photo }}
               </div>
             </div>
           </div>
@@ -163,8 +190,8 @@
     </div>
   </div>
 </template>
-
-<script setup>
+  
+  <script setup>
 import route from "ziggy-js";
 import { Inertia } from "@inertiajs/inertia";
 import { reactive } from "vue";
@@ -188,8 +215,12 @@ let form = reactive({
   upload_photo: "",
 });
 
+function onFileChanged($event) {
+  form.upload_photo = $event.target.files[0];
+}
+
 function submit() {
-  Inertia.post(route("request.service.three.store"), form, {
+  Inertia.post(route("user.request-service.three.store"), form, {
     forceFormData: true,
   });
 }

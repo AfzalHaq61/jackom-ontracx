@@ -42,27 +42,20 @@
                   </div>
                   <div>
                     <h1 class="w-fit text-[#858585] mt-[22px] mb-[22px]">
-                      {{ request.description }} {{ request.id }}
+                      {{ request.description }}
                     </h1>
                   </div>
                   <div class="flex">
                     <div class="pr-[22px]">
                       <img
                         class="w-[88px] h-[78px] rounded-[4px]"
-                        src="/images/Rectangle111.png"
-                        alt=""
-                      />
-                    </div>
-                    <div>
-                      <img
-                        class="w-[88px] h-[78px] rounded-[4px]"
-                        src="/images/Rectangle112.png"
+                        :src="'/images/' + request.upload_photo"
                         alt=""
                       />
                     </div>
                   </div>
-                  <div class="flex justify-end mt-[5px]">
-                    <h1 class="text-[13px]">{{ request.time }}</h1>
+                  <div class="flex justify-end font-bold mt-[5px]">
+                    <h1 class="text-[13px]">{{ date(request.created_at) }}</h1>
                   </div>
                 </div>
               </Link>
@@ -142,7 +135,10 @@
                   <div class="grid grid-cols-3">
                     <div class="text-center">
                       <h1 class="text-[#24C6C9] text-[14px] font-bold">
-                        <Link :href="route('user.chat')">Messege</Link>
+                        <Link
+                          :href="route('user.chat.store', { reciever_id: offer.user_id })"
+                          >Messege</Link
+                        >
                       </h1>
                     </div>
                     <div class="flex justify-center">
@@ -150,7 +146,7 @@
                     </div>
                     <div class="text-center">
                       <h1 class="text-[#24C6C9] text-[14px] font-bold">
-                      <Link :href="route('user.order')">Start Over</Link>
+                        <Link :href="route('user.order')">Start Over</Link>
                       </h1>
                     </div>
                   </div>
@@ -165,8 +161,13 @@
 </template>
 
 <script setup>
+import moment from "moment";
 const props = defineProps({
   requests: Object,
   offers: Object,
 });
+
+function date(value) {
+  return moment(value).format("YYYY-MM-DD");
+}
 </script>

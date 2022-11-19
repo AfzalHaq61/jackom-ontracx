@@ -67,7 +67,7 @@
                   </div>
                   <div>
                     <h1 class="text-[14px] text-[#858585]">
-                      {{ request.description }} {{ request.uuid }}
+                      {{ request.description }}
                     </h1>
                   </div>
                 </div>
@@ -94,15 +94,8 @@
             <div class="mt-[47px]">
               <div class="mb-[24px]">
                 <img
-                  class="w-[345px] h-[265px]"
-                  src="/images/Rectangle 67.png"
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  class="w-[345px] h-[265px]"
-                  src="/images/Rectangle 115.png"
+                  class="w-[345px] h-[265px] rounded-[10px]"
+                  :src="'/images/' + request.upload_photo"
                   alt=""
                 />
               </div>

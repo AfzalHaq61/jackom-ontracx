@@ -9,33 +9,66 @@
       <!-- Home Head -->
       <RequestHead />
       <!-- Main Content -->
-      <div class="md:grid grid-cols-9 mt-[80px]">
-        <div class="md:col-span-3 mb-[50px]">
-          <div class="bg-white rounded-[20px] pt-[40px] pb-[30px]">
-            <div class="flex justify-center">
-              <img src="/images/Ellipse 15.png" alt="" />
-            </div>
-            <div class="flex justify-center mt-[50px]">
-              <button class="border-2 rounded-[10px] px-[35px] py-[12px]">
-                <h1 class="text-[#858585] text-[14px]">Change Photo</h1>
-              </button>
+      <form @submit.prevent="submit">
+        <div class="md:grid grid-cols-9 mt-[80px]">
+          <div class="md:col-span-3 mb-[50px]">
+            <div class="bg-white rounded-[20px] pt-[40px] pb-[30px]">
+              <div class="flex justify-center">
+                <img src="/images/Ellipse 15.png" alt="" />
+              </div>
+              <div :class="{ errors: props.errors }">
+                    <div
+                      class="
+                        flex
+                        items-center
+                        justify-center
+                        border-2 rounded-[10px]
+                        bg-gray-100
+                        focus:ring-[#24C6C9] focus:border-[#24C6C9]
+                        px-[35px] py-[12px]
+                        mt-[50px] mx-[90px]
+                      "
+                    >
+                      <input
+                        class="
+                          text-sm text-grey-100 text-[15px]
+                          file:w-full
+                          file:rounded-full
+                          file:border-0
+                          file:text-[#3A3A3A]
+                          hover:file:cursor-pointer
+                        "
+                        type="file"
+                        name="upload_photo"
+                        id="upload_photo"
+                        @change="onFileChanged($event)"
+                        accept="image/*"
+                      />
+                    </div>
+                    <div
+                      :v-if="errors.upload_photo"
+                      class="text-red-600 pt-1 text-xs"
+                      role="alert"
+                    >
+                      {{ errors.upload_photo }}
+                    </div>
+                  </div>
             </div>
           </div>
-        </div>
-        <div
-          class="
-            col-span-6
-            bg-white
-            rounded-[20px]
-            px-[40px]
-            py-[40px]
-            md:ml-[40px]
-          "
-        >
-          <div>
-            <h1 class="text-[16px] font-bold">Personal Information</h1>
-          </div>
-          <form @submit.prevent="submit">
+          <div
+            class="
+              col-span-6
+              bg-white
+              rounded-[20px]
+              px-[40px]
+              py-[40px]
+              md:ml-[40px]
+            "
+          >
+            <div>
+              <h1 class="text-[16px] font-bold">Personal Information</h1>
+            </div>
+
             <div>
               <ProfileTextField
                 fieldtype="text"
@@ -103,9 +136,9 @@
             >
               <button type="submit">Save Changes</button>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -134,6 +167,10 @@ let form = reactive({
   checkbox: props.user.checkbox,
   _method: "put",
 });
+
+function onFileChanged($event) {
+  form.upload_photo = $event.target.files[0];
+}
 
 function submit() {
   Inertia.post(route("user.profile.update", { user: props.user.uuid }), form, {

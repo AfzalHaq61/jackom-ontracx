@@ -31,8 +31,8 @@
                     {{ request.service_type }}
                   </h1>
                 </div>
-                <div class="flex items-center">
-                  <h1 class="text-[13px]">{{ request.time }}</h1>
+                <div class="flex items-center font-bold">
+                  <h1 class="text-[13px]">{{ date(request.created_at) }}</h1>
                 </div>
               </div>
               <div class="flex mt-[6px]">
@@ -51,21 +51,14 @@
               </div>
               <div class="mt-[12px]">
                 <h1 class="text-[16px] text-[#858585]">
-                  {{ request.description }} {{ request.uuid }}
+                  {{ request.description }}
                 </h1>
               </div>
               <div class="flex mt-[35px]">
                 <div class="mr-[20px]">
                   <img
-                    class="rounded-[4px]"
-                    src="/images/Rectangle111.png"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <img
-                    class="rounded-[4px]"
-                    src="/images/Rectangle112.png"
+                    class="w-[88px] h-[78px] rounded-[4px]"
+                    :src="'/images/' + request.upload_photo"
                     alt=""
                   />
                 </div>
@@ -100,7 +93,12 @@
 </template>
 
 <script setup>
+import moment from "moment";
 const props = defineProps({
   requests: Object,
 });
+
+function date(value) {
+  return moment(value).format('YYYY-MM-DD');
+}
 </script>

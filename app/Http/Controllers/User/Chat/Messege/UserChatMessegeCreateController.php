@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User\Chat\Messege;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\ChatCollection;
 use App\Models\chat;
 use App\Models\Messege;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
-class UserChatCreateController extends Controller
+class UserChatMessegeCreateController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -18,17 +20,13 @@ class UserChatCreateController extends Controller
      */
     public function __invoke()
     {
-        try {
-            chat::create([
-                'reciever_id' => request('reciever_id'),
-                'sender_id' => Auth::user()->id,
-            ]);
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
+        $query = chat::query()
+            ->where('id', request('chat_id'))
+            ->paginate('50');
 
-        return Inertia::render('User/UserChat', [
-            'chats' => chat::where('sender_id', Auth::user()->id)->get(),
+        return Inertia::render('User/UserMesseges', [
+            'user' => Auth::user(),
+            'chat' => new ChatCollection($query),
             'sender' => Auth::user(),
             'reciever' => User::where('id', request('reciever_id'))->get(),
             'messeges' => Messege::with(['user'])->get(),

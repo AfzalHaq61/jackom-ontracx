@@ -1,5 +1,5 @@
 <template>
-  <Head title="Sell Cars" />
+  <Head title="Request Service Sell Cars" />
 
   <div class="min-h-screen bg-[#FFFFFF] md:grid grid-cols-7">
     <!-- Home Left Index -->
@@ -36,7 +36,7 @@
               </div>
               <div>
                 <div class="mb-[30px]">
-                  <SelectOptionField
+                  <SelectRequestField
                     selectedOption="Select Service Type"
                     name="service_sellcars_type"
                     v-model="form.service_sellcars_type"
@@ -44,7 +44,7 @@
                     :dropdowns="sells"
                   >
                     Service Type
-                  </SelectOptionField>
+                  </SelectRequestField>
                 </div>
                 <div class="mb-[30px]">
                   <SelectOptionField
@@ -147,74 +147,74 @@
                 </div>
 
                 <!-- <div class="mb-[30px]">
-                  <div class="mb-[20px]">
-                    <h1 class="text-[14px] text-[#3A3A3A]">Fuel Type</h1>
-                  </div>
-                  <div class="grid grid-cols-3 md:grid-cols-4 gap-[12px]">
-                    <button
-                      class="
-                        rounded-[10px]
-                        text-white
-                        bg-[#24C6C9]
-                        px-[35px]
-                        py-[16px]
-                      "
-                    >
-                      Electric
-                    </button>
-                    <button
-                      class="rounded-[10px] bg-[#F1F1F1] px-[35px] py-[16px]"
-                    >
-                      Hybrid
-                    </button>
-                    <button
-                      class="rounded-[10px] bg-[#F1F1F1] px-[35px] py-[16px]"
-                    >
-                      Petrol
-                    </button>
-                    <button
-                      class="rounded-[10px] bg-[#F1F1F1] px-[35px] py-[16px]"
-                    >
-                      Diesel
-                    </button>
-                    <button
-                      class="
-                        rounded-[10px]
-                        bg-[#F1F1F1]
-                        w-max
-                        px-[35px]
-                        py-[16px]
-                      "
-                    >
-                      Hybrid Plug-in
-                    </button>
-                  </div>
-                </div> -->
+                    <div class="mb-[20px]">
+                      <h1 class="text-[14px] text-[#3A3A3A]">Fuel Type</h1>
+                    </div>
+                    <div class="grid grid-cols-3 md:grid-cols-4 gap-[12px]">
+                      <button
+                        class="
+                          rounded-[10px]
+                          text-white
+                          bg-[#24C6C9]
+                          px-[35px]
+                          py-[16px]
+                        "
+                      >
+                        Electric
+                      </button>
+                      <button
+                        class="rounded-[10px] bg-[#F1F1F1] px-[35px] py-[16px]"
+                      >
+                        Hybrid
+                      </button>
+                      <button
+                        class="rounded-[10px] bg-[#F1F1F1] px-[35px] py-[16px]"
+                      >
+                        Petrol
+                      </button>
+                      <button
+                        class="rounded-[10px] bg-[#F1F1F1] px-[35px] py-[16px]"
+                      >
+                        Diesel
+                      </button>
+                      <button
+                        class="
+                          rounded-[10px]
+                          bg-[#F1F1F1]
+                          w-max
+                          px-[35px]
+                          py-[16px]
+                        "
+                      >
+                        Hybrid Plug-in
+                      </button>
+                    </div>
+                  </div> -->
 
                 <!-- <div class="mb-[50px]">
-                  <div class="mb-[20px]">
-                    <h1 class="text-[14px] text-[#3A3A3A]">Transmision Type</h1>
-                  </div>
-                  <div class="mb-[12px]">
-                    <button
-                      class="
-                        rounded-[10px]
-                        text-white
-                        bg-[#24C6C9]
-                        px-[35px]
-                        py-[16px]
-                        mr-[16px]
-                      "
-                    >
-                      Manual
-                    </button>
-                    <button
-                      class="rounded-[10px] bg-[#F1F1F1] px-[35px] py-[16px]"
-                    >
-                      Automatic
-                    </button>
-                  </div>
-                </div> -->
+                    <div class="mb-[20px]">
+                      <h1 class="text-[14px] text-[#3A3A3A]">Transmision Type</h1>
+                    </div>
+                    <div class="mb-[12px]">
+                      <button
+                        class="
+                          rounded-[10px]
+                          text-white
+                          bg-[#24C6C9]
+                          px-[35px]
+                          py-[16px]
+                          mr-[16px]
+                        "
+                      >
+                        Manual
+                      </button>
+                      <button
+                        class="rounded-[10px] bg-[#F1F1F1] px-[35px] py-[16px]"
+                      >
+                        Automatic
+                      </button>
+                    </div>
+                  </div> -->
 
                 <div class="mb-[30px]">
                   <TextField
@@ -262,18 +262,45 @@
                 </div>
               </div>
             </div>
-            <div class="mt-[120px]">
+            <div :class="{ errors: props.errors }" class="mt-[163px]">
               <div>
-                <ImageField />
+                <h1 class="text-[16px] font-bold mb-[13px]">Add images</h1>
               </div>
-              <div class="w-[350px]">
-                <ImageFileField
-                  fieldtype="file"
+              <div
+                class="
+                  flex
+                  items-center
+                  justify-center
+                  bg-gray-100
+                  rounded-[10px]
+                  focus:ring-[#24C6C9] focus:border-[#24C6C9]
+                  w-[350px]
+                  h-[200px]
+                "
+              >
+                <input
+                  class="
+                    text-sm text-grey-100 text-[15px]
+                    file:bg-gray-100
+                    file:w-full
+                    file:rounded-full
+                    file:border-0
+                    file:text-[#3A3A3A]
+                    hover:file:cursor-pointer
+                  "
+                  type="file"
                   name="upload_photo"
-                  v-model="form.upload_photo"
-                  :errors="errors.upload_photo"
-                >
-                </ImageFileField>
+                  id="upload_photo"
+                  @change="onFileChanged($event)"
+                  accept="image/*"
+                />
+              </div>
+              <div
+                :v-if="errors.upload_photo"
+                class="text-red-600 pt-1 text-xs"
+                role="alert"
+              >
+                {{ errors.upload_photo }}
               </div>
             </div>
           </div>
@@ -300,8 +327,8 @@
     </div>
   </div>
 </template>
-
-<script setup>
+  
+  <script setup>
 import route from "ziggy-js";
 import { Inertia } from "@inertiajs/inertia";
 import { reactive } from "vue";
@@ -332,8 +359,12 @@ let form = reactive({
   upload_photo: "",
 });
 
+function onFileChanged($event) {
+  form.upload_photo = $event.target.files[0];
+}
+
 function submit() {
-  Inertia.post(route("request.service.sell-car.store"), form, {
+  Inertia.post(route("user.request-service.sell-car.store"), form, {
     forceFormData: true,
   });
 }

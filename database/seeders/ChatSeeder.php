@@ -3,12 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\chat;
-use App\Models\Messege;
 use App\Models\User;
-use Illuminate\Support\Collection;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Collection;
 
-class MessegeSeeder extends Seeder
+class ChatSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,10 +18,10 @@ class MessegeSeeder extends Seeder
     {
         $this->data()
             ->each(function ($status) {
-                Messege::factory()
+                chat::factory()
                     ->create([
-                        'chat_id' => $status['chat_id'],
-                        'messege' => $status['messege'],
+                        'reciever_id' => $status['reciever_id'],
+                        'sender_id' => $status['sender_id'],
                     ]);
             });
     }
@@ -31,12 +30,12 @@ class MessegeSeeder extends Seeder
     {
         return collect([
             [
-                'chat_id' => chat::first()->id,
-                'messege' => 'Hello How are you',
+                'reciever_id' => User::first()->id,
+                'sender_id' => User::first()->id,
             ],
             [
-                'chat_id' => chat::first()->id,
-                'messege' => 'Hello How are you',
+                'reciever_id' => User::first()->id,
+                'sender_id' => User::first()->id,
             ],
         ]);
     }

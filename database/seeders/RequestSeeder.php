@@ -90,7 +90,7 @@ class RequestSeeder extends Seeder
                 'transmission_type' => Transmissiontype::first()->id,
                 'location' => 'Battagram',
                 'location_to' => 'Mandal Dag',
-                'upload_photo' => '63381f6d28159-C:\fakepath\GigFronWeb (1).png',
+                'upload_photo' => '1668693618-Magnet.png',
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
@@ -119,7 +119,7 @@ class RequestSeeder extends Seeder
                 'transmission_type' => Transmissiontype::first()->id,
                 'location' => 'Salanda',
                 'location_to' => 'Mandal Dag',
-                'upload_photo' => '63381f6d28159-C:\fakepath\GigFronWeb (1).png',
+                'upload_photo' => '1668693618-Magnet.png',
             ],
         ]);
     }

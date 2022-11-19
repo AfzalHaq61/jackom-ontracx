@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\chat;
 use App\Models\Messege;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class UserChatStoreController extends Controller
 {
@@ -16,16 +19,15 @@ class UserChatStoreController extends Controller
     public function __invoke(Request $request)
     {
         try {
-            Messege::create([
-                'user_id' => request('user'),
-                'messege' => $request['messege']
+            chat::create([
+                'reciever_id' => request('reciever_id'),
+                'sender_id' => Auth::user()->id,
             ]);
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
 
-        return Redirect()
-            ->back()
-            ->with('success', "Messege successfully created.");
+        return Redirect::route('user.chat')
+            ->with('success', "Chat successfully created");
     }
 }

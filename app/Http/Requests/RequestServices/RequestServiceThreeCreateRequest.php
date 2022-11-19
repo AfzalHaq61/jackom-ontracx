@@ -33,7 +33,7 @@ class RequestServiceThreeCreateRequest extends FormRequest
             'location_from' => 'required|min:7|max:30|string',
             'location_to' => 'required|min:7|max:30|string',
             'car_serial_number' => 'required|min:5|numeric',
-            'copy_of_regestration' => 'required|min:5|numeric',
+            'copy_of_regestration' => 'required',
             'upload_photo' => 'required|max:2048',
         ];
     }

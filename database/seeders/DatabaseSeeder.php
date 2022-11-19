@@ -26,11 +26,8 @@ class DatabaseSeeder extends Seeder
             TowingSeeder::class,
             BrandSeeder::class,
             ModalSeeder::class,
-            ShippingSeeder::class,
             CarwashSeeder::class,
-            ReparingSeeder::class,
             SpareparttypeSeeder::class,
-            SparepartSeeder::class,
             CategorySeeder::class,
             DeportationSeeder::class,
             FueltypeSeeder::class,
@@ -39,14 +36,11 @@ class DatabaseSeeder extends Seeder
             SellSeeder::class,
             ShippingtypeSeeder::class,
             TransmissiontypeSeeder::class,
-            BuggageSeeder::class,
-            DeliverySeeder::class,
-            CarSeeder::class,
-            ServiceSeeder::class,
             RequestSeeder::class,
             OfferSeeder::class,
             OrderSeeder::class,
-            MessegeSeeder::class
+            ChatSeeder::class,
+            MessegeSeeder::class,
         ]);
     }
 }

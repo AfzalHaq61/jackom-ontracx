@@ -49,13 +49,13 @@
                     <div class="pr-[22px]">
                       <img
                         class="w-[88px] h-[78px] rounded-[4px]"
-                        :src="'/images/'+request.upload_photo"
+                        :src="'/images/' + request.upload_photo"
                         alt=""
                       />
                     </div>
                   </div>
-                  <div class="flex justify-end mt-[5px]">
-                    <h1 class="text-[13px]">{{ request.time }}</h1>
+                  <div class="flex justify-end font-bold mt-[5px]">
+                    <h1 class="text-[13px]">{{ date(request.created_at) }}</h1>
                   </div>
                 </div>
               </Link>
@@ -74,7 +74,12 @@
 </template>
 
 <script setup>
+import moment from "moment";
 const props = defineProps({
   requests: Object,
 });
+
+function date(value) {
+  return moment(value).format('YYYY-MM-DD');
+}
 </script>

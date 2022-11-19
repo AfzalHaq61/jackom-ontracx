@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestServices\RequestServiceSixCreateRequest;
 use App\Models\Delivery;
 use App\Models\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class RequestServiceSixStoreController extends Controller
@@ -20,29 +21,29 @@ class RequestServiceSixStoreController extends Controller
     {
         
         $data = $request->validated();
-        try {
-            Delivery::create([
-                'uuid' => $data['uuid'],
-                'service_six_type' => $data['service_six_type'],
-                'kind' => $data['kind'],
-                'my_location' => $data['my_location'],
-                'to_location' => $data['to_location'],
-                'upload_photo' => $data['upload_photo'],
-            ]);
 
+        $file = $request->file('upload_photo');
+
+        $destinationPath = 'images';
+        $file->move($destinationPath, time() . '-' . $file->getClientOriginalName());
+
+        $user_id = Auth::user()->id;
+
+        try {
             Request::create([
                 'uuid' => $data['uuid'],
+                'user_id' => $user_id,
                 'service_type' => $data['service_six_type'],
                 'kind' => $data['kind'],
                 'location' => $data['my_location'],
                 'location_to' => $data['to_location'],
-                'upload_photo' => $data['upload_photo'],
+                'upload_photo' => time() . '-' . $file->getClientOriginalName(),
             ]);
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
 
         return Redirect::route('user.request.index')
-            ->with('success', "Request Service three Successfully posted.");
+            ->with('success', "Request Service Six Successfully posted.");
     }
 }
