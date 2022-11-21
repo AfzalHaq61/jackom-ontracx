@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ChatCollection;
 use App\Models\chat;
-use App\Models\Messege;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 

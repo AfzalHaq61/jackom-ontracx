@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ChatCollection;
 use App\Models\chat;
 use App\Models\Messege;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -18,18 +17,17 @@ class UserChatMessegeCreateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke()
+    public function __invoke(chat $chat)
     {
         $query = chat::query()
-            ->where('id', request('chat_id'))
+            ->where('id', $chat['id'])
             ->paginate('50');
 
         return Inertia::render('User/UserMesseges', [
-            'user' => Auth::user(),
             'chat' => new ChatCollection($query),
-            'sender' => Auth::user(),
-            'reciever' => User::where('id', request('reciever_id'))->get(),
-            'messeges' => Messege::with(['user'])->get(),
+            'messeges' => Messege::where('sender_id', Auth::user()->id)->orWhere('sender_id', $chat['reciever_id'])->get(),
+            'user' => Auth::user()->id,
+            'reciever' => $chat['reciever_id'],
         ])
             ->with('success_message', "Yay it worked");
     }

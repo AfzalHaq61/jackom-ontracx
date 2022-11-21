@@ -14,7 +14,8 @@
         <div class="mt-[10px]">
           <div class="flex">
             <div class="relative bottom-[5px] mr-[15px]">
-              <Link href="/home-provider"
+              <Link :href="
+                      route('provider.request')"
                 ><img class="w-[36px] h-[36px]" src="/images/Back.png" alt=""
               /></Link>
             </div>
@@ -27,14 +28,14 @@
               <div
                 class="bg-white rounded-[15px] mt-[46px] px-[23px] py-[16px]"
               >
-                <div class="flex">
+                <div v-for="user_data in user.data" :key="user_data.uuid" class="flex">
                   <div class="rounded-full">
-                    <img src="/images/Ellipse 59.png" alt="" />
+                    <img class="w-[50px] h-[50px]" :src="'/images/' + user_data.upload_photo" alt="" />
                   </div>
                   <div class="ml-[20px] w-full">
                     <div class="flex justify-between mb-[12px]">
                       <div>
-                        <h1 class="text-[16px] font-bold">Zain Bergson</h1>
+                        <h1 class="text-[16px] font-bold">{{ user_data.name }}</h1>
                       </div>
                     </div>
                     <div class="flex justify-between">
@@ -48,7 +49,7 @@
                         </div>
                         <div>
                           <h1 class="text-[14px] text-[#858585]">
-                            Riyadh, Saudi Arabia
+                            {{ user_data.location }} Riyadh, Saudi Arabia
                           </h1>
                         </div>
                       </div>
@@ -110,5 +111,6 @@
 <script setup>
 const props = defineProps({
   request: Array,
+  user: Object
 });
 </script>

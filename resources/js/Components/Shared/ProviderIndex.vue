@@ -66,11 +66,11 @@
           class="mb-[26px] pl-[15px]"
           :class="{
             'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-              $page.component.startsWith('Chat'),
+              $page.component.startsWith('UserChat'),
           }"
         >
           <div>
-            <Link class="text-[18px]" href="/chat-provider">Chats</Link>
+            <Link class="text-[18px]" :href="route('user.chat')">Chats</Link>
           </div>
         </div>
         <div
@@ -179,8 +179,10 @@
         }"
       >
         <div>
-          <Link class="text-[18px]" :href="route('provider.home')">Your Offers</Link>
-          </div>
+          <Link class="text-[18px]" :href="route('provider.home')"
+            >Your Offers</Link
+          >
+        </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"
@@ -203,7 +205,7 @@
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/chat-provider">Chats</Link>
+          <Link class="text-[18px]" :href="route('user.chat')">Chats</Link>
         </div>
       </div>
       <div

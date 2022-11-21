@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\City;
-use App\Models\Country;
 use App\Models\Region;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -33,6 +32,7 @@ class UserSeeder extends Seeder
                         'email' => $status['email'],
                         'password' => $status['password'],
                         'checkbox' => $status['checkbox'],
+                        'upload_photo' => $status['upload_photo'],
                     ]);
             });
     }
@@ -50,6 +50,7 @@ class UserSeeder extends Seeder
                 'email' => 'afzal100@gmail.com',
                 'password' => Hash::make('afzal100'),
                 'checkbox' => true,
+                'upload_photo' => '1668693618-Magnet.png',
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
@@ -61,6 +62,7 @@ class UserSeeder extends Seeder
                 'email' => 'afzal200@gmail.com',
                 'password' => Hash::make('afzal200'),
                 'checkbox' => false,
+                'upload_photo' => '1668693618-Magnet.png',
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
@@ -72,6 +74,7 @@ class UserSeeder extends Seeder
                 'email' => 'afzal300@gmail.com',
                 'password' => Hash::make('afzal200'),
                 'checkbox' => true,
+                'upload_photo' => '1668693618-Magnet.png',
             ],
         ]);
     }

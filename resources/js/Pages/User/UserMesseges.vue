@@ -11,7 +11,11 @@
       <!-- Main Content -->
       <div>
         <!-- Services -->
-        <div v-for="chat in chat.data" :key="chat.id" class="mt-[32px] mr-[300px]">
+        <div
+          v-for="chat in chat.data"
+          :key="chat.id"
+          class="mt-[32px] mr-[300px]"
+        >
           <div class="bg-white rounded-[12px]">
             <div class="flex p-[10px] mb-[14px]">
               <div class="mr-[17px]">
@@ -30,7 +34,7 @@
             </div>
           </div>
           <div class="bg-white rounded-[20px] mt-[12px] p-[22px]">
-            <div class="flex justify-center">
+            <!-- <div class="flex justify-center">
               <h1
                 class="
                   text-[12px] text-[#787878]
@@ -42,58 +46,43 @@
               >
                 12 June, 2022
               </h1>
-            </div>
-            <div class="flex justify-start">
-              <h1
-                class="
-                  text-[14px] text-[#787878]
-                  bg-[#EFEFEF]
-                  rounded-tr-[30px] rounded-bl-[30px] rounded-br-[30px]
-                  border-r-2 border-b-2
-                  py-[5px]
-                  px-[15px]
-                  mt-[33px]
-                  w-[200px]
-                "
+            </div> -->
+            <div v-for="messege in messeges" :key="messege.id">
+              <div v-show="messege.sender_id === user" class="flex justify-end">
+                <h1
+                  class="
+                    text-[14px] text-[#FFFFFF]
+                    bg-[#24C6C9]
+                    rounded-tr-[30px] rounded-bl-[30px] rounded-tl-[30px]
+                    border-r-2 border-b-2
+                    py-[5px]
+                    px-[15px]
+                    my-2
+                  "
+                >
+                  {{ messege.messege }}
+                </h1>
+              </div>
+              <div
+                v-show="messege.sender_id !== user"
+                class="flex justify-start"
               >
-                At fringilla volutpat amet, a hendrerit.
-              </h1>
+                <h1
+                  class="
+                    text-[14px] text-[#787878]
+                    bg-[#EFEFEF]
+                    rounded-tr-[30px] rounded-bl-[30px] rounded-br-[30px]
+                    border-r-2 border-b-2
+                    py-[5px]
+                    px-[15px]
+                    my-2
+                  "
+                >
+                  {{ messege.messege }}
+                </h1>
+              </div>
             </div>
-            <div class="flex justify-start">
-              <h1
-                class="
-                  text-[14px] text-[#787878]
-                  bg-[#EFEFEF]
-                  rounded-[30px]
-                  border-r-2 border-b-2
-                  py-[5px]
-                  px-[15px]
-                  mt-[33px]
-                "
-              >
-                At fringilla volutpat amet, a hendrerit.
-              </h1>
-            </div>
-            <div
-              v-for="messege in messeges"
-              :key="messege.uuid"
-              class="flex justify-end"
-            >
-              <h1
-                class="
-                  text-[14px] text-[#FFFFFF]
-                  bg-[#24C6C9]
-                  rounded-tr-[30px] rounded-bl-[30px] rounded-tl-[30px]
-                  border-r-2 border-b-2
-                  py-[5px]
-                  px-[15px]
-                  mt-[33px]
-                "
-              >
-                {{ messege.messege }}
-              </h1>
-            </div>
-            <div class="flex justify-center">
+            <!-- <div class="flex justify-center">
               <h1
                 class="
                   text-[12px] text-[#787878]
@@ -106,7 +95,7 @@
               >
                 Today
               </h1>
-            </div>
+            </div> -->
             <div>
               <form @submit.prevent="submit(chat.id)">
                 <div class="flex">
@@ -152,17 +141,17 @@ import { reactive } from "vue";
 
 const props = defineProps({
   chat: Object,
-  sender: Object,
-  reciever: Object,
   messeges: Array,
+  user: Number,
+  reciever: Number,
 });
 
 let form = reactive({
   messege: "",
 });
 
-function submit(id) {
-  Inertia.post(route("user.chat.messege.store", { chat_id: id }), form, {
+function submit(chat_id) {
+  Inertia.post(route("user.chat.messege.store", { chat: chat_id }), form, {
     forceFormData: true,
   });
 }

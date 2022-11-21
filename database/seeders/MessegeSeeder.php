@@ -22,7 +22,11 @@ class MessegeSeeder extends Seeder
                 Messege::factory()
                     ->create([
                         'chat_id' => $status['chat_id'],
+                        'sender_id' => $status['sender_id'],
+                        'reciever_id' => $status['reciever_id'],
                         'messege' => $status['messege'],
+                        'to_user_id' => User::first()->id,
+                        'from_user_id' => $status['from_user_id'],
                     ]);
             });
     }
@@ -32,11 +36,19 @@ class MessegeSeeder extends Seeder
         return collect([
             [
                 'chat_id' => chat::first()->id,
+                'sender_id' => User::first()->id,
+                'reciever_id' => User::first()->id,
                 'messege' => 'Hello How are you',
+                'to_user_id' => User::first()->id,
+                'from_user_id' => User::first()->id,
             ],
             [
                 'chat_id' => chat::first()->id,
+                'sender_id' => User::first()->id,
+                'reciever_id' => User::first()->id,
                 'messege' => 'Hello How are you',
+                'to_user_id' => User::first()->id,
+                'from_user_id' => User::first()->id,
             ],
         ]);
     }

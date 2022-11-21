@@ -26,7 +26,8 @@ class User extends Authenticatable
         'contact_number',
         'email',
         'password',
-        'checkbox'
+        'checkbox',
+        'upload_photo',
     ];
 
     /**
@@ -59,5 +60,10 @@ class User extends Authenticatable
     public function chat()
     {
         return $this->hasMany(chat::class);
+    }
+
+    public function request()
+    {
+        return $this->hasMany(Request::class);
     }
 }

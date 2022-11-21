@@ -34,11 +34,8 @@ use App\Http\Controllers\User\Chat\Messege\UserChatMessegeStoreController;
 use App\Http\Controllers\User\Order\UserOrderStoreController;
 use App\Http\Controllers\User\Profile\UserProfileEditController as ProfileUserProfileEditController;
 use App\Http\Controllers\User\Profile\UserProfileUpdateController as ProfileUserProfileUpdateController;
-use App\Http\Controllers\User\UserProfileEditController;
-use App\Http\Controllers\User\UserProfileUpdateController;
 use App\Http\Controllers\User\UserRequestController;
 use App\Http\Controllers\User\UserRequestIndexController;
-use App\Http\Requests\Auth\RegesterCreateRequest;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -136,10 +133,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('/chat/store', UserChatStoreController::class)
             ->name('user.chat.store');
 
-        Route::get('/chat/messege/create', UserChatMessegeCreateController::class)
+        Route::get('/chat/messege/{chat:id}/create', UserChatMessegeCreateController::class)
             ->name('user.chat.messege.create');
         
-        Route::post('/chat/messege/{chat_id:id}/store', UserChatMessegeStoreController::class)
+        Route::post('/chat/messege/{chat:id}/store', UserChatMessegeStoreController::class)
             ->name('user.chat.messege.store');
 
         Route::get('/wallet', UserWalletController::class)
@@ -308,4 +305,5 @@ Route::get('/chat', [ChatsController::class, 'index']);
 Route::get('/messages', [ChatsController::class, 'fetchMessages']);
 Route::post('/messages', [ChatsController::class, 'sendMessage']);
 
-Route::post('/messages', [ChatsController::class, 'sendMessage']);
+Route::post('/test', [ChatsController::class, 'test']);
+Route::get('/test/create', [ChatsController::class, 'testCreate']);

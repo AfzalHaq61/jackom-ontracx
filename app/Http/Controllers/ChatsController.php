@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Messege;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class ChatsController extends Controller
 {
@@ -26,5 +27,16 @@ class ChatsController extends Controller
     public function sendMessage(Request $request)
     {
         return $user = Auth::user();
+    }
+
+    public function test(Request $request)
+    {
+        return request('id');
+    }
+
+    public function testCreate(Request $request)
+    {
+        return Inertia::render('Axios', [
+        ])->with('success_message', "Yay it worked");
     }
 }

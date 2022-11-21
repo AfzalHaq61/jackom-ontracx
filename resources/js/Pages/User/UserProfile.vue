@@ -14,45 +14,48 @@
           <div class="md:col-span-3 mb-[50px]">
             <div class="bg-white rounded-[20px] pt-[40px] pb-[30px]">
               <div class="flex justify-center">
-                <img src="/images/Ellipse 15.png" alt="" />
+                <img class="rounded-full w-[200px] h-[200px]" :src="'/images/' + user.upload_photo" alt="" />
               </div>
               <div :class="{ errors: props.errors }">
-                    <div
-                      class="
-                        flex
-                        items-center
-                        justify-center
-                        border-2 rounded-[10px]
-                        bg-gray-100
-                        focus:ring-[#24C6C9] focus:border-[#24C6C9]
-                        px-[35px] py-[12px]
-                        mt-[50px] mx-[90px]
-                      "
-                    >
-                      <input
-                        class="
-                          text-sm text-grey-100 text-[15px]
-                          file:w-full
-                          file:rounded-full
-                          file:border-0
-                          file:text-[#3A3A3A]
-                          hover:file:cursor-pointer
-                        "
-                        type="file"
-                        name="upload_photo"
-                        id="upload_photo"
-                        @change="onFileChanged($event)"
-                        accept="image/*"
-                      />
-                    </div>
-                    <div
-                      :v-if="errors.upload_photo"
-                      class="text-red-600 pt-1 text-xs"
-                      role="alert"
-                    >
-                      {{ errors.upload_photo }}
-                    </div>
-                  </div>
+                <div
+                  class="
+                    flex
+                    items-center
+                    justify-center
+                    border-2
+                    rounded-[10px]
+                    bg-gray-100
+                    focus:ring-[#24C6C9] focus:border-[#24C6C9]
+                    px-[35px]
+                    py-[12px]
+                    mt-[50px]
+                    mx-[90px]
+                  "
+                >
+                  <input
+                    class="
+                      text-sm text-grey-100 text-[15px]
+                      file:w-full
+                      file:rounded-full
+                      file:border-0
+                      file:text-[#3A3A3A]
+                      hover:file:cursor-pointer
+                    "
+                    type="file"
+                    name="upload_photo"
+                    id="upload_photo"
+                    @change="onFileChanged($event)"
+                    accept="image/*"
+                  />
+                </div>
+                <div
+                  :v-if="errors.upload_photo"
+                  class="text-red-600 pt-1 text-xs"
+                  role="alert"
+                >
+                  {{ errors.upload_photo }}
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -165,6 +168,7 @@ let form = reactive({
   email: props.user.email,
   password: props.user.password,
   checkbox: props.user.checkbox,
+  upload_photo: props.user.upload_photo,
   _method: "put",
 });
 

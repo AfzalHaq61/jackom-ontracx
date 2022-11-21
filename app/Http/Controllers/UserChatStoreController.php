@@ -23,6 +23,11 @@ class UserChatStoreController extends Controller
                 'reciever_id' => request('reciever_id'),
                 'sender_id' => Auth::user()->id,
             ]);
+
+            chat::create([
+                'reciever_id' => Auth::user()->id,
+                'sender_id' => request('reciever_id')
+            ]);
         } catch (\Exception $e) {
             dd($e->getMessage());
         }

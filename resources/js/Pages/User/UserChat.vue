@@ -40,7 +40,7 @@
               "
             >
               <Link
-                :href="route('user.chat.messege.create', { chat_id: chat.id })"
+                :href="route('user.chat.messege.create', { chat: chat.id })"
               >
                 <div class="flex">
                   <div class="mr-[17px]">
@@ -83,10 +83,4 @@ const props = defineProps({
 let form = reactive({
   messege: "",
 });
-
-function submit() {
-  Inertia.post(route("user.chat.store", { sender: props.sender.id }), form, {
-    forceFormData: true,
-  });
-}
 </script>

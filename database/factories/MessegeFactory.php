@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\chat;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,11 @@ class MessegeFactory extends Factory
     {
         return [
             'chat_id' => chat::factory(),
+            'sender_id' => User::factory(),
+            'reciever_id' => User::factory(),
             'messege' => $this->faker->text(),
+            'to_user_id' => User::factory(),
+            'from_user_id' => User::factory(),
         ];
     }
 }

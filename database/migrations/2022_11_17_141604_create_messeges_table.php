@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::create('messeges', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('chat_id');
+            $table->unsignedBigInteger('sender_id');
+            $table->unsignedBigInteger('reciever_id');
             $table->text('messege');
+            $table->unsignedBigInteger('to_user_id');
+            $table->unsignedBigInteger('from_user_id');
             $table->timestamps();
         });
     }

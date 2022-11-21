@@ -18,8 +18,8 @@ class ChatFactory extends Factory
     public function definition()
     {
         return [
-            'reciever_id' => User::factory(),
             'sender_id' => User::factory(),
+            'reciever_id' => User::factory(),
         ];
     }
 }

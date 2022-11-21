@@ -20,8 +20,8 @@ class ChatSeeder extends Seeder
             ->each(function ($status) {
                 chat::factory()
                     ->create([
-                        'reciever_id' => $status['reciever_id'],
                         'sender_id' => $status['sender_id'],
+                        'reciever_id' => $status['reciever_id'],
                     ]);
             });
     }
@@ -30,12 +30,12 @@ class ChatSeeder extends Seeder
     {
         return collect([
             [
-                'reciever_id' => User::first()->id,
                 'sender_id' => User::first()->id,
+                'reciever_id' => User::first()->id, 
             ],
             [
-                'reciever_id' => User::first()->id,
                 'sender_id' => User::first()->id,
+                'reciever_id' => User::first()->id,
             ],
         ]);
     }

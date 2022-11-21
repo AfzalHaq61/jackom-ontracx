@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\Fueltype;
 use App\Models\Kind;
 use App\Models\Modal;
-use App\Models\Service;
 use App\Models\Shippingtype;
 use App\Models\Transmissiontype;
 use App\Models\User;
