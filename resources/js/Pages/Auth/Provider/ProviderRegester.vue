@@ -62,19 +62,46 @@
                     bg-[#24C6C9]
                     w-[60px]
                     h-[60px]
+                    mr-[5px]
                   "
                 >
                   <h1 class="text-[30px] text-white">A</h1>
                 </div>
-                <div class="ml-[5px] mt-[10px]">
-                  <ProverderProfileImageField
-                    fieldtype="file"
+                <div :class="{ errors: props.errors }">
+                <div
+                  class="
+                    flex
+                    items-center
+                    border-2
+                    rounded-[10px]
+                    bg-gray-100
+                    focus:ring-[#24C6C9] focus:border-[#24C6C9]
+                    py-[12px] mt-[5px]
+                  "
+                >
+                  <input
+                    class="
+                      text-sm text-grey-100 text-[15px]
+                      file:rounded-full
+                      file:border-0
+                      file:text-[#3A3A3A]
+                      hover:file:cursor-pointer
+                    "
+                    type="file"
                     name="upload_photo"
-                    v-model="form.upload_photo"
-                    :errors="errors.upload_photo"
-                  >
-                  </ProverderProfileImageField>
+                    id="upload_photo"
+                    @change="onFileChanged($event)"
+                    accept="image/*"
+                  />
                 </div>
+                <div
+                  :v-if="errors.upload_photo"
+                  class="text-red-600 pt-1 text-xs"
+                  role="alert"
+                >
+                  {{ errors.upload_photo }}
+                </div>
+              </div>
               </div>
             </div>
             <div class="md:grid grid-cols-2 gap-[100px]">

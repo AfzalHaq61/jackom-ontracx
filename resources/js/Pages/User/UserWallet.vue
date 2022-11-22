@@ -21,6 +21,20 @@
                 <h1 class="font-bold text-[52px] text-[#24C6C9]">SAR 11,231</h1>
               </div>
               <div class="flex justify-between mt-[34px]">
+                <div>
+                  <div>
+                    <stripe-checkout
+                      ref="checkoutRef"
+                      :pk="publishableKey"
+                      :sessionId="sessionId"
+                    />
+                    <div class="bg-[#24C6C9] rounded-[5px] py-[10px] px-[30px]">
+                      <button @click="submit" class="text-white">
+                        Pay now!
+                      </button>
+                    </div>
+                  </div>
+                </div>
                 <div class="bg-[#24C6C9] rounded-[5px] py-[10px] px-[30px]">
                   <button><h1 class="text-white">Top Up</h1></button>
                 </div>
@@ -45,7 +59,7 @@
                 >
                   <div class="flex justify-between">
                     <div>
-                      <img src="images/path3789.png" alt="" />
+                      <img src="/images/path3789.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[#858585] text-[16px]">Debit</h1>
@@ -65,7 +79,7 @@
                 >
                   <div class="flex justify-between">
                     <div>
-                      <img src="images/Group.png" alt="" />
+                      <img src="/images/Group.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[#858585] text-[16px]">Debit</h1>
@@ -84,7 +98,7 @@
                   "
                 >
                   <div class="flex place-content-center px-[140px] py-[70px]">
-                    <img src="images/add-alt.png" alt="" />
+                    <img src="/images/add-alt.png" alt="" />
                   </div>
                 </div>
               </div>
@@ -100,7 +114,7 @@
               <div class="bg-white rounded-[10px] p-[30px] mb-[20px]">
                 <div class="flex">
                   <div>
-                    <img class="" src="images/minus-circle-line.png" alt="" />
+                    <img class="" src="/images/minus-circle-line.png" alt="" />
                   </div>
                   <div class="flex">
                     <div class="w-[320px] pl-[28px]">
@@ -126,7 +140,7 @@
               <div class="bg-white rounded-[10px] p-[30px] mb-[20px]">
                 <div class="flex">
                   <div>
-                    <img src="images/minus-circle-line.png" alt="" />
+                    <img src="/images/minus-circle-line.png" alt="" />
                   </div>
                   <div class="flex">
                     <div class="w-[320px] pl-[28px]">
@@ -152,7 +166,7 @@
               <div class="bg-white rounded-[10px] p-[30px] mb-[20px]">
                 <div class="flex">
                   <div>
-                    <img src="images/minus-circle-line.png" alt="" />
+                    <img src="/images/minus-circle-line.png" alt="" />
                   </div>
                   <div class="flex">
                     <div class="w-[320px] pl-[28px]">
@@ -178,7 +192,7 @@
               <div class="bg-white rounded-[10px] p-[30px] mb-[20px]">
                 <div class="flex mb-[20px]">
                   <div>
-                    <img src="images/add-green-alt.png" alt="" />
+                    <img src="/images/add-green-alt.png" alt="" />
                   </div>
                   <div class="flex">
                     <div class="w-[320px] pl-[28px]">
@@ -204,7 +218,7 @@
               <div class="bg-white rounded-[10px] p-[30px] mb-[20px]">
                 <div class="flex">
                   <div>
-                    <img src="images/minus-circle-line.png" alt="" />
+                    <img src="/images/minus-circle-line.png" alt="" />
                   </div>
                   <div class="flex">
                     <div class="w-[320px] pl-[28px]">
@@ -230,7 +244,7 @@
               <div class="bg-white rounded-[10px] p-[30px]">
                 <div class="flex mb-[20px]">
                   <div>
-                    <img src="images/add-green-alt.png" alt="" />
+                    <img src="/images/add-green-alt.png" alt="" />
                   </div>
                   <div class="flex">
                     <div class="w-[320px] pl-[28px]">
@@ -260,5 +274,34 @@
   </div>
 </template>
 
-<script setup>
+<script>
+import { StripeCheckout } from '@vue-stripe/vue-stripe';
+import axios from "axios";
+export default {
+  components: {
+    StripeCheckout,
+  },
+  data () {
+    return {
+      publishableKey: 'pk_test_51M6qfdL4R5mzRCVIHQ0TXTp7UwXyfaHQbxOwB6GWopkhkQsFkfLk1C39wOM3EYM1viYroE72W1Ze8Mb9fXKfIUJV00oElvWXVO',
+      sessionId: '',
+    };
+  },
+  mounted() {
+    console.log('Component Mounted')
+    this.getSession()
+  },
+  methods: {
+    getSession() {
+      axios.get('getSession')
+      .then(res => {
+        this.sessionId = res.data.id
+      }).catch(err => {})
+    },
+    submit () {
+      // You will be redirected to Stripe's secure checkout page
+      this.$refs.checkoutRef.redirectToCheckout();
+    },
+  },
+};
 </script>

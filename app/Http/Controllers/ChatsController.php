@@ -39,4 +39,16 @@ class ChatsController extends Controller
         return Inertia::render('Axios', [
         ])->with('success_message', "Yay it worked");
     }
+
+    public function stripe() {
+        return Inertia::render('stripe');
+    }
+
+    public function success() {
+        return "Payment Successfull";
+    }
+
+    public function cancel() {
+        return "Payment Cancel";
+    }
 }

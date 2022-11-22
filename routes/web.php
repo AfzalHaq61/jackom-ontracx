@@ -32,6 +32,7 @@ use App\Http\Controllers\Request\RequestServiceTwoStoreController;
 use App\Http\Controllers\User\Chat\Messege\UserChatMessegeCreateController;
 use App\Http\Controllers\User\Chat\Messege\UserChatMessegeStoreController;
 use App\Http\Controllers\User\Order\UserOrderStoreController;
+use App\Http\Controllers\User\Payment\UserPaymentGetSessionController;
 use App\Http\Controllers\User\Profile\UserProfileEditController as ProfileUserProfileEditController;
 use App\Http\Controllers\User\Profile\UserProfileUpdateController as ProfileUserProfileUpdateController;
 use App\Http\Controllers\User\UserRequestController;
@@ -135,12 +136,15 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
         Route::get('/chat/messege/{chat:id}/create', UserChatMessegeCreateController::class)
             ->name('user.chat.messege.create');
-        
+
         Route::post('/chat/messege/{chat:id}/store', UserChatMessegeStoreController::class)
             ->name('user.chat.messege.store');
 
         Route::get('/wallet', UserWalletController::class)
             ->name('user.wallet');
+
+        Route::get('/getSession', UserPaymentGetSessionController::class)
+            ->name('user.wallet.getSession');
 
         Route::get('/profile/edit', ProfileUserProfileEditController::class)
             ->name('user.profile.edit');
@@ -307,3 +311,10 @@ Route::post('/messages', [ChatsController::class, 'sendMessage']);
 
 Route::post('/test', [ChatsController::class, 'test']);
 Route::get('/test/create', [ChatsController::class, 'testCreate']);
+
+Route::get('/stripe', [ChatsController::class, 'stripe']);
+Route::get('/success', [ChatsController::class, 'success']);
+Route::get('/cancel', [ChatsController::class, 'cancel']);
+
+Route::get('/getSession', UserPaymentGetSessionController::class)
+    ->name('user.wallet.getSession');
