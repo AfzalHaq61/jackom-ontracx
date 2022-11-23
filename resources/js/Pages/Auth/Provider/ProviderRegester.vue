@@ -68,40 +68,43 @@
                   <h1 class="text-[30px] text-white">A</h1>
                 </div>
                 <div :class="{ errors: props.errors }">
-                <div
-                  class="
-                    flex
-                    items-center
-                    border-2
-                    rounded-[10px]
-                    bg-gray-100
-                    focus:ring-[#24C6C9] focus:border-[#24C6C9]
-                    py-[12px] mt-[5px]
-                  "
-                >
-                  <input
+                  <div
                     class="
-                      text-sm text-grey-100 text-[15px]
-                      file:rounded-full
-                      file:border-0
-                      file:text-[#3A3A3A]
-                      hover:file:cursor-pointer
+                      flex
+                      items-center
+                      w-[200px]
+                      border-2
+                      rounded-[50px]
+                      bg-gray-100
+                      focus:ring-[#24C6C9] focus:border-[#24C6C9]
+                      py-[12px]
+                      mt-[5px]
                     "
-                    type="file"
-                    name="upload_photo"
-                    id="upload_photo"
-                    @change="onFileChanged($event)"
-                    accept="image/*"
-                  />
+                  >
+                    <input
+                      class="
+                        text-sm text-grey-100 text-[15px]
+                        file:rounded-full
+                        file:w-full
+                        file:border-0
+                        file:text-[#3A3A3A]
+                        hover:file:cursor-pointer
+                      "
+                      type="file"
+                      name="upload_photo"
+                      id="upload_photo"
+                      @change="uploadPhoto($event)"
+                      accept="image/*"
+                    />
+                  </div>
+                  <div
+                    :v-if="errors.upload_photo"
+                    class="text-red-600 pt-1 text-xs"
+                    role="alert"
+                  >
+                    {{ errors.upload_photo }}
+                  </div>
                 </div>
-                <div
-                  :v-if="errors.upload_photo"
-                  class="text-red-600 pt-1 text-xs"
-                  role="alert"
-                >
-                  {{ errors.upload_photo }}
-                </div>
-              </div>
               </div>
             </div>
             <div class="md:grid grid-cols-2 gap-[100px]">
@@ -194,15 +197,46 @@
                     Comercial Activity
                   </TextField>
                 </div>
-                <div class="mb-[30px]">
-                  <ImageFileField
-                    fieldtype="file"
-                    name="license_photo_2"
-                    v-model="form.license_photo_2"
-                    :errors="errors.license_photo_2"
+                <div :class="{ errors: props.errors.license_photo_1 }">
+                  <label class="block text-gray-700 text-[16px]">
+                    Licence Photo One
+                    <div
+                      class="
+                        flex
+                        items-center
+                        justify-center
+                        bg-gray-100
+                        rounded-[10px]
+                        focus:ring-[#24C6C9] focus:border-[#24C6C9]
+                        w-full
+                        h-[250px]
+                      "
+                    >
+                      <input
+                        class="
+                          text-sm text-grey-100 text-[15px]
+                          file:bg-gray-100
+                          file:w-full
+                          file:rounded-full
+                          file:border-0
+                          file:text-[#3A3A3A]
+                          hover:file:cursor-pointer
+                        "
+                        type="file"
+                        name="license_photo_1"
+                        id="license_photo_1"
+                        @change="licensePhotoOne($event)"
+                        accept="image/*"
+                      />
+                    </div>
+                  </label>
+                  <div
+                    :v-if="errors.license_photo_1"
+                    class="text-red-600 pt-1 text-xs"
+                    role="alert"
                   >
-                    License Photo
-                  </ImageFileField>
+                    {{ errors.license_photo_1 }}
+                  </div>
                 </div>
               </div>
               <div>
@@ -294,15 +328,46 @@
                     Legal Capacity
                   </TextField>
                 </div>
-                <div class="mb-[30px]">
-                  <ImageFileField
-                    fieldtype="file"
-                    name="license_photo_1"
-                    v-model="form.license_photo_1"
-                    :errors="errors.license_photo_1"
+                <div :class="{ errors: props.errors.license_photo_2 }">
+                  <label class="block text-gray-700 text-[16px]">
+                    Licence Photo Two
+                    <div
+                      class="
+                        flex
+                        items-center
+                        justify-center
+                        bg-gray-100
+                        rounded-[10px]
+                        focus:ring-[#24C6C9] focus:border-[#24C6C9]
+                        w-full
+                        h-[250px]
+                      "
+                    >
+                      <input
+                        class="
+                          text-sm text-grey-100 text-[15px]
+                          file:bg-gray-100
+                          file:w-full
+                          file:rounded-full
+                          file:border-0
+                          file:text-[#3A3A3A]
+                          hover:file:cursor-pointer
+                        "
+                        type="file"
+                        name="license_photo_2"
+                        id="license_photo_2"
+                        @change="licensePhotoTwo($event)"
+                        accept="image/*"
+                      />
+                    </div>
+                  </label>
+                  <div
+                    :v-if="errors.license_photo_2"
+                    class="text-red-600 pt-1 text-xs"
+                    role="alert"
                   >
-                    License Photo
-                  </ImageFileField>
+                    {{ errors.license_photo_2 }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -380,6 +445,18 @@ let form = reactive({
   upload_photo: "",
   checkbox: "",
 });
+
+function licensePhotoOne($event) {
+  form.license_photo_1 = $event.target.files[0];
+}
+
+function licensePhotoTwo($event) {
+  form.license_photo_2 = $event.target.files[0];
+}
+
+function uploadPhoto($event) {
+  form.upload_photo = $event.target.files[0];
+}
 
 function submit() {
   Inertia.post(route("provider.register.store"), form, {

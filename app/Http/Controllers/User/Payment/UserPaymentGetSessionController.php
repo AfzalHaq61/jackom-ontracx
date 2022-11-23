@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User\Payment;
 
 use App\Http\Controllers\Controller;
-use Error;
 
 class UserPaymentGetSessionController extends Controller
 {

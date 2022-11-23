@@ -22,6 +22,16 @@ class ProviderRegesterStoreController extends Controller
     {
         $data = $request->validated();
 
+        $licensePhotoOne = $request->file('license_photo_1');
+        $licensePhotoTwo = $request->file('license_photo_2');
+        $uploadPhoto = $request->file('upload_photo');
+
+        $destinationPath = 'images';
+
+        $licensePhotoOne->move($destinationPath, time() . '-' . $licensePhotoOne->getClientOriginalName());
+        $licensePhotoTwo->move($destinationPath, time() . '-' . $licensePhotoTwo->getClientOriginalName());
+        $uploadPhoto->move($destinationPath, time() . '-' . $uploadPhoto->getClientOriginalName());
+
         try {
             $user = User::create([
                 'uuid' => $data['uuid'],
@@ -33,6 +43,7 @@ class ProviderRegesterStoreController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'checkbox' => $data['checkbox'],
+                'upload_photo' => time() . '-' . $uploadPhoto->getClientOriginalName(),
             ]);
 
             $provider = Provider::create([
@@ -49,9 +60,9 @@ class ProviderRegesterStoreController extends Controller
                 'account_number' => $data['account_number'], 
                 'comercial_activity' => $data['comercial_activity'], 
                 'legal_capacity' => $data['legal_capacity'],  
-                'license_photo_1' => uniqid() . '-' . $data['license_photo_1'],
-                'license_photo_2' => uniqid() . '-' . $data['license_photo_2'],
-                'upload_photo' => uniqid() . '-' . $data['upload_photo'],
+                'license_photo_1' => time() . '-' . $licensePhotoOne->getClientOriginalName(),
+                'license_photo_2' => time() . '-' . $licensePhotoTwo->getClientOriginalName(),
+                'upload_photo' => time() . '-' . $uploadPhoto->getClientOriginalName(),
             ]);
         } catch (\Exception $e) {
             dd($e->getMessage());
