@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrderCollection;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class UserHomeController extends Controller
@@ -15,6 +17,11 @@ class UserHomeController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('User/UserHome')->with('success_message', "Yay it worked");
+        $query = Order::query()
+            ->paginate('3');
+        return Inertia::render('UserHome', [
+            'orders' => new OrderCollection($query),
+            'name' => Auth::user()->first_name,
+        ])->with('success_message', "Yay it worked");
     }
 }

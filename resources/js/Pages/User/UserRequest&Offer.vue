@@ -7,7 +7,7 @@
 
     <div class="col-span-6 pl-[59px] pr-[30px] pt-[59px] pb-[59px]">
       <!-- Home Head -->
-      <HomeHead />
+      <HomeHead :name="name"></HomeHead>
       <!-- Main Content -->
       <div>
         <!-- Services -->
@@ -68,18 +68,27 @@
             </div>
 
             <div
-              v-for="offer in offers"
+              v-for="offer in offers.data"
               :key="offer.uuid"
               class="bg-white rounded-[15px] mb-[20px] p-[12px]"
             >
-              <Link href="/providers-profile">
+              <Link
+                :href="
+                  route('user.request.details', {
+                    offer: offer.id,
+                  })
+                "
+              >
                 <div class="flex">
-                  <div class="rounded-full">
-                    <img src="/images/Ellipse17.png" alt="" />
+                  <div>
+                    <img
+                      class="w-[60px] h-[60px] rounded-full"
+                      :src="'/images/' + offer.profile_photo"
+                    />
                   </div>
                   <div class="ml-[20px]">
                     <div class="mb-[12px]">
-                      <h1 class="text-[16px] font-bold">Muhammad Usama</h1>
+                      <h1 class="text-[16px] font-bold">{{ offer.name }}</h1>
                     </div>
                     <div>
                       <div class="flex">
@@ -92,7 +101,7 @@
                         </div>
                         <div>
                           <h1 class="text-[14px] text-[#858585]">
-                            Riyadh, Saudi Arabia
+                            Riyadh, {{ offer.location }} Saudi Arabia
                           </h1>
                         </div>
                       </div>
@@ -107,7 +116,7 @@
                   </div>
                   <div class="flex mt-[25px]">
                     <div class="flex mr-[40px]">
-                      <div class="mr-[70px]">
+                      <div class="mr-[50px]">
                         <h1 class="text-[#858585] text-[14px]">Time</h1>
                       </div>
                       <div>
@@ -117,7 +126,7 @@
                       </div>
                     </div>
                     <div class="flex">
-                      <div class="mr-[70px]">
+                      <div class="mr-[50px]">
                         <h1 class="text-[#858585] text-[14px]">Cost</h1>
                       </div>
                       <div>
@@ -128,30 +137,41 @@
                     </div>
                   </div>
                 </div>
-                <div class="mt-[20px]">
-                  <div class="mb-[12px]">
-                    <img src="/images/Line 11.png" alt="" />
+              </Link>
+              <div class="mt-[20px]">
+                <div>
+                  <img src="/images/Line 11.png" alt="" />
+                </div>
+                <div class="flex justify-center">
+                  <div class="flex justify-center items-end">
+                    <h1 class="text-[#24C6C9] text-[14px] font-bold">
+                      <Link
+                        :href="
+                          route('user.chat.store', {
+                            reciever_id: offer.user_id,
+                          })
+                        "
+                        >Messege</Link
+                      >
+                    </h1>
                   </div>
-                  <div class="grid grid-cols-3">
-                    <div class="text-center">
-                      <h1 class="text-[#24C6C9] text-[14px] font-bold">
-                        <Link
-                          :href="route('user.chat.store', { reciever_id: offer.user_id })"
-                          >Messege</Link
-                        >
-                      </h1>
-                    </div>
-                    <div class="flex justify-center">
-                      <img src="/images/Line 12.png" alt="" />
-                    </div>
-                    <div class="text-center">
-                      <h1 class="text-[#24C6C9] text-[14px] font-bold">
-                        <Link :href="route('user.order')">Start Over</Link>
-                      </h1>
-                    </div>
+                  <div class="flex justify-center mx-[50px]">
+                    <img src="/images/Line 12.png" alt="" />
+                  </div>
+                  <div class="flex justify-center items-end">
+                    <h1 class="text-[#24C6C9] text-[14px] font-bold">
+                      <Link
+                      :href="
+                          route('payment', {
+                            offer: offer.id,
+                          })
+                        "
+                        >Start Order</Link
+                      >
+                    </h1>
                   </div>
                 </div>
-              </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -165,6 +185,7 @@ import moment from "moment";
 const props = defineProps({
   requests: Object,
   offers: Object,
+  name: String,
 });
 
 function date(value) {

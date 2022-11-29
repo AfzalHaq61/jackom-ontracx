@@ -25,6 +25,7 @@ class OrderSeeder extends Seeder
                         'uuid' => $status['uuid'],
                         'request_id' => $status['request_id'],
                         'offer_id' => $status['offer_id'],
+                        'status' => $status['status']
                     ]);
             });
     }
@@ -36,16 +37,19 @@ class OrderSeeder extends Seeder
                 'uuid' => Str::uuid()->tostring(),
                 'request_id' => Request::first()->id,
                 'offer_id' => Offer::first()->id,
+                'status' => false,
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
                 'request_id' => Request::first()->id,
                 'offer_id' => Offer::first()->id,
+                'status' => false,
             ],
             [
                 'uuid' => Str::uuid()->tostring(),
                 'request_id' => Request::first()->id,
                 'offer_id' => Offer::first()->id,
+                'status' => false,
             ],
         ]);
     }

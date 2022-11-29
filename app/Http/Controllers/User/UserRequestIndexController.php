@@ -17,8 +17,9 @@ class UserRequestIndexController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('User/UserRequest', [
+        return Inertia::render('UserRequest', [
             'requests' => ModelsRequest::all()->where('user_id', Auth::user()->id),
+            'name' => Auth::user()->first_name,
         ])->with('success_message', "Yay it worked");
     }
 }

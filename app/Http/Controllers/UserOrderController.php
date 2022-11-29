@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\OrderCollection;
-use App\Models\Offer;
 use App\Models\Order;
-use App\Models\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -22,8 +20,9 @@ class UserOrderController extends Controller
         $query = Order::query()
             ->paginate('50');
 
-        return Inertia::render('User/UserOrder', [
+        return Inertia::render('UserOrder', [
             'orders' => new OrderCollection($query),
+            'name' => Auth::user()->first_name,
         ])
             ->with('success_message', "Yay it worked");
     }

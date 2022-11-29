@@ -38,7 +38,7 @@
       </div>
       <div class="flex justify-center items-center mb-[60px]">
         <div class="w-[250px] md:w-[530px]">
-          <img src="images/Banner.png" alt="" />
+          <img src="/images/Banner.png" alt="" />
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
     <div class="grid place-content-center mb-[40px]">
       <h1 class="font-bold text-[36px] mb-1">Featured Services</h1>
       <div class="grid place-content-center">
-        <img src="images/Line 1.png" alt="line 1" />
+        <img src="/images/Line 1.png" alt="line 1" />
       </div>
     </div>
 
@@ -66,7 +66,7 @@
         <Link :href="route('user.request-service.one.create')">
           <div class="grid place-content-center mb-[40px]">
             <img
-              src="images/towing and shipping.png"
+              src="/images/towing and shipping.png"
               alt="Sipping and Towing Image"
             />
           </div>
@@ -81,7 +81,7 @@
         <Link :href="route('user.request-service.two.create')">
           <div class="grid place-content-center mb-[40px]">
             <img
-              src="images/car maintenance and care.png"
+              src="/images/car maintenance and care.png"
               alt="Car Wash and Repair Image"
             />
           </div>
@@ -95,7 +95,7 @@
       <div class="bg-green-100 rounded-[18px] p-[60px]">
         <Link :href="route('user.request-service.three.create')">
           <div class="grid place-content-center mb-[40px]">
-            <img src="images/spare parts.png" alt="Spare Parts Image" />
+            <img src="/images/spare parts.png" alt="Spare Parts Image" />
           </div>
           <div class="text-center">
             <h1 class="font-bold text-[20px] text-[#24C6C9]">
@@ -108,7 +108,7 @@
         <Link :href="route('user.request-service.four-five.create')">
           <div class="grid place-content-center mb-[40px]">
             <img
-              src="images/shipping and forwarding.png"
+              src="/images/shipping and forwarding.png"
               alt="Deportation And Buggage Image"
             />
           </div>
@@ -123,7 +123,7 @@
         <Link :href="route('user.request-service.six.create')">
           <div class="grid place-content-center mb-[40px]">
             <img
-              src="images/delivery services.png"
+              src="/images/delivery services.png"
               alt="Delivering Household Image"
             />
           </div>
@@ -138,7 +138,7 @@
         <Link :href="route('user.request-service.sell-car.create')">
           <div class="grid place-content-center mb-[40px]">
             <img
-              src="images/sell your broken car.png"
+              src="/images/sell your broken car.png"
               alt="Selling Car Image"
             />
           </div>
@@ -156,14 +156,14 @@
     <div class="grid place-content-center mb-[110px] pt-[35px]">
       <h1 class="font-bold text-[36px] text-white mb-2">Why Us</h1>
       <div class="grid place-content-center">
-        <img src="images/Line 2.png" alt="line 2" />
+        <img src="/images/Line 2.png" alt="line 2" />
       </div>
     </div>
     <div class="flex justify-center text-white pb-[130px]">
       <div class="flex flex-col md:flex-row">
         <div class="flex mr-[65px] mb-[30px]">
           <div class="mr-[30px]">
-            <img src="images/Ellipse 2.png" alt="Ellipse" />
+            <img src="/images/Ellipse 2.png" alt="Ellipse" />
           </div>
           <div>
             <h1 class="mb-[18px] text-[20px]">Lorem ipsum</h1>
@@ -175,7 +175,7 @@
         </div>
         <div class="flex mr-[65px] mb-[30px]">
           <div class="mr-[30px]">
-            <img src="images/Ellipse 2.png" alt="Ellipse" />
+            <img src="/images/Ellipse 2.png" alt="Ellipse" />
           </div>
           <div>
             <h1 class="mb-[18px] text-[20px]">Lorem ipsum</h1>
@@ -187,7 +187,7 @@
         </div>
         <div class="flex mr-[65px]">
           <div class="mr-[30px]">
-            <img src="images/Ellipse 2.png" alt="Ellipse" />
+            <img src="/images/Ellipse 2.png" alt="Ellipse" />
           </div>
           <div>
             <h1 class="mb-[18px] text-[20px]">Lorem ipsum</h1>
@@ -200,62 +200,157 @@
       </div>
     </div>
   </div>
+
   <!-- About cerosal -->
-  <div class="text-center my-[140px]">
-    <!-- heading -->
-    <div class="grid place-content-center mb-[100px]">
-      <h1 class="font-bold text-[36px] mb-1">What They Think</h1>
-      <div class="grid place-content-center">
-        <img src="images/Line 1.png" alt="line 1" />
-      </div>
-    </div>
-    <!-- picture -->
-    <div id="reviews">
-      <div class="flex justify-center mb-[35px]">
-        <img class="w-28" src="images/Ellipse 8.png" alt="" />
-      </div>
-      <div>
-        <div class="flex justify-between mx-[44px] md:mx-[110px] mb-[33px]">
-          <img src="images/Vector (1).png" alt="Vector" />
+  <swiper
+    :slides-per-view="1"
+    :space-between="50"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+  >
+    <swiper-slide
+      ><div class="text-center my-[140px]">
+        <!-- heading -->
+        <div class="grid place-content-center mb-[100px]">
+          <h1 class="font-bold text-[36px] mb-1">What They Think</h1>
           <div class="grid place-content-center">
-            <h1 class="font-bold text-[24px]">Davis Calzoni</h1>
-            <div class="flex justify-center">
-              <img src="images/Star.png" alt="star" />
-              <img src="images/Star.png" alt="star" />
-              <img src="images/Star.png" alt="star" />
-              <img src="images/Star.png" alt="star" />
-              <img src="images/Star.png" alt="star" />
+            <img src="/images/Line 1.png" alt="line 1" />
+          </div>
+        </div>
+        <!-- picture -->
+        <div id="reviews">
+          <div class="flex justify-center mb-[35px]">
+            <img class="w-28" src="/images/Ellipse 8.png" alt="" />
+          </div>
+          <div>
+            <div class="flex justify-between mx-[44px] md:mx-[110px] mb-[33px]">
+              <img src="/images/Vector (1).png" alt="Vector" />
+              <div class="grid place-content-center">
+                <h1 class="font-bold text-[24px]">Hashim</h1>
+                <div class="flex justify-center">
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                </div>
+              </div>
+              <img src="/images/Vector.png" alt="Vector" />
+            </div>
+            <div class="grid place-content-center">
+              <p class="text-[13px] md:text-[24px] w-[250px] md:w-[900px]">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deleniti ducimus cupiditate nobis nemo non, ipsum eaque quis
+                laudantium architecto quaerat nam, ratione ut dicta Explicabo,
+                error?
+              </p>
             </div>
           </div>
-          <img src="images/Vector.png" alt="Vector" />
         </div>
-        <div class="grid place-content-center">
-          <p class="text-[13px] md:text-[24px] w-[250px] md:w-[900px]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            ducimus cupiditate nobis nemo non, ipsum eaque quis laudantium
-            architecto quaerat nam, ratione ut dicta Explicabo, error?
-          </p>
+      </div></swiper-slide
+    >
+    <swiper-slide
+      ><div class="text-center my-[140px]">
+        <!-- heading -->
+        <div class="grid place-content-center mb-[100px]">
+          <h1 class="font-bold text-[36px] mb-1">What They Think</h1>
+          <div class="grid place-content-center">
+            <img src="/images/Line 1.png" alt="line 1" />
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
+        <!-- picture -->
+        <div id="reviews">
+          <div class="flex justify-center mb-[35px]">
+            <img class="w-28" src="/images/Ellipse 8.png" alt="" />
+          </div>
+          <div>
+            <div class="flex justify-between mx-[44px] md:mx-[110px] mb-[33px]">
+              <img src="/images/Vector (1).png" alt="Vector" />
+              <div class="grid place-content-center">
+                <h1 class="font-bold text-[24px]">Afzal</h1>
+                <div class="flex justify-center">
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                </div>
+              </div>
+              <img src="/images/Vector.png" alt="Vector" />
+            </div>
+            <div class="grid place-content-center">
+              <p class="text-[13px] md:text-[24px] w-[250px] md:w-[900px]">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deleniti ducimus cupiditate nobis nemo non, ipsum eaque quis
+                laudantium architecto quaerat nam, ratione ut dicta Explicabo,
+                error?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div></swiper-slide
+    >
+    <swiper-slide
+      ><div class="text-center my-[140px]">
+        <!-- heading -->
+        <div class="grid place-content-center mb-[100px]">
+          <h1 class="font-bold text-[36px] mb-1">What They Think</h1>
+          <div class="grid place-content-center">
+            <img src="/images/Line 1.png" alt="line 1" />
+          </div>
+        </div>
+        <!-- picture -->
+        <div id="reviews">
+          <div class="flex justify-center mb-[35px]">
+            <img class="w-28" src="/images/Ellipse 8.png" alt="" />
+          </div>
+          <div>
+            <div class="flex justify-between mx-[44px] md:mx-[110px] mb-[33px]">
+              <img src="/images/Vector (1).png" alt="Vector" />
+              <div class="grid place-content-center">
+                <h1 class="font-bold text-[24px]">Davis Calzoni</h1>
+                <div class="flex justify-center">
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                  <img src="/images/Star.png" alt="star" />
+                </div>
+              </div>
+              <img src="/images/Vector.png" alt="Vector" />
+            </div>
+            <div class="grid place-content-center">
+              <p class="text-[13px] md:text-[24px] w-[250px] md:w-[900px]">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deleniti ducimus cupiditate nobis nemo non, ipsum eaque quis
+                laudantium architecto quaerat nam, ratione ut dicta Explicabo,
+                error?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div></swiper-slide
+    >
+    ...
+  </swiper>
+
   <!-- Footer -->
   <div>
     <div class="flex justify-center bg-[#095C5E] py-[60px] px-[40px]">
       <div class="flex flex-col md:flex-row">
         <div class="text-white mb-[50px]">
           <div class="w-20 md:w-40 mb-[20px] md:mb-[40px]">
-            <img src="images/logo.png" alt="logo" />
+            <img src="/images/logo.png" alt="logo" />
           </div>
           <div class="font-light text-[16px]">
             <div class="flex mb-[20px] md:mb-[40px]">
-              <img class="mr-[20px]" src="images/phone.png" alt="phone icon" />
+              <img class="mr-[20px]" src="/images/phone.png" alt="phone icon" />
               <h1 class="relative top-[5px]">+66 32329 r23523</h1>
             </div>
             <div class="flex">
               <img
                 class="mr-[20px]"
-                src="images/android-mail.png"
+                src="/images/android-mail.png"
                 alt="mail icon"
               />
               <h1 class="relative top-[5px]">Serviceprovider@gmail.com</h1>
@@ -264,7 +359,7 @@
         </div>
 
         <div class="hidden md:inline ml-[44px] mr-[80px]">
-          <img class="h-64" src="images/Line 5.png" alt="" />
+          <img class="h-64" src="/images/Line 5.png" alt="" />
         </div>
 
         <div class="text-white mb-[50px]">
@@ -290,7 +385,7 @@
         </div>
 
         <div class="hidden md:inline mr-[50px] ml-[60px]">
-          <img class="h-64" src="images/Line 5.png" alt="vertical line" />
+          <img class="h-64" src="/images/Line 5.png" alt="vertical line" />
         </div>
 
         <div class="text-white">
@@ -299,17 +394,21 @@
           </div>
           <div class="font-light text-[16px]">
             <div class="flex mb-[23px]">
-              <img class="mr-[25px]" src="images/facebook.png" alt="facebook" />
+              <img
+                class="mr-[25px]"
+                src="/images/facebook.png"
+                alt="facebook"
+              />
               <h1>Facebook</h1>
             </div>
             <div class="flex mb-[23px]">
-              <img class="mr-[25px]" src="images/Twitter.png" alt="twitter" />
+              <img class="mr-[25px]" src="/images/Twitter.png" alt="twitter" />
               <h1>Twitter</h1>
             </div>
             <div class="flex mb-[23px]">
               <img
                 class="mr-[25px]"
-                src="images/linkedin.png"
+                src="/images/linkedin.png"
                 alt="linked in"
               />
               <h1>Linked In</h1>
@@ -317,7 +416,7 @@
             <div class="flex mb-[23px]">
               <img
                 class="mr-[25px]"
-                src="images/instagram.png"
+                src="/images/instagram.png"
                 alt="Instagram"
               />
               <h1>Instagram</h1>
@@ -344,5 +443,29 @@
   </div>
 </template>
 
-<script setup>
+<script>
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const onSwiper = (swiper) => {
+      console.log(swiper);
+    };
+    const onSlideChange = () => {
+      console.log("slide change");
+    };
+    return {
+      onSwiper,
+      onSlideChange,
+    };
+  },
+};
 </script>

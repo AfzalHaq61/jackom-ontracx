@@ -29,7 +29,7 @@
                     <Link href="/signin"
                       ><img
                         class="w-[36px] h-[36px]"
-                        src="images/Back.png"
+                        src="/images/Back.png"
                         alt=""
                     /></Link>
                   </div>
@@ -42,7 +42,7 @@
 
             <div class="bg-white rounded-[26px]">
               <div class="">
-                <img class="w-full" src="images/Rectangle 123.png" alt="" />
+                <img class="w-full" src="/images/Rectangle 123.png" alt="" />
               </div>
 
               <div class="p-[35px]">
@@ -57,7 +57,7 @@
                   >
                     <img
                       class="w-[100px] h-[100px]"
-                      src="images/Ellipse17.png"
+                      src="/images/Ellipse17.png"
                       alt=""
                     />
                   </div>
@@ -70,7 +70,7 @@
                         <div class="relative top-1 mr-[5px]">
                           <img
                             class="w-[12px] h-[12px]"
-                            src="images/location-pin.png"
+                            src="/images/location-pin.png"
                             alt=""
                           />
                         </div>
@@ -204,7 +204,7 @@
               <div class="bg-white rounded-[26px] p-[30px]">
                 <div class="flex">
                   <div class="mr-[30px]">
-                    <img src="images/Group 30.png" alt="" />
+                    <img src="/images/Group 30.png" alt="" />
                   </div>
                   <div class="flex items-center mr-[10px]">
                     <div class="mr-[10px]">
@@ -218,7 +218,7 @@
                 <div class="mt-[13px]">
                   <div class="flex p-[10px]">
                     <div class="mr-[20px]">
-                      <img src="images/Ellipse 16.png" alt="" />
+                      <img src="/images/Ellipse 16.png" alt="" />
                     </div>
                     <div>
                       <div class="flex justify-between">
@@ -229,7 +229,7 @@
                           <div class="relative top-[4px] mr-[1px]">
                             <img
                               class="w-[12px] h-[12px]"
-                              src="images/Star.png"
+                              src="/images/Star.png"
                               alt=""
                             />
                           </div>
@@ -250,7 +250,7 @@
 
                   <div class="flex p-[10px]">
                     <div class="mr-[20px]">
-                      <img src="images/Ellipse 16.png" alt="" />
+                      <img src="/images/Ellipse 16.png" alt="" />
                     </div>
                     <div>
                       <div class="flex justify-between">
@@ -261,7 +261,7 @@
                           <div class="relative top-[4px] mr-[1px]">
                             <img
                               class="w-[12px] h-[12px]"
-                              src="images/Star.png"
+                              src="/images/Star.png"
                               alt=""
                             />
                           </div>
@@ -282,7 +282,7 @@
 
                   <div class="flex p-[10px]">
                     <div class="mr-[20px]">
-                      <img src="images/Ellipse 16.png" alt="" />
+                      <img src="/images/Ellipse 16.png" alt="" />
                     </div>
                     <div>
                       <div class="flex justify-between">
@@ -293,7 +293,7 @@
                           <div class="relative top-[4px] mr-[1px]">
                             <img
                               class="w-[12px] h-[12px]"
-                              src="images/Star.png"
+                              src="/images/Star.png"
                               alt=""
                             />
                           </div>
@@ -314,7 +314,7 @@
 
                   <div class="flex p-[10px]">
                     <div class="mr-[20px]">
-                      <img src="images/Ellipse 16.png" alt="" />
+                      <img src="/images/Ellipse 16.png" alt="" />
                     </div>
                     <div>
                       <div class="flex justify-between">
@@ -325,7 +325,7 @@
                           <div class="relative top-[4px] mr-[1px]">
                             <img
                               class="w-[12px] h-[12px]"
-                              src="images/Star.png"
+                              src="/images/Star.png"
                               alt=""
                             />
                           </div>

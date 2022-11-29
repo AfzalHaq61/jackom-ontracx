@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Fueltype;
 use App\Models\Sell;
 use App\Models\Transmissiontype;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class RequestServiceSellCarsCreateController extends Controller
@@ -40,6 +41,7 @@ class RequestServiceSellCarsCreateController extends Controller
                     'id' => $resource->id,
                     'name' => $resource->name,
                 ]),
+            'name' => Auth::user()->first_name,
         ])
             ->with('success_message', "Yay it worked");
     }

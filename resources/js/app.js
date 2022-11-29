@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-import { createApp, h } from 'vue';
+import { createApp, h, Vue } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
@@ -27,6 +27,15 @@ import IndexHead from "@/Components/Shared/IndexHead.vue";
 import RequestMenubar from "@/Components/Shared/RequestMenubar.vue";
 import Requestindex from "@/Components/Shared/Requestindex.vue";
 import { XIcon } from "@heroicons/vue/outline";
+import VueGoogleMaps from '@fawmi/vue-google-maps'
+
+// Vue.use(VueGoogleMaps, {
+//     load: {
+//         key: 'YOUR_API_KEY_COMES_HERE',
+//         // language: 'de',
+//     },
+// }).mount('#app')
+
 import { ref } from "vue";
 
 import Alpine from 'alpinejs'
@@ -67,7 +76,14 @@ createInertiaApp({
             .component('IndexHead', IndexHead)
             .component('RequestMenubar', RequestMenubar)
             .component('Requestindex', Requestindex)
+            .component('VueGoogleMaps', VueGoogleMaps)
             .component('XIcon', XIcon)
+            .use(VueGoogleMaps, {
+                load: {
+                    key: 'AIzaSyC99mF1FgxEyLoPBCfP4FY7PPmupCyO4Ag',
+                    libraries: "places"
+                },
+            })
             .mixin({ methods: { route } })
             .mount(el);
     },

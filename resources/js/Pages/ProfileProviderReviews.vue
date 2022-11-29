@@ -14,15 +14,15 @@
           <div class="bg-white rounded-[20px] pt-[40px] pb-[30px]">
             <div>
               <div class="flex justify-center">
-                <img src="images/Ellipse 15.png" alt="" />
+                <img src="/images/Ellipse 15.png" alt="" />
               </div>
               <div class="flex justify-end relative bottom-[40px] right-[60px]">
-                <img src="images/Group 144.png" alt="" />
+                <img src="/images/Group 144.png" alt="" />
               </div>
             </div>
             <div class="mt-[50px]">
               <div class="flex justify-center mb-[10px]">
-                <img src="images/Group 145.png" alt="" />
+                <img src="/images/Group 145.png" alt="" />
               </div>
               <div class="text-center">
                 <h1 class="text-[#24C6C9] text-[15px]">56% Completed</h1>

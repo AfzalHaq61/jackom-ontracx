@@ -22,8 +22,9 @@ class ProviderOfferController extends Controller
             ->where('user_id', Auth::user()->id)
             ->paginate('50');
 
-        return Inertia::render('Provider/Offer/ProviderOffers', [
-            'offers' => new OfferCollection($query)
+        return Inertia::render('ProviderOffers', [
+            'offers' => new OfferCollection($query),
+            'name' => Auth::user()->first_name,
         ])->with('success_message', "Yay it worked");
     }
 }

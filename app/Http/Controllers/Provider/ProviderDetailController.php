@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Provider;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\RequestCollection;
 use App\Models\Request as ModelsRequest;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class ProviderDetailController extends Controller
@@ -20,7 +21,8 @@ class ProviderDetailController extends Controller
         $query = ModelsRequest::query()->where('uuid', $request['uuid'])->paginate(1);
         return Inertia::render('Provider/RequestDetails', [
             'user' => new RequestCollection($query),
-            'request' => $request
+            'request' => $request,
+            'name' => Auth::user()->first_name,
         ])->with('success_message', "Yay it worked");
     }
 }

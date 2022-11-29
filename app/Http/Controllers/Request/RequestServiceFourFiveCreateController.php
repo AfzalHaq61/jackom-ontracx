@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Deportation;
 use App\Models\Shippingtype;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class RequestServiceFourFiveCreateController extends Controller
@@ -28,7 +29,8 @@ class RequestServiceFourFiveCreateController extends Controller
                     'id' => $resource->id,
                     'name' => $resource->name,
                 ]),
+            'name' => Auth::user()->first_name,
         ])
-        ->with('success_message', "Yay it worked");
+            ->with('success_message', "Yay it worked");
     }
 }

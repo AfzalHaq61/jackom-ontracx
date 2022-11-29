@@ -20,7 +20,7 @@ class UserProfileEditController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('User/UserProfile', [
+        return Inertia::render('UserProfile', [
             'user' => Auth::user(),
             'regions' => Region::all()
                 ->map(fn ($resource) => [
@@ -31,7 +31,8 @@ class UserProfileEditController extends Controller
                 ->map(fn ($resource) => [
                     'id' => $resource->id,
                     'name' => $resource->name,
-                ])
+                ]),
+            'name' => Auth::user()->first_name,
         ])
             ->with('success', "Yay it worked");
     }

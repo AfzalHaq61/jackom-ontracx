@@ -24,8 +24,8 @@ class Offer extends Model
         return $this->belongsTo(Request::class, 'request_id', 'id');
     }
 
-    public function offer()
+    public function user(): BelongsTo
     {
-        return $this->hasOne(Order::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

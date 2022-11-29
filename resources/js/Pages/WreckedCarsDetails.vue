@@ -16,7 +16,7 @@
             <div>
               <div class="relative bottom-[5px] mr-[15px]">
                 <Link href="/wrecked_cars_list"
-                  ><img class="w-[36px] h-[36px]" src="images/Back.png" alt=""
+                  ><img class="w-[36px] h-[36px]" src="/images/Back.png" alt=""
                 /></Link>
               </div>
             </div>
@@ -30,18 +30,18 @@
           <div class="col-span-7 mb-[20px]">
             <div>
               <div>
-                <img src="images/Rectangle 223.png" alt="" />
+                <img src="/images/Rectangle 223.png" alt="" />
               </div>
             </div>
             <div class="flex mt-[24px]">
               <div class="mr-[24px]">
-                <img src="images/Rectangle 224.png" alt="" />
+                <img src="/images/Rectangle 224.png" alt="" />
               </div>
               <div class="mr-[24px]">
-                <img src="images/Rectangle 225.png" alt="" />
+                <img src="/images/Rectangle 225.png" alt="" />
               </div>
               <div class="mr-[24px]">
-                <img src="images/Rectangle 225.png" alt="" />
+                <img src="/images/Rectangle 225.png" alt="" />
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
                       <div class="relative top-[4px] pr-[5px]">
                         <img
                           class="w-[12px] h-[12px]"
-                          src="images/location-pin.png"
+                          src="/images/location-pin.png"
                           alt=""
                         />
                       </div>

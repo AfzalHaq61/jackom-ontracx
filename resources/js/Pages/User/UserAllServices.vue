@@ -7,7 +7,7 @@
 
     <div class="col-span-6 px-[30px] py-[30px] md:px-[60px] md:py-[60px]">
       <!-- Home Head -->
-      <HomeHead />
+      <HomeHead :name="name"></HomeHead>
       <!-- Main Content -->
       <div>
         <!-- Services -->
@@ -17,7 +17,7 @@
           >
             <div class="flex">
               <div class="relative bottom-[10px] mr-[15px]">
-                <Link href="/home"
+                <Link :href="route('user.home')"
                   ><img class="w-[36px] h-[36px]" src="/images/Back.png" alt=""
                 /></Link>
               </div>
@@ -274,4 +274,7 @@
 </template>
 
 <script setup>
+const props = defineProps({
+  name: String,
+});
 </script>

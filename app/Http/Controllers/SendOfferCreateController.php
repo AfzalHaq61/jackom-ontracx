@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Request as ModelsRequest;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class SendOfferCreateController extends Controller
@@ -16,7 +17,9 @@ class SendOfferCreateController extends Controller
     public function __invoke(ModelsRequest $request)
     {
         return Inertia::render('Provider/Offer/ProviderOfferCreate', [
-            'request' => $request
+            'request' => $request,
+            'provider_id' => Auth::user()->id,
+            'name' => Auth::user()->first_name,
         ])
             ->with('success_message', "Yay it worked");
     }

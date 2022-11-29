@@ -14,6 +14,7 @@ class Order extends Model
         'uuid',
         'request_id',
         'offer_id',
+        'status'
     ];
 
     public function request(): BelongsTo

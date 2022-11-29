@@ -534,11 +534,11 @@
       <div class="flex flex-col md:flex-row">
         <div class="text-white mb-[50px]">
           <div class="w-20 md:w-40 mb-[20px] md:mb-[40px]">
-            <img src="images/logo.png" alt="logo" />
+            <img src="/images/logo.png" alt="logo" />
           </div>
           <div class="font-light text-[16px]">
             <div class="flex mb-[20px] md:mb-[40px]">
-              <img class="mr-[20px]" src="images/phone.png" alt="phone icon" />
+              <img class="mr-[20px]" src="/images/phone.png" alt="phone icon" />
               <h1 class="relative top-[5px]">+66 32329 r23523</h1>
             </div>
             <div class="flex">
@@ -553,7 +553,7 @@
         </div>
 
         <div class="hidden md:inline ml-[44px] mr-[80px]">
-          <img class="h-64" src="images/Line 5.png" alt="" />
+          <img class="h-64" src="/images/Line 5.png" alt="" />
         </div>
 
         <div class="text-white mb-[50px]">
@@ -579,7 +579,7 @@
         </div>
 
         <div class="hidden md:inline mr-[50px] ml-[60px]">
-          <img class="h-64" src="images/Line 5.png" alt="vertical line" />
+          <img class="h-64" src="/images/Line 5.png" alt="vertical line" />
         </div>
 
         <div class="text-white">
@@ -588,17 +588,17 @@
           </div>
           <div class="font-light text-[16px]">
             <div class="flex mb-[23px]">
-              <img class="mr-[25px]" src="images/facebook.png" alt="facebook" />
+              <img class="mr-[25px]" src="/images/facebook.png" alt="facebook" />
               <h1>Facebook</h1>
             </div>
             <div class="flex mb-[23px]">
-              <img class="mr-[25px]" src="images/Twitter.png" alt="twitter" />
+              <img class="mr-[25px]" src="/images/Twitter.png" alt="twitter" />
               <h1>Twitter</h1>
             </div>
             <div class="flex mb-[23px]">
               <img
                 class="mr-[25px]"
-                src="images/linkedin.png"
+                src="/images/linkedin.png"
                 alt="linked in"
               />
               <h1>Linked In</h1>
@@ -606,7 +606,7 @@
             <div class="flex mb-[23px]">
               <img
                 class="mr-[25px]"
-                src="images/instagram.png"
+                src="/images/instagram.png"
                 alt="Instagram"
               />
               <h1>Instagram</h1>

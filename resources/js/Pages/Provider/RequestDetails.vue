@@ -7,7 +7,7 @@
 
     <div class="col-span-6 pl-[59px] pr-[30px] pt-[59px] pb-[59px]">
       <!-- Home Head -->
-      <HomeHead />
+      <HomeHead :name="name"></HomeHead>
       <!-- Main Content -->
       <div>
         <!-- Services -->
@@ -111,6 +111,7 @@
 <script setup>
 const props = defineProps({
   request: Array,
-  user: Object
+  user: Object,
+  name: String,
 });
 </script>

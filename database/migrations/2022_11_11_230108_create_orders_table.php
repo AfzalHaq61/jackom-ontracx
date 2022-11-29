@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('request_id')->references('id')->on('requests')->onDelete('cascade');
             $table->bigInteger('offer_id')->unsigned()->index();
             $table->foreign('offer_id')->references('id')->on('offers')->onDelete('cascade');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

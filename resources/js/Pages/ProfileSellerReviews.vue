@@ -14,12 +14,12 @@
           <div class="bg-white rounded-[20px] pt-[40px] pb-[30px]">
             <div>
               <div class="flex justify-center">
-                <img src="images/Ellipse 15.png" alt="" />
+                <img src="/images/Ellipse 15.png" alt="" />
               </div>
             </div>
             <div class="mt-[50px]">
               <div class="flex justify-center mb-[10px]">
-                <img src="images/Group 145.png" alt="" />
+                <img src="/images/Group 145.png" alt="" />
               </div>
               <div class="text-center">
                 <h1 class="text-[#24C6C9] text-[15px]">56% Completed</h1>
@@ -88,7 +88,7 @@
               <div class="mr-[18px]">
                 <img
                   class="w-[38px] h-[38px]"
-                  src="images/Ellipse 51.png"
+                  src="/images/Ellipse 51.png"
                   alt=""
                 />
               </div>
@@ -99,7 +99,7 @@
                   </div>
                   <div class="flex">
                     <div class="relative top-[2px]">
-                      <img class="w-3 h-3" src="images/Star.png" alt="" />
+                      <img class="w-3 h-3" src="/images/Star.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[12px] text-[#787878]">4.0</h1>
@@ -126,7 +126,7 @@
               <div class="mr-[18px]">
                 <img
                   class="w-[38px] h-[38px]"
-                  src="images/Ellipse 51 (1).png"
+                  src="/images/Ellipse 51 (1).png"
                   alt=""
                 />
               </div>
@@ -137,7 +137,7 @@
                   </div>
                   <div class="flex">
                     <div class="relative top-[2px]">
-                      <img class="w-3 h-3" src="images/Star.png" alt="" />
+                      <img class="w-3 h-3" src="/images/Star.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[12px] text-[#787878]">4.0</h1>
@@ -164,7 +164,7 @@
               <div class="mr-[18px]">
                 <img
                   class="w-[38px] h-[38px]"
-                  src="images/Ellipse 51 (2).png"
+                  src="/images/Ellipse 51 (2).png"
                   alt=""
                 />
               </div>
@@ -175,7 +175,7 @@
                   </div>
                   <div class="flex">
                     <div class="relative top-[2px]">
-                      <img class="w-3 h-3" src="images/Star.png" alt="" />
+                      <img class="w-3 h-3" src="/images/Star.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[12px] text-[#787878]">4.0</h1>
@@ -202,7 +202,7 @@
               <div class="mr-[18px]">
                 <img
                   class="w-[38px] h-[38px]"
-                  src="images/Ellipse 51 (3).png"
+                  src="/images/Ellipse 51 (3).png"
                   alt=""
                 />
               </div>
@@ -213,7 +213,7 @@
                   </div>
                   <div class="flex">
                     <div class="relative top-[2px]">
-                      <img class="w-3 h-3" src="images/Star.png" alt="" />
+                      <img class="w-3 h-3" src="/images/Star.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[12px] text-[#787878]">4.0</h1>
@@ -240,7 +240,7 @@
               <div class="mr-[18px]">
                 <img
                   class="w-[38px] h-[38px]"
-                  src="images/Ellipse 51 (4).png"
+                  src="/images/Ellipse 51 (4).png"
                   alt=""
                 />
               </div>
@@ -251,7 +251,7 @@
                   </div>
                   <div class="flex">
                     <div class="relative top-[2px]">
-                      <img class="w-3 h-3" src="images/Star.png" alt="" />
+                      <img class="w-3 h-3" src="/images/Star.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[12px] text-[#787878]">4.0</h1>
@@ -278,7 +278,7 @@
               <div class="mr-[18px]">
                 <img
                   class="w-[38px] h-[38px]"
-                  src="images/Ellipse 51 (5).png"
+                  src="/images/Ellipse 51 (5).png"
                   alt=""
                 />
               </div>
@@ -289,7 +289,7 @@
                   </div>
                   <div class="flex">
                     <div class="relative top-[2px]">
-                      <img class="w-3 h-3" src="images/Star.png" alt="" />
+                      <img class="w-3 h-3" src="/images/Star.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[12px] text-[#787878]">4.0</h1>
@@ -316,7 +316,7 @@
               <div class="mr-[18px]">
                 <img
                   class="w-[38px] h-[38px]"
-                  src="images/Ellipse 51 (6).png"
+                  src="/images/Ellipse 51 (6).png"
                   alt=""
                 />
               </div>
@@ -327,7 +327,7 @@
                   </div>
                   <div class="flex">
                     <div class="relative top-[2px]">
-                      <img class="w-3 h-3" src="images/Star.png" alt="" />
+                      <img class="w-3 h-3" src="/images/Star.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[12px] text-[#787878]">4.0</h1>
@@ -354,7 +354,7 @@
               <div class="mr-[18px]">
                 <img
                   class="w-[38px] h-[38px]"
-                  src="images/Ellipse 51 (6).png"
+                  src="/images/Ellipse 51 (6).png"
                   alt=""
                 />
               </div>
@@ -365,7 +365,7 @@
                   </div>
                   <div class="flex">
                     <div class="relative top-[2px]">
-                      <img class="w-3 h-3" src="images/Star.png" alt="" />
+                      <img class="w-3 h-3" src="/images/Star.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[12px] text-[#787878]">4.0</h1>
@@ -392,7 +392,7 @@
               <div class="mr-[18px]">
                 <img
                   class="w-[38px] h-[38px]"
-                  src="images/Ellipse 51 (7).png"
+                  src="/images/Ellipse 51 (7).png"
                   alt=""
                 />
               </div>
@@ -403,7 +403,7 @@
                   </div>
                   <div class="flex">
                     <div class="relative top-[2px]">
-                      <img class="w-3 h-3" src="images/Star.png" alt="" />
+                      <img class="w-3 h-3" src="/images/Star.png" alt="" />
                     </div>
                     <div>
                       <h1 class="text-[12px] text-[#787878]">4.0</h1>

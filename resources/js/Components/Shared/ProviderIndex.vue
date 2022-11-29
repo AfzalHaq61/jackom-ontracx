@@ -11,7 +11,7 @@
         </button>
       </div>
       <div class="grid justify-center mb-12">
-        <img class="w-28" src="images/logo.png" alt="" />
+        <img class="w-28" src="/images/logo.png" alt="" />
       </div>
       <div class="grid justify-center mb-12">
         <div
@@ -33,33 +33,29 @@
           }"
         >
           <div>
-            <Link :href="route('provider.request')">Your Requests</Link>
+            <Link :href="route('provider.request')">Requests</Link>
           </div>
         </div>
         <div
           class="mb-[26px] pl-[15px]"
           :class="{
             'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-              $page.component.startsWith('YourOffers'),
+              $page.component.startsWith('ProviderOffers'),
           }"
         >
           <div>
-            <Link class="text-[18px]" href="/your-offers-provider"
-              >Your Offers</Link
-            >
+            <Link :href="route('provider.offer')">Offers</Link>
           </div>
         </div>
         <div
           class="mb-[26px] pl-[15px]"
           :class="{
             'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-              $page.component.startsWith('YourOrders'),
+              $page.component.startsWith('ProviderOrders'),
           }"
         >
           <div>
-            <Link class="text-[18px]" href="/your-orders-provider"
-              >Your Orders</Link
-            >
+            <Link :href="route('provider.orders')">Orders</Link>
           </div>
         </div>
         <div
@@ -77,22 +73,13 @@
           class="mb-[26px] pl-[15px]"
           :class="{
             'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-              $page.component.startsWith('Wallet'),
+              $page.component.startsWith('UserProfile'),
           }"
         >
           <div>
-            <Link class="text-[18px]" href="/wallet-provider">Wallet</Link>
-          </div>
-        </div>
-        <div
-          class="mb-[26px] pl-[15px]"
-          :class="{
-            'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-              $page.component.startsWith('Profile'),
-          }"
-        >
-          <div>
-            <Link class="text-[18px]" href="/profile-provider">Profile</Link>
+            <Link class="text-[18px]" :href="route('user.profile.edit')"
+              >Profile</Link
+            >
           </div>
         </div>
         <div
@@ -103,7 +90,7 @@
           }"
         >
           <div>
-            <Link class="text-[18px]" href="">Logout</Link>
+            <Link class="text-[18px]" :href="route('logout')">Logout</Link>
           </div>
         </div>
       </div>
@@ -120,7 +107,7 @@
       "
     >
       <div class="md:flex md:items-center w-[60px]">
-        <img src="images/logo.png" alt="logo" />
+        <img src="/images/logo.png" alt="logo" />
       </div>
       <div class="hidden md:flex items-center font-semibold">
         <h1 class="text-[#858585] hover:text-black mr-[100px]">
@@ -139,7 +126,7 @@
       class="md:hidden absolute cursor-pointer top-[23px] pl-[32px] z-10"
       @click="open = true"
     >
-      <img src="images/menubar.png" alt="menu icon" />
+      <img src="/images/menubar.png" alt="menu icon" />
     </div>
   </div>
   <div class="hidden md:inline bg-[#24C6C9] rounded-r-[26px]">
@@ -162,46 +149,38 @@
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Provider/ProviderRequest'),
+            $page.component.startsWith('ProviderRequest'),
+        }"
+      >
+        <Link :href="route('provider.request')">Requests</Link>
+      </div>
+      <div
+        class="mb-[26px] pl-[15px]"
+        :class="{
+          'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
+            $page.component.startsWith('ProviderOffers'),
         }"
       >
         <div>
-          <Link class="text-[18px]" :href="route('provider.request')"
-            >Your Requests</Link
-          >
+          <Link :href="route('provider.offer')">Offers</Link>
         </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('YourOrders'),
+            $page.component.startsWith('ProviderOrders'),
         }"
       >
         <div>
-          <Link class="text-[18px]" :href="route('provider.home')"
-            >Your Offers</Link
-          >
+          <Link :href="route('provider.order')">Orders</Link>
         </div>
       </div>
       <div
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('YourOrders'),
-        }"
-      >
-        <div>
-          <Link class="text-[18px]" href="/your-orders-provider"
-            >Your Orders</Link
-          >
-        </div>
-      </div>
-      <div
-        class="mb-[26px] pl-[15px]"
-        :class="{
-          'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Chat'),
+            $page.component.startsWith('UserChat'),
         }"
       >
         <div>
@@ -212,22 +191,13 @@
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Wallet'),
+            $page.component.startsWith('UserProfile'),
         }"
       >
         <div>
-          <Link class="text-[18px]" href="/wallet-provider">Wallet</Link>
-        </div>
-      </div>
-      <div
-        class="mb-[26px] pl-[15px]"
-        :class="{
-          'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('Profile'),
-        }"
-      >
-        <div>
-          <Link class="text-[18px]" href="/profile-provider">Profile</Link>
+          <Link class="text-[18px]" :href="route('user.profile.edit')"
+            >Profile</Link
+          >
         </div>
       </div>
       <div
@@ -238,7 +208,7 @@
         }"
       >
         <div>
-          <Link class="text-[18px]" href="">Logout</Link>
+          <Link class="text-[18px]" :href="route('logout')">Logout</Link>
         </div>
       </div>
     </div>

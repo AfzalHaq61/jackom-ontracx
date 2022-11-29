@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class UserAllServicesController extends Controller
@@ -14,6 +15,8 @@ class UserAllServicesController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('User/UserAllServices')->with('success_message', "Yay it worked");
+        return Inertia::render('User/UserAllServices', [
+            'name' => Auth::user()->first_name,
+        ])->with('success_message', "Yay it worked");
     }
 }

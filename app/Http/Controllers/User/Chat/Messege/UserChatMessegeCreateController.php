@@ -28,6 +28,7 @@ class UserChatMessegeCreateController extends Controller
             'messeges' => Messege::where('sender_id', Auth::user()->id)->orWhere('sender_id', $chat['reciever_id'])->get(),
             'user' => Auth::user()->id,
             'reciever' => $chat['reciever_id'],
+            'name' => Auth::user()->first_name,
         ])
             ->with('success_message', "Yay it worked");
     }

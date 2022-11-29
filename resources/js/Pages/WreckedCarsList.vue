@@ -21,7 +21,7 @@
           <Link href="/wrecked_cars_details">
             <div class="md:flex">
               <div class="mb-[20px]">
-                <img class="w-full" src="images/Rectangle 217.png" alt="" />
+                <img class="w-full" src="/images/Rectangle 217.png" alt="" />
               </div>
 
               <div class="md:ml-[40px] w-full">
@@ -41,7 +41,7 @@
                       <div class="relative top-[4px] pr-[5px]">
                         <img
                           class="w-[12px] h-[12px]"
-                          src="images/location-pin.png"
+                          src="/images/location-pin.png"
                           alt=""
                         />
                       </div>
@@ -158,7 +158,7 @@
                       <div class="relative top-[4px] pr-[5px]">
                         <img
                           class="w-[12px] h-[12px]"
-                          src="images/location-pin.png"
+                          src="/images/location-pin.png"
                           alt=""
                         />
                       </div>

@@ -27,7 +27,7 @@
                 "
               >
                 <div class="mr-[17px]">
-                  <img src="images/Ellipse 59.png" alt="" />
+                  <img src="/images/Ellipse 59.png" alt="" />
                 </div>
                 <div class="w-full">
                   <div class="flex justify-between">
@@ -55,7 +55,7 @@
                 "
               >
                 <div class="mr-[17px]">
-                  <img src="images/Ellipse 60.png" alt="" />
+                  <img src="/images/Ellipse 60.png" alt="" />
                 </div>
                 <div class="w-full">
                   <div class="flex justify-between">
@@ -83,7 +83,7 @@
                 "
               >
                 <div class="mr-[17px]">
-                  <img src="images/Ellipse 60 (1).png" alt="" />
+                  <img src="/images/Ellipse 60 (1).png" alt="" />
                 </div>
                 <div class="w-full">
                   <div class="flex justify-between">
@@ -111,7 +111,7 @@
                 "
               >
                 <div class="mr-[17px]">
-                  <img src="images/Ellipse 60 (2).png" alt="" />
+                  <img src="/images/Ellipse 60 (2).png" alt="" />
                 </div>
                 <div class="w-full">
                   <div class="flex justify-between">
@@ -139,7 +139,7 @@
                 "
               >
                 <div class="mr-[17px]">
-                  <img src="images/Ellipse 60 (3).png" alt="" />
+                  <img src="/images/Ellipse 60 (3).png" alt="" />
                 </div>
                 <div class="w-full">
                   <div class="flex justify-between">
@@ -167,7 +167,7 @@
                 "
               >
                 <div class="mr-[17px]">
-                  <img src="images/Ellipse 60 (4).png" alt="" />
+                  <img src="/images/Ellipse 60 (4).png" alt="" />
                 </div>
                 <div class="w-full">
                   <div class="flex justify-between">
@@ -195,7 +195,7 @@
                 "
               >
                 <div class="mr-[17px]">
-                  <img src="images/Ellipse 60 (5).png" alt="" />
+                  <img src="/images/Ellipse 60 (5).png" alt="" />
                 </div>
                 <div class="w-full">
                   <div class="flex justify-between">
@@ -223,7 +223,7 @@
                 "
               >
                 <div class="mr-[17px]">
-                  <img src="images/Ellipse 60 (6).png" alt="" />
+                  <img src="/images/Ellipse 60 (6).png" alt="" />
                 </div>
                 <div class="w-full">
                   <div class="flex justify-between">
@@ -247,7 +247,7 @@
               <div class="bg-white rounded-[12px]">
                 <div class="flex p-[10px] mb-[14px]">
                   <div class="mr-[17px]">
-                    <img src="images/Ellipse 59.png" alt="" />
+                    <img src="/images/Ellipse 59.png" alt="" />
                   </div>
                   <div class="w-full" >
                     <div class="flex justify-between">
@@ -363,7 +363,7 @@
                     >
                       <img
                         class="w-[26px] h-[22px]"
-                        src="images/Vector (2).png"
+                        src="/images/Vector (2).png"
                         alt=""
                       />
                     </div>

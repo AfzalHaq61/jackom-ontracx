@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\OrderCollection;
 use App\Models\Image;
+use App\Models\Offer;
 use App\Models\Order;
+use App\Models\Request as ModelsRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class FileUploadController extends Controller
@@ -54,5 +57,10 @@ class FileUploadController extends Controller
         // ]);
 
         // return $image;
+
+        return Inertia::render('User/UserWallet', [
+            'requests' => ModelsRequest::all()->where('user_id', Auth::user()->id),
+            'offers' => Offer::all()->where('request_id', request('request')),
+        ])->with('success_message', "Yay it worked");
     }
 }

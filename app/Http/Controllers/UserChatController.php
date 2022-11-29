@@ -21,8 +21,9 @@ class UserChatController extends Controller
             ->where('sender_id', Auth::user()->id)
             ->paginate('50');
 
-        return Inertia::render('User/UserChat', [
+        return Inertia::render('UserChat', [
             'chats' => new ChatCollection($query),
+            'name' => Auth::user()->first_name,
         ])->with('success_message', "Yay it worked");
     }
 }

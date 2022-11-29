@@ -3,13 +3,13 @@
 
   <div class="min-h-screen bg-[#FFFFFF] md:grid grid-cols-7">
     <!-- Home Left Index -->
-    <Requestindex />
+    <HomeIndex />
 
     <div class="col-span-6 px-[30px] py-[30px] md:px-[60px] md:py-[30px]">
       <!-- Menu Bar -->
       <RequestMenubar />
       <!-- Head -->
-      <RequestHead />
+      <RequestHead :name="name"></RequestHead>
       <!-- Main Content -->
       <div>
         <form @submit.prevent="submit">
@@ -339,6 +339,7 @@ const props = defineProps({
   categories: Array,
   fueltypes: Array,
   transmissiontypes: Array,
+  name: String,
 });
 
 let form = reactive({

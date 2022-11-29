@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Household;
 use App\Models\Kind;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class RequestServiceSixCreateController extends Controller
@@ -28,7 +29,7 @@ class RequestServiceSixCreateController extends Controller
                     'id' => $resource->id,
                     'name' => $resource->name,
                 ]),
-                'dummy' => 'dummy',
+            'name' => Auth::user()->first_name,
         ])
             ->with('success_message', "Yay it worked");
     }

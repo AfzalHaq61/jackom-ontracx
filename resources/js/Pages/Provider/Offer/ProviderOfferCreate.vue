@@ -1,5 +1,5 @@
 <template>
-  <Head title="Offers" />
+  <Head title="Offers Create" />
 
   <div class="min-h-screen bg-white md:grid grid-cols-7">
     <!-- Home Left Index -->
@@ -7,14 +7,19 @@
 
     <div class="col-span-6 px-[30px] py-[30px] md:px-[60px] md:py-[60px]">
       <!-- Home Head -->
-      <RequestHead />
+      <RequestHead :name="name"></RequestHead>
       <!-- Main Content -->
       <div>
         <!-- Services -->
         <div class="mt-[53px]">
           <div class="flex">
             <div class="relative bottom-[5px] mr-[15px]">
-              <Link href="/signin"
+              <Link
+                :href="
+                  route('provider.request.details', {
+                    request: request.uuid,
+                  })
+                "
                 ><img class="w-[36px] h-[36px]" src="/images/Back.png" alt=""
               /></Link>
             </div>
@@ -89,6 +94,8 @@ import { reactive } from "vue";
 const props = defineProps({
   errors: Object,
   request: Array,
+  provider_id: Number,
+  name: String,
 });
 
 let form = reactive({

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Modal;
 use App\Models\Spareparttype;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class RequestServiceThreeCreateController extends Controller
@@ -34,6 +35,7 @@ class RequestServiceThreeCreateController extends Controller
                     'id' => $resource->id,
                     'name' => $resource->name,
                 ]),
+            'name' => Auth::user()->first_name,
         ])
             ->with('success_message', "Yay it worked");
     }

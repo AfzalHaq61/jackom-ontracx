@@ -28,6 +28,7 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
+        "@fawmi/vue-google-maps": "^0.9.79",
         "@fortawesome/free-solid-svg-icons": "^6.1.1",
         "@headlessui/vue": "^1.6.5",
         "@heroicons/vue": "^1.0.6",
@@ -47,6 +48,7 @@
         "next": "^13.0.4",
         "pusher-js": "^7.5.0",
         "stripe": "^11.1.0",
+        "swiper": "^8.4.5",
         "v-mask": "^2.3.0",
         "vue-button-spinner": "^2.2.1",
         "vue-filepond": "^7.0.3",

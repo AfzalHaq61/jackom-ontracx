@@ -35,7 +35,7 @@
           >
             <div>
               <Link class="text-[18px]" :href="route('user.request.index')"
-                >Your Requests</Link
+                >Requests</Link
               >
             </div>
           </div>
@@ -43,12 +43,12 @@
             class="mb-[26px] pl-[15px]"
             :class="{
               'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-                $page.component.startsWith('UserOrders'),
+                $page.component.startsWith('UserOrder'),
             }"
           >
             <div>
               <Link class="text-[18px]" :href="route('user.order')"
-                >Your Orders</Link
+                >Orders</Link
               >
             </div>
           </div>
@@ -61,19 +61,6 @@
           >
             <div>
               <Link class="text-[18px]" :href="route('user.chat')">Chats</Link>
-            </div>
-          </div>
-          <div
-            class="mb-[26px] pl-[15px]"
-            :class="{
-              'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-                $page.component.startsWith('UserWallet'),
-            }"
-          >
-            <div>
-              <Link class="text-[18px]" :href="route('user.wallet')"
-                >Wallet</Link
-              >
             </div>
           </div>
           <div
@@ -173,7 +160,7 @@
       >
         <div>
           <Link class="text-[18px]" :href="route('user.request.index')"
-            >Your Requests</Link
+            >Requests</Link
           >
         </div>
       </div>
@@ -181,13 +168,11 @@
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('UserOrders'),
+            $page.component.startsWith('UserOrder'),
         }"
       >
         <div>
-          <Link class="text-[18px]" :href="route('user.order')"
-            >Your Orders</Link
-          >
+          <Link class="text-[18px]" :href="route('user.order')">Orders</Link>
         </div>
       </div>
       <div
@@ -205,22 +190,13 @@
         class="mb-[26px] pl-[15px]"
         :class="{
           'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
-            $page.component.startsWith('UserWallet'),
-        }"
-      >
-        <div>
-          <Link class="text-[18px]" :href="route('user.wallet')">Wallet</Link>
-        </div>
-      </div>
-      <div
-        class="mb-[26px] pl-[15px]"
-        :class="{
-          'flex items-center bg-white text-[#24C6C9] rounded-[5px] shadow-md w-[150px] h-[40px] mb-[15px]':
             $page.component.startsWith('UserProfile'),
         }"
       >
         <div>
-          <Link class="text-[18px]" :href="route('user.profile.edit')">Profile</Link>
+          <Link class="text-[18px]" :href="route('user.profile.edit')"
+            >Profile</Link
+          >
         </div>
       </div>
       <div

@@ -32,7 +32,7 @@ class RequestServiceOneCreateRequest extends FormRequest
             'color' => 'required|min:2|string',
             'plate_number' => 'required|min:5|numeric',
             'copy_of_regestration' => 'required',
-            'location_from' => 'required|min:7|max:30|string',
+            'location_from' => 'required|min:7|max:100|string',
             'location_to' => 'required|min:7|max:30|string',
             'upload_photo' => 'required|max:2048',
         ];

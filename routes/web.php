@@ -14,7 +14,12 @@ use App\Http\Controllers\Auth\User\UserForgotPasswordStoreController;
 use App\Http\Controllers\Auth\User\UserResetPasswordCreateController;
 use App\Http\Controllers\Auth\User\UserResetPasswordStoreController;
 use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\Provider\Offer\ProviderOfferDeleteController;
+use App\Http\Controllers\Provider\Offer\ProviderOfferEditController;
+use App\Http\Controllers\Provider\Offer\ProviderOfferUpdateController;
+use App\Http\Controllers\Provider\Order\ProviderOrderController;
 use App\Http\Controllers\Provider\ProviderDetailController;
+use App\Http\Controllers\Provider\ProviderHomeController;
 use App\Http\Controllers\Provider\ProviderOfferController;
 use App\Http\Controllers\Provider\ProviderRequestController;
 use App\Http\Controllers\Request\RequestServiceFourFiveCreateController;
@@ -32,9 +37,11 @@ use App\Http\Controllers\Request\RequestServiceTwoStoreController;
 use App\Http\Controllers\User\Chat\Messege\UserChatMessegeCreateController;
 use App\Http\Controllers\User\Chat\Messege\UserChatMessegeStoreController;
 use App\Http\Controllers\User\Order\UserOrderStoreController;
+use App\Http\Controllers\User\Order\UserOrderUpdateController;
 use App\Http\Controllers\User\Payment\UserPaymentGetSessionController;
 use App\Http\Controllers\User\Profile\UserProfileEditController as ProfileUserProfileEditController;
 use App\Http\Controllers\User\Profile\UserProfileUpdateController as ProfileUserProfileUpdateController;
+use App\Http\Controllers\User\Request\UserRequestDetailsController;
 use App\Http\Controllers\User\UserRequestController;
 use App\Http\Controllers\User\UserRequestIndexController;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +61,13 @@ use Inertia\Inertia;
 // Main Page
 Route::get('/', MainPageController::class)
     ->name('main.page');
+
+// Payment Routes
+Route::get('/payment/{offer:id}', PaymentController::class)
+    ->name('payment');
+
+Route::get('/getSession', UserPaymentGetSessionController::class)
+    ->name('payment.getSession');
 
 // User Authentication
 Route::get('/register/create', RegesterCreateController::class)
@@ -122,11 +136,17 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('/request/{request:id}', UserRequestController::class)
             ->name('user.request');
 
+        Route::get('/request/{offer:id}/details', UserRequestDetailsController::class)
+            ->name('user.request.details');
+
         Route::get('/order', UserOrderController::class)
             ->name('user.order');
 
         Route::get('/order/{offer:uuid}/store', UserOrderStoreController::class)
             ->name('user.order.store');
+
+        Route::get('/order/{order:uuid}/update', UserOrderUpdateController::class)
+            ->name('user.order.update');
 
         Route::get('/chat', UserChatController::class)
             ->name('user.chat');
@@ -139,12 +159,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
         Route::post('/chat/messege/{chat:id}/store', UserChatMessegeStoreController::class)
             ->name('user.chat.messege.store');
-
-        Route::get('/wallet', UserWalletController::class)
-            ->name('user.wallet');
-
-        Route::get('/getSession', UserPaymentGetSessionController::class)
-            ->name('user.wallet.getSession');
 
         Route::get('/profile/edit', ProfileUserProfileEditController::class)
             ->name('user.profile.edit');
@@ -190,9 +204,11 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // Provider Routes
 
     Route::prefix('/provider')->group(function () {
+        // Provider Home
+        Route::get('/home', ProviderHomeController::class)
+            ->name('provider.home');
         // Provider Requests
         Route::prefix('/request')->group(function () {
-
             Route::get('/', ProviderRequestController::class)
                 ->name('provider.request');
             Route::get('/{request:uuid}/details', ProviderDetailController::class)
@@ -202,58 +218,47 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::prefix('/offer')->group(function () {
             Route::get('/', ProviderOfferController::class)
                 ->name('provider.offer');
-
             Route::get('/{request:uuid}/create', SendOfferCreateController::class)
                 ->name('provider.offer.create');
-
             Route::post('/store', SendOfferStoreController::class)
                 ->name('provider.offer.store');
+            Route::get('/{offer:uuid}/edit', ProviderOfferEditController::class)
+                ->name('provider.offer.edit');
+            Route::post('/{offer:uuid}/update', ProviderOfferUpdateController::class)
+                ->name('provider.offer.update');
+            Route::get('/{offer:uuid}/delete', ProviderOfferDeleteController::class)
+                ->name('provider.offer.delete');
         });
+        //Profile Orders
+        Route::get('/order', ProviderOrderController::class)
+            ->name('provider.order');
     });
 
-    Route::get('/signup-provider', function () {
-        return Inertia::render('ProviderSignup');
-    })->name('SignupProvider');
 
-    Route::get('/provider/home', function () {
-        return Inertia::render('ProviderHome');
-    })->name('provider.home');
+    // Route::get('/providers-profile', function () {
+    //     return Inertia::render('ProvidersProfile');
+    // })->name('providers-profile');
 
-    Route::get('/providers-profile', function () {
-        return Inertia::render('ProvidersProfile');
-    })->name('providers-profile');
+    // Route::get('/profile-provider', function () {
+    //     return Inertia::render('ProfileProvider');
+    // })->name('profile-provider');
 
-    Route::get('/profile-provider', function () {
-        return Inertia::render('ProfileProvider');
-    })->name('profile-provider');
+    // Route::get('/profile-provider-other', function () {
+    //     return Inertia::render('ProfileProviderOther');
+    // })->name('profile-provider-other');
 
-    Route::get('/profile-provider-other', function () {
-        return Inertia::render('ProfileProviderOther');
-    })->name('profile-provider-other');
+    // Route::get('/profile-provider-reviews', function () {
+    //     return Inertia::render('ProfileProviderReviews');
+    // })->name('profile-provider-reviews');
 
-    Route::get('/profile-provider-reviews', function () {
-        return Inertia::render('ProfileProviderReviews');
-    })->name('profile-provider-reviews');
+    // Route::get('/wrecked_cars_list', function () {
+    //     return Inertia::render('WreckedCarsList');
+    // })->name('wrecked_cars_list');
 
-    Route::get('/wrecked_cars_list', function () {
-        return Inertia::render('WreckedCarsList');
-    })->name('wrecked_cars_list');
+    // Route::get('/wrecked_cars_details', function () {
+    //     return Inertia::render('WreckedCarsDetails');
+    // })->name('wrecked_cars_details');
 
-    Route::get('/wrecked_cars_details', function () {
-        return Inertia::render('WreckedCarsDetails');
-    })->name('wrecked_cars_details');
-
-    Route::get('/chat-provider', function () {
-        return Inertia::render('ChatProvider');
-    })->name('chatProvider');
-
-    Route::get('/your-orders-provider', function () {
-        return Inertia::render('YourOrdersProvider');
-    })->name('your-ordersProvider');
-
-    Route::get('/wallet-provider', function () {
-        return Inertia::render('WalletProvider');
-    })->name('wallet-provider');
 
     // Seller
 
@@ -315,6 +320,3 @@ Route::get('/test/create', [ChatsController::class, 'testCreate']);
 Route::get('/stripe', [ChatsController::class, 'stripe']);
 Route::get('/success', [ChatsController::class, 'success']);
 Route::get('/cancel', [ChatsController::class, 'cancel']);
-
-Route::get('/getSession', UserPaymentGetSessionController::class)
-    ->name('user.wallet.getSession');

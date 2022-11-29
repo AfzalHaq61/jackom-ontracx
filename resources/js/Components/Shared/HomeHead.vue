@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between">
     <div>
-      <h1 class="text-[24px] font-bold">Hi Zain,</h1>
+      <h1 class="text-[24px] font-bold">Hi {{ name }},</h1>
     </div>
 
     <div class="hidden md:inline">
@@ -32,4 +32,7 @@
 
 <script setup>
 import { SearchIcon } from "@heroicons/vue/solid";
+const props = defineProps({
+  name: String,
+});
 </script>

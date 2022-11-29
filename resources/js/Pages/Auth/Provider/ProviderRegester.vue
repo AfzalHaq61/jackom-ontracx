@@ -62,7 +62,7 @@
                     bg-[#24C6C9]
                     w-[60px]
                     h-[60px]
-                    mr-[5px]
+                    mr-[10px]
                   "
                 >
                   <h1 class="text-[30px] text-white">A</h1>
@@ -72,13 +72,13 @@
                     class="
                       flex
                       items-center
-                      w-[200px]
+                      w-[150px]
                       border-2
                       rounded-[50px]
                       bg-gray-100
                       focus:ring-[#24C6C9] focus:border-[#24C6C9]
-                      py-[12px]
-                      mt-[5px]
+                      py-[4px]
+                      mt-[12px]
                     "
                   >
                     <input
@@ -209,7 +209,7 @@
                         rounded-[10px]
                         focus:ring-[#24C6C9] focus:border-[#24C6C9]
                         w-full
-                        h-[250px]
+                        h-[200px]
                       "
                     >
                       <input
@@ -340,7 +340,7 @@
                         rounded-[10px]
                         focus:ring-[#24C6C9] focus:border-[#24C6C9]
                         w-full
-                        h-[250px]
+                        h-[200px]
                       "
                     >
                       <input

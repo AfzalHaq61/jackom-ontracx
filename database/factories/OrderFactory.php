@@ -22,6 +22,7 @@ class OrderFactory extends Factory
             'uuid' => $this->faker->uuid(),
             'request_id' => Request::factory(),
             'offer_id' => Offer::factory(),
+            'status' => $this->faker->boolean(),
         ];
     }
 }

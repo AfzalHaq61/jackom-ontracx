@@ -134,7 +134,7 @@
             <div class="grid grid-cols-5 py-[18px] px-[18px]">
               <div class="flex">
                 <div class="relative bottom-[5px] mr-[43px]">
-                  <img src="images/Ellipse 61.png" alt="">
+                  <img src="/images/Ellipse 61.png" alt="">
                 </div>
                 <div>
                   <h1 class="text-[14px]">Wilson Bergson</h1>
@@ -156,7 +156,7 @@
             <div class="grid grid-cols-5 py-[18px] px-[18px]">
               <div class="flex">
                 <div class="relative bottom-[5px] mr-[43px]">
-                  <img src="images/Ellipse 62.png" alt="">
+                  <img src="/images/Ellipse 62.png" alt="">
                 </div>
                 <div>
                   <h1 class="text-[14px]">Wilson Bergson</h1>
@@ -178,7 +178,7 @@
             <div class="grid grid-cols-5 py-[18px] px-[18px]">
               <div class="flex">
                 <div class="relative bottom-[5px] mr-[43px]">
-                  <img src="images/Ellipse 64.png" alt="">
+                  <img src="/images/Ellipse 64.png" alt="">
                 </div>
                 <div>
                   <h1 class="text-[14px]">Leo Stanton</h1>
@@ -200,7 +200,7 @@
             <div class="grid grid-cols-5 py-[18px] px-[18px]">
               <div class="flex">
                 <div class="relative bottom-[5px] mr-[43px]">
-                  <img src="images/Ellipse 66.png" alt="">
+                  <img src="/images/Ellipse 66.png" alt="">
                 </div>
                 <div>
                   <h1 class="text-[14px]">Wilson Bergson</h1>
@@ -254,7 +254,7 @@
             <div class="grid grid-cols-5 py-[18px] px-[18px]">
               <div class="flex">
                 <div class="relative bottom-[5px] mr-[43px]">
-                  <img src="images/Ellipse 61.png" alt="">
+                  <img src="/images/Ellipse 61.png" alt="">
                 </div>
                 <div>
                   <h1 class="text-[14px]">Wilson Bergson</h1>
@@ -276,7 +276,7 @@
             <div class="grid grid-cols-5 py-[18px] px-[18px]">
               <div class="flex">
                 <div class="relative bottom-[5px] mr-[43px]">
-                  <img src="images/Ellipse 62.png" alt="">
+                  <img src="/images/Ellipse 62.png" alt="">
                 </div>
                 <div>
                   <h1 class="text-[14px]">Wilson Bergson</h1>
@@ -298,7 +298,7 @@
             <div class="grid grid-cols-5 py-[18px] px-[18px]">
               <div class="flex">
                 <div class="relative bottom-[5px] mr-[43px]">
-                  <img src="images/Ellipse 64.png" alt="">
+                  <img src="/images/Ellipse 64.png" alt="">
                 </div>
                 <div>
                   <h1 class="text-[14px]">Leo Stanton</h1>
@@ -320,7 +320,7 @@
             <div class="grid grid-cols-5 py-[18px] px-[18px]">
               <div class="flex">
                 <div class="relative bottom-[5px] mr-[43px]">
-                  <img src="images/Ellipse 66.png" alt="">
+                  <img src="/images/Ellipse 66.png" alt="">
                 </div>
                 <div>
                   <h1 class="text-[14px]">Wilson Bergson</h1>

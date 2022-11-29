@@ -3,13 +3,13 @@
 
   <div class="min-h-screen bg-[#FFFFFF] md:grid grid-cols-7">
     <!-- Home Left Index -->
-    <Requestindex />
+    <HomeIndex />
 
     <div class="col-span-6 px-[30px] py-[30px] md:px-[60px] md:py-[30px]">
       <!-- Menu Bar -->
       <RequestMenubar />
       <!-- Head -->
-      <RequestHead />
+      <RequestHead :name="name"></RequestHead>
       <!-- Main Content -->
       <div>
         <form @submit.prevent="submit">
@@ -123,6 +123,55 @@
                     Location To
                   </TextField>
                 </div>
+                <!-- <div class="mb-[30px]">
+                  <GMapAutocomplete
+                    placeholder="Location From"
+                    @place_changed="setPlace"
+                  >
+                  </GMapAutocomplete>
+                </div>
+                <div
+                  :class="{ errors: props.errors }"
+                  class="col-span-6 sm:col-span-3"
+                >
+                  <label class="block text-gray-700 text-[16px]">
+                    Location To
+                    <GMapAutocomplete
+                      placeholder="Location To"
+                      @place_changed="setPlace"
+                      class="
+                        mt-1
+                        focus:ring-[#24C6C9] focus:border-[#24C6C9]
+                        block
+                        w-full
+                        shadow-sm
+                        sm:text-sm
+                        bg-gray-100
+                        text-[#3A3A3A]
+                        border-hidden
+                        rounded-md
+                        py-[10px]
+                      "
+                    >
+                    </GMapAutocomplete>
+                  </label>
+                  <div
+                    :v-if="errors.location_to"
+                    class="text-red-600 pt-1 text-xs"
+                    role="alert"
+                  >
+                    {{ errors.location_to }}
+                  </div>
+                </div> -->
+                <!-- <div class="w-[100px] h-[100px] mb-[200px]">
+                  <GMapMap
+                    :center="{ lat: 51.093048, lng: 6.84212 }"
+                    :zoom="20"
+                    map-type-id="terrain"
+                    style="width: 50vw; height: 450px"
+                  >
+                  </GMapMap>
+                </div> -->
               </div>
             </div>
             <div :class="{ errors: props.errors }" class="mt-[163px]">
@@ -201,6 +250,7 @@ const props = defineProps({
   towings: Array,
   brands: Array,
   modals: Array,
+  name: String,
 });
 
 let form = reactive({
@@ -224,4 +274,18 @@ function submit() {
     forceFormData: true,
   });
 }
+</script>
+
+<script >
+export default {
+  name: "App",
+  data() {
+    return {
+      center: { lat: 51.093048, lng: 6.84212 },
+    };
+  },
+  methods: {
+    setPlace() {},
+  },
+};
 </script>

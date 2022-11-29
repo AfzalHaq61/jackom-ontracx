@@ -17,8 +17,9 @@ class ProviderRequestController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Provider/ProviderRequest', [
-            'requests' => Request::all()
+        return Inertia::render('ProviderRequest', [
+            'requests' => Request::all(),
+            'name' => Auth::user()->first_name,
         ])->with('success_message', "Yay it worked");
     }
 }
