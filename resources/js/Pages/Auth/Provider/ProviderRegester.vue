@@ -1,5 +1,5 @@
 <template>
-  <Head title="Sign UP Seller" />
+  <Head title="Provider Regestration" />
   <IndexHead></IndexHead>
   <div class="bg-gray-100 pb-20">
     <div class="min-h-screen">
@@ -113,11 +113,11 @@
                   <TextField
                     fieldtype="text"
                     name="first_name"
-                    placeholder="Enter First Name"
+                    placeholder="Enter Full Name"
                     v-model="form.first_name"
                     :errors="errors.first_name"
                   >
-                    First Name
+                    Full Name
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
@@ -244,11 +244,11 @@
                   <TextField
                     fieldtype="text"
                     name="last_name"
-                    placeholder="Enter Last Name"
+                    placeholder="Enter Nick Name"
                     v-model="form.last_name"
                     :errors="errors.last_name"
                   >
-                    Last Name
+                    Nick Name
                   </TextField>
                 </div>
                 <div class="mb-[30px]">
